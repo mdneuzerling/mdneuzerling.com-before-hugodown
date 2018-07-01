@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mdneuzerling</title>
-    <link>https://mdneuzerling.com/</link>
+    <link>/</link>
     <description>Recent content on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://mdneuzerling.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Scraping wine colours with R</title>
-      <link>https://mdneuzerling.com/post/scraping-wine-colours-with-r/</link>
+      <link>/post/scraping-wine-colours-with-r/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/post/scraping-wine-colours-with-r/</guid>
+      <guid>/post/scraping-wine-colours-with-r/</guid>
       <description>My knowledge of wine covers three facts:
 I like red wine. I do not like white wine. I love wine data.  I came across a great collection of around 130,000 wine reviews, each a paragraph long, on Kaggle. This is juicy stuff, and I can’t wait to dig into it with some text analysis, or maybe build some sort of markov chain or neural network that generates new wine reviews.</description>
     </item>
     
     <item>
       <title>Fancy App 1</title>
-      <link>https://mdneuzerling.com/itemized/item1/</link>
+      <link>/itemized/item1/</link>
       <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/itemized/item1/</guid>
+      <guid>/itemized/item1/</guid>
       <description> App 1 </description>
     </item>
     
     <item>
       <title>Fancy App 2</title>
-      <link>https://mdneuzerling.com/itemized/item2/</link>
+      <link>/itemized/item2/</link>
       <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/itemized/item2/</guid>
+      <guid>/itemized/item2/</guid>
       <description> App 2 </description>
     </item>
     
     <item>
       <title>Fancy App 3</title>
-      <link>https://mdneuzerling.com/itemized/item3/</link>
+      <link>/itemized/item3/</link>
       <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/itemized/item3/</guid>
+      <guid>/itemized/item3/</guid>
       <description> App 3 </description>
     </item>
     
     <item>
       <title>Fancy App 4</title>
-      <link>https://mdneuzerling.com/itemized/item4/</link>
+      <link>/itemized/item4/</link>
       <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/itemized/item4/</guid>
+      <guid>/itemized/item4/</guid>
       <description> App 4 </description>
     </item>
     
     <item>
       <title>Using R to send an Outlook email with an inline image</title>
-      <link>https://mdneuzerling.com/post/using-r-to-send-an-outlook-email-with-an-inline-image/</link>
+      <link>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</link>
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/post/using-r-to-send-an-outlook-email-with-an-inline-image/</guid>
+      <guid>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</guid>
       <description>If you work in a corporate environment, there’s a good chance you’re using Microsoft Office. I wanted to set up a way to email tables and plots from R using Outlook. Sending an email is simple enough with the RDCOMClient library, but inserting a plot inline—rather than as an attachment—took a little bit of working out. I’m sharing my code here in case anyone else wants to do something similar. The trick is to save your plot as an image with a temporary file, attach it to the email, and then insert it inline using a cid (Content-ID).</description>
     </item>
     
