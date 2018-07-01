@@ -1,263 +1,570 @@
-<!DOCTYPE html>
-<html lang="en-us">
 
-<head><style>
-body {
-	display: block;
-	--colorBG: "#40e0d0, #ff8c00, #ff0080";
-		background-image: var(--bgImage) !important;
-	
-}
 
-body, body.pushable {
-	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	background-size: cover !important;
-}
 
-</style><title>
-All Tags
-</title><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="author" content="Murray David Neuzerling" />
-	<meta name="description" content="Personal website and blog for my work with R and data" />
-<meta name="generator" content="Hugo 0.42.2" />
-
-<link rel="shortcut icon" href="/img/defaultFav.ico">
-
-<link rel="canonical" href="/tags/" />
-<link rel="alternative" href="/index.xml" title="mdneuzerling" type="application/atom+xml"/><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
-<style>
-body.pushable {
-	display: block;
-		background-image: var(--bgImage) !important;
-	 ;
-}
-</style>
-<link rel="stylesheet" type="text/css" href="/css/site.css">
-<script>
-	var colorBG =  false 
-	var enabledPost = true
-	var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
-	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")
-</script>
-</head>
-
-<body><script>
-var prevBgIndex = 0;
-var bodyBgSwitchIndex = 0;
-		var bgImage = "url(" + "img/algebraic_numbers.png" + ")"
-	
-	console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"), bgImage.length));
-	document.body.style.setProperty('--blurEff',"0px");
-	document.body.style.setProperty('--bgImage', bgImage);
-
-	function getRandomInt(min, max) {
-	  min = Math.ceil(min)
-	  max = Math.floor(max)
-	  var random
-	  while (1) {
-	    random = Math.floor(Math.random() * (max - min)) + min
-	    if (random !== prevBgIndex) {
-	      prevBgIndex = random
-	      break
-	    }
-	  }
-	  return random
-	}
-
-	function connect(arr) {
-	  var str = ''
-	  for (var i = 0; i < arr.length; i++) {
-	    if (i !== arr.length - 1) {
-	      str += arr[i] + ', '
-	    } else {
-	      str += arr[i]
-	    }
-	  }
-	  return str
-	}
-</script><div class="blur-overlay"></div><div id="sidebar" class="ui sidebar inverted vertical menu">
-	<section id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image">
-	<img src="https://avatars3.githubusercontent.com/u/14957706?s=460&amp;v=4">
-</div>
-<h3 class="ui header">Murray David Neuzerling
-	<div class="sub header"></div>
-</h3>
-</section><section class="ui attached center aligned inverted segment sidebar-dream-tags">
-<a class="ui label" href="/tags/plot" title="plot">plot</a>
-
-<a class="ui label" href="/tags/r-markdown" title="r-markdown">r-markdown</a>
-
-<a class="ui label" href="/tags/regression" title="regression">regression</a>
-
-</section>	
-	
-	
-	
-	<section id="footer" class="ui bottom attached center aligned inverted segment">
-<p>© 2018 mdneuzerling</p>
     
-<p>Background image "Algebraic numbers on the complex plane" by Stephen J. Brooks available at <a href="https://en.wikipedia.org/wiki/Algebraic_number#/media/File:Algebraicszoom.png">Wikipedia</a> under a <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> licence</p>
-<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
-</section>
-</div>
-<div class="pusher">
-		<div class="flipper">
-			<div class="front">
-<nav class="ui top secondary menu bar">
-	<div id="surrico" class="item">
-		<i id="ico" class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
-	</div>
-	<div class="item">
-		<a href="/"><i id="ico" class="inverted big link home icon" title="Home"></i></a>
-	</div>
 
-	
-	<div class="item">
-		<a href="/post">
-			<i id="ico" class="inverted big link archive icon" title="Archive"></i>
-		</a>
-	</div>
-	
 
-	
-	<div class="item">
-		<a href="/categories">
-			<i id="ico" class="inverted big link cubes icon" title="All Categories"></i>
-		</a>
-	</div>
-	
 
-</nav>
 
-<div class="ui centered grid">
-	<div class="sixteen wide mobile fifteen wide tablet four wide computer column">
-		<div class="ui inverted accordion">
-	<div id="header" class="ui inverted segment column box">
-		<header id="author" class="ui top attached center aligned inverted segment"><div class="ui small circular image">
-	<img src="https://avatars3.githubusercontent.com/u/14957706?s=460&amp;v=4">
-</div>
-<h3 class="ui header">Murray David Neuzerling
-	<div class="sub header"></div>
-</h3>
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "tags",
+        "name" : "Tags",
+        "headline" : "Tags",
+        "description" : "",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-07-01 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-07-01 00:00:00 &#43;0000 UTC",
+        "url" : "/tags/",
+        "wordCount" : "0",
+        "keywords" : [ "Blog" ]
+    }
+    </script>
+        
+            <title>Tags - mdneuzerling</title>
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.42.2" />
+        
+
+
+        
+        
+            
+                <meta name="description" content="HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tags"/>
+<meta name="twitter:description" content="HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo"/>
+<meta name="twitter:site" content="@mdneuzerling"/>
+
+        <meta property="og:title" content="Tags" />
+<meta property="og:description" content="HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/tags/" />
+
+
+
+<meta property="og:updated_time" content="2018-07-01T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="Tags">
+<meta itemprop="description" content="HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo">
+
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+<header id="header">
+    
+      <h1><a href="/">tags</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
 </header>
-		<div class="active title header-title"><div id="tag-category-pop" class="ui red right corner label">		
-				<i class="hand point icon up"title="Click this to pop tags and categories"></i>		
-			</div></div>
-		<div id="tag-category" class="active content"><section class="ui attached center aligned inverted segment dream-tags none flexbox">
-<a class="ui label" href="/tags/plot" title="plot">plot</a>
 
-<a class="ui label" href="/tags/r-markdown" title="r-markdown">r-markdown</a>
 
-<a class="ui label" href="/tags/regression" title="regression">regression</a>
+<section id="menu">
 
-</section></div>
-		<footer class="ui bottom attached center aligned inverted segment">
-<p>© 2018 mdneuzerling</p>
     
-<p>Background image "Algebraic numbers on the complex plane" by Stephen J. Brooks available at <a href="https://en.wikipedia.org/wiki/Algebraic_number#/media/File:Algebraicszoom.png">Wikipedia</a> under a <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> licence</p>
-<p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with <a href="https://github.com/UtkarshVerma/hugo-dream-plus" target="_blank">Dream Plus</a> theme.</p>
-</footer>
-	</div>
-</div>
-	</div>
-	<div class="sixteen wide mobile fifteen wide tablet eleven wide computer column post-list">
-		<div class="ui inverted segment">
-			<h2 class="ui header">All Tags<hr />
-</h2>
-			
-			
-			
-			<h3 class="ui header">
-				<a href="/tags/plot/">plot</a>
-				-  (1 article)
-			</h3>
-			<ul>
-				
-				<li><a href="/post/2015-07-23-r-rmarkdown/">Hello R Markdown</a></li>
-				
-			</ul>
-			
-			
-			<h3 class="ui header">
-				<a href="/tags/r-markdown/">r-markdown</a>
-				-  (1 article)
-			</h3>
-			<ul>
-				
-				<li><a href="/post/2015-07-23-r-rmarkdown/">Hello R Markdown</a></li>
-				
-			</ul>
-			
-			
-			<h3 class="ui header">
-				<a href="/tags/regression/">regression</a>
-				-  (1 article)
-			</h3>
-			<ul>
-				
-				<li><a href="/post/2015-07-23-r-rmarkdown/">Hello R Markdown</a></li>
-				
-			</ul>
-			
-		</div>
-	</div>
-</div>
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
 
-			</div>
-			<div class="back"><nav class="ui top secondary menu bar">
-	<div class="item">
-		<i class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
-	</div><div class="item">
-	<a href="https://github.com/mdneuzerling" target="_blank">
-		<i id="ico" class="inverted big link github icon" title="GitHub"></i>
-	</a>
-</div>
-<div class="item">
-	<a href="https://twitter.com/mdneuzerling" target="_blank">
-		<i id="ico" class="inverted big link twitter icon" title="Twitter"></i>
-	</a>
-</div>
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
 
-</nav>
-<div class="ui centered grid about">
-	<div class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
-		<section class="ui stacked segments"><div class="ui inverted segment">
-	<article class="twemoji"><h1>So, Who Am I?</h1>
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
 
-<hr />
+                
+                    
+                
 
-<p><br>
-I’m just another teenager who likes <strong>writing</strong>, <strong>programming</strong> and <strong>making stuff</strong>. Even setting the title as <strong>Who Am I</strong>  for this article is reminding me of <code>whoami</code> in Linux. I feel the inner urge to contribute something to the Internet because I love writing and I believe posting something online enables users all around the globe to see your work and suggest improvements.</p>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/scraping-wine-colours-with-r/">Scraping wine colours with R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-01'>
+                                    July 1, 2018</time>
+                            </header>
+                            
+    
 
-<p>Recently I&rsquo;ve also started taking interest in web designing and hosting the fruitful results of which these site and blogs are! I also make <strong>projects</strong> and share them online at <strong>Instructables</strong>, the link of which has been placed on the home page. Making stuff is just one of the things I love the most.</p>
+    
+        
+        
 
-<p>That’s all that I can think of right now. Hopefully I’ll add something more to this later on. 😅</p>
 
-<p>Curious about me? Use the social links above to check out my profiles.</p>
 
-<p>You can also support me on <a href="https://patreon.com/UtkarshVerma" target="_blank">Patreon</a>. I&rsquo;d really appreciate it.</p>
-</article>
-</div></section>
-	</div>
-</div></div>
-		</div>
-	</div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/js/site.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script><script src="https://twemoji.maxcdn.com/2/twemoji.min.js?2.6"></script>
-<script id="dsq-count-scr" src="//dream-plus.disqus.com/count.js" async></script>
 
-<script>
-	(function () {
-	  console.log("Twemoji up and making stuff colourful!");
-	  for (var b = document.getElementsByClassName("twemoji"), a = 0; a < b.length; a++) {
-		twemoji.parse(b[a]);
-	  }
-	})();
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/scraping-wine-colours-with-r/" class="image featured">
+            <img src="/img/grapes.jpeg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/">Post</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-01'>
+                                    July 1, 2018</time>
+                            </header>
+                            
+
+                        </article>
+                
+
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    
+    <div id="main">
+        
+            
+        
+
+        <ul class="posts">
+            <header>
+                <h1>tags</h1>
+            </header>
+            
+            
+                <li>
+                    <article>
+                        <header>
+                            
+                                <a href="/tags/r-markdown">R Markdown</a>
+                                <span style="float:right;">1</span>
+                            
+                        </header>
+                    </article>
+                </li>
+            
+                <li>
+                    <article>
+                        <header>
+                            
+                                <a href="/tags/r">r</a>
+                                <span style="float:right;">1</span>
+                            
+                        </header>
+                    </article>
+                </li>
+            
+                <li>
+                    <article>
+                        <header>
+                            
+                                <a href="/tags/wine">wine</a>
+                                <span style="float:right;">1</span>
+                            
+                        </header>
+                    </article>
+                </li>
+            
+        </ul>
+    </div>
+
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/'><img src="https://avatars3.githubusercontent.com/u/14957706?s=460&amp;v=4" class="intro-circle" width="250px" alt="mdneuzerling" /></a>
+      
+    
+    
+      <header>
+        <h2>mdneuzerling</h2>
+        <p>Data, maths, R</p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/tags/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/mdneuzerling" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/mdneuzerling" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/scraping-wine-colours-with-r/">Scraping wine colours with R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-01'>
+                July 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/scraping-wine-colours-with-r/" class="image featured">
+            <img src="/img/grapes.jpeg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/">Post</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-01'>
+                July 1, 2018
+              </time>
+            </header>
+            
+
+          </article>
+        
+      </div>
+
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+
+  
+  <section id="footer">
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          mdneuzerling
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
 
-</body>
 
+  </body>
 </html>
+
