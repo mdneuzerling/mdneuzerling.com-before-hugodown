@@ -12,16 +12,6 @@
     
     
     <item>
-      <title>Lessons from my data science internship</title>
-      <link>/post/lessons-from-my-data-science-internship/</link>
-      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/lessons-from-my-data-science-internship/</guid>
-      <description>I’m not an expert in data science. I’ve just made a few mistakes. I’m sure I’ll make many more. But every mistake is a lesson learned, and I’d like to share those lessons here.
-On data  Don’t try to guess what an abbreviation or code stands for unless you absolutely have to. Someone nearby probably knows. Follow up on discrepancies in the data. You won’t be able to fix all of them—or even any of them—but you should at least note their existence.</description>
-    </item>
-    
-    <item>
       <title>Scraping wine colours with R</title>
       <link>/post/scraping-wine-colours-with-r/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>

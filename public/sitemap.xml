@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/post/lessons-from-my-data-science-internship/</loc>
-    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/scraping-wine-colours-with-r/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
   </url>
