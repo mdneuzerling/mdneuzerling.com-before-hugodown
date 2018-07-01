@@ -48,13 +48,13 @@ ahead anyway.
 
 ## Quick look at the data
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```{r setup, results = FALSE, warning = FALSE, message = FALSE, cache = FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
 
 set.seed(42275) # Chosen by fair dice roll. Guaranteed to be random.
  
 library(tidyverse)
-library(ggplot2)
+library(ggplot2) 
 library(rvest)
 library(kableExtra)
 

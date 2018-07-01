@@ -47,6 +47,28 @@ acknowledge how aggressive this classification is, but I’m going to charge
 ahead anyway.</p>
 <div id="quick-look-at-the-data" class="section level2">
 <h2>Quick look at the data</h2>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+
+set.seed(42275) # Chosen by fair dice roll. Guaranteed to be random.
+ 
+library(tidyverse)
+library(ggplot2) 
+library(rvest)
+library(kableExtra)
+
+# nifty function for making our table output pretty
+output_table &lt;- function(dat) {
+    knitr::kable(dat, format = &quot;html&quot;) %&gt;% 
+        kable_styling(full_width = F)
+}
+
+red_wine_colour &lt;- &quot;#59121C&quot;
+white_wine_colour &lt;- &quot;#EADB9F&quot;
+rose_wine_colour &lt;- &quot;#F5C0A2&quot;
+
+wine &lt;- &quot;wine_reviews.csv&quot; %&gt;% 
+    read_csv %&gt;% 
+    mutate(variety = variety %&gt;% tolower)</code></pre>
 <p>I think this data will keep me entertained for a while. There’s a lot to dig
 into here, and those reviews are going to be interesting when I can pull them
 apart. For example, 7

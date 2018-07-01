@@ -25,7 +25,7 @@ I like red wine. I do not like white wine. I love wine data.  I came across a gr
         "datePublished": "2018-07-01 00:00:00 &#43;0000 UTC",
         "dateModified" : "2018-07-01 00:00:00 &#43;0000 UTC",
         "url" : "/post/scraping-wine-colours-with-r/",
-        "wordCount" : "1645",
+        "wordCount" : "1708",
         "keywords" : [ "r","R Markdown","wine","Blog" ]
     }
     </script>
@@ -44,7 +44,7 @@ I like red wine. I do not like white wine. I love wine data.  I came across a gr
         
         
             
-                <meta name="description" content="HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo">
+                <meta name="description" content="data, maths, R">
             
         
 
@@ -88,7 +88,7 @@ I like red wine. I do not like white wine. I love wine data.  I came across a gr
 
 <meta itemprop="datePublished" content="2018-07-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1645">
+<meta itemprop="wordCount" content="1708">
 
 
 
@@ -394,7 +394,7 @@ I like red wine. I do not like white wine. I love wine data.  I came across a gr
             July 1, 2018</time>
         <span class="author"></span>
         
-            <p>8 minute read</p>
+            <p>9 minute read</p>
         
         
     </div>
@@ -467,6 +467,28 @@ acknowledge how aggressive this classification is, but I’m going to charge
 ahead anyway.</p>
 <div id="quick-look-at-the-data" class="section level2">
 <h2>Quick look at the data</h2>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+
+set.seed(42275) # Chosen by fair dice roll. Guaranteed to be random.
+ 
+library(tidyverse)
+library(ggplot2) 
+library(rvest)
+library(kableExtra)
+
+# nifty function for making our table output pretty
+output_table &lt;- function(dat) {
+    knitr::kable(dat, format = &quot;html&quot;) %&gt;% 
+        kable_styling(full_width = F)
+}
+
+red_wine_colour &lt;- &quot;#59121C&quot;
+white_wine_colour &lt;- &quot;#EADB9F&quot;
+rose_wine_colour &lt;- &quot;#F5C0A2&quot;
+
+wine &lt;- &quot;wine_reviews.csv&quot; %&gt;% 
+    read_csv %&gt;% 
+    mutate(variety = variety %&gt;% tolower)</code></pre>
 <p>I think this data will keep me entertained for a while. There’s a lot to dig
 into here, and those reviews are going to be interesting when I can pull them
 apart. For example, 7
