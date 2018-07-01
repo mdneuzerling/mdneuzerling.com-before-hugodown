@@ -1,4 +1,4 @@
-baseURL = "http://dream-plus.netlify.com/"
+baseURL = "https://dream-plus.netlify.com/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "mdneuzerling"
@@ -30,7 +30,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   	#Background settings
 	enableColorBG= false
 	bgBlur = "0px"
-	bgImage = "http://bit.ly/2gPLxZ4"
+	bgImage = "https://bit.ly/2gPLxZ4"
   
 	#Post-displaying Settings
 	enableTags = true
