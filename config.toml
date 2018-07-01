@@ -30,7 +30,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   	#Background settings
 	enableColorBG= false
 	bgBlur = "0px"
-	bgImage = "https://bit.ly/2gPLxZ4"
+	bgImage = "img/algebraic_numbers.png"
   
 	#Post-displaying Settings
 	enableTags = true
