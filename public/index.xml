@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Lessons from my data science internship</title>
+      <link>/post/lessons-from-my-data-science-internship/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/lessons-from-my-data-science-internship/</guid>
+      <description>I’m not an expert in data science. I’ve just made a few mistakes. I’m sure I’ll make many more. But every mistake is a lesson learned, and I’d like to share those lessons here.
+On data  Don’t try to guess what an abbreviation or code stands for unless you absolutely have to. Someone nearby probably knows. Follow up on discrepancies in the data. You won’t be able to fix all of them—or even any of them—but you should at least note their existence.</description>
+    </item>
+    
+    <item>
       <title>Scraping wine colours with R</title>
       <link>/post/scraping-wine-colours-with-r/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
@@ -55,6 +65,15 @@ I like red wine. I do not like white wine. I love wine data.  I came across a gr
       
       <guid>/itemized/item4/</guid>
       <description> App 4 </description>
+    </item>
+    
+    <item>
+      <title>Using R to send an Outlook email with an inline image</title>
+      <link>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</link>
+      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</guid>
+      <description>If you work in a corporate environment, there’s a good chance you’re using Microsoft Office. I wanted to set up a way to email tables and plots from R using Outlook. Sending an email is simple enough with the RDCOMClient library, but inserting a plot inline—rather than as an attachment—took a little bit of working out. I’m sharing my code here in case anyone else wants to do something similar. The trick is to save your plot as an image with a temporary file, attach it to the email, and then insert it inline using a cid (Content-ID).</description>
     </item>
     
   </channel>

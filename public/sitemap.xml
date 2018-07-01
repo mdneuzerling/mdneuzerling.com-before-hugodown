@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/lessons-from-my-data-science-internship/</loc>
+    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/scraping-wine-colours-with-r/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
   </url>
@@ -28,6 +33,11 @@
   </url>
   
   <url>
+    <loc>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</loc>
+    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
@@ -39,6 +49,12 @@
   </url>
   
   <url>
+    <loc>/tags/archive/</loc>
+    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -46,6 +62,18 @@
   
   <url>
     <loc>/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/dcom/</loc>
+    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/emails/</loc>
+    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -74,7 +102,7 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
