@@ -2,6 +2,9 @@
 .Rhistory
 .Rapp.history
 
+# Certain data files
+wine_reviews.csv
+
 # Session Data files
 .RData
 
