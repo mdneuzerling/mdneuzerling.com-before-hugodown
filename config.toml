@@ -1,0 +1,52 @@
+baseURL = "http://dream-plus.netlify.com/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "mdneuzerling"
+theme = "hugo-dream-plus"
+
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+pygmentsOptions = "linenos=table"
+
+disqusShortname = "dream-plus"
+
+enableRobotsTXT = true
+
+#Enable Hugo Emoji Conversion
+enableEmoji=true
+
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[params]
+	author = "Murray David Neuzerling"
+	description = "Personal website and blog for my work with R and data"
+	avatar = "https://avatars3.githubusercontent.com/u/14957706?s=460&v=4"
+	#motto = "A keen maker, programmer and an Instructables author."
+	enableToc = true
+	enableShareCard = true
+
+	favicon = "/img/defaultFav.ico"
+  	
+  	#Background settings
+	enableColorBG= false
+	bgBlur = "0px"
+	bgImage = "http://bit.ly/2gPLxZ4"
+  
+	#Post-displaying Settings
+	enableTags = true
+	enableCategories = true
+
+	#Cards or posts shown per page
+	itemsPerPage = 4
+
+	#Set whether you're hosting "cards" or "post"
+	contentType = "post"
+
+	#Enable Twitter Emoji
+	twitterEmoji=true
+
+[social]
+	github = "mdneuzerling"
+	#stackoverflow = "8456369/mdneuzerling"
+	twitter = "mdneuzerling" 
+	siteStartYear = 2018
