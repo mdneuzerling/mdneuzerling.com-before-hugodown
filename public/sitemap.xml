@@ -3,112 +3,140 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://mdneuzerling.com/post/scraping-wine-colours-with-r/</loc>
+    <loc>/post/scraping-wine-colours-with-r/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/itemized/item1/</loc>
+    <loc>/itemized/item1/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/itemized/item2/</loc>
+    <loc>/itemized/item2/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/itemized/item3/</loc>
+    <loc>/itemized/item3/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/itemized/item4/</loc>
+    <loc>/itemized/item4/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/post/using-r-to-send-an-outlook-email-with-an-inline-image/</loc>
+    <loc>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</loc>
     <lastmod>2017-03-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/about/</loc>
+    <loc>/post/i-think-i-m-a-data-scientist-now/</loc>
+    <lastmod>2016-07-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</loc>
+    <lastmod>2016-03-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/tags/archive/</loc>
-    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
+    <loc>/tags/career/</loc>
+    <lastmod>2016-07-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/contact/</loc>
+    <loc>/contact/</loc>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/tags/dcom/</loc>
+    <loc>/tags/dcom/</loc>
     <lastmod>2017-03-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/tags/emails/</loc>
+    <loc>/tags/email/</loc>
     <lastmod>2017-03-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/itemized/</loc>
+    <loc>/tags/from_the_archive/</loc>
+    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/itemized/</loc>
     <lastmod>2017-06-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/post/</loc>
+    <loc>/tags/maths/</loc>
+    <lastmod>2016-03-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/tags/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/tags/r-markdown/</loc>
+    <loc>/tags/r-markdown/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/tags/</loc>
-    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2016-07-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/tags/wine/</loc>
+    <loc>/tags/uni/</loc>
+    <lastmod>2016-03-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/wine/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mdneuzerling.com/</loc>
+    <loc>/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
