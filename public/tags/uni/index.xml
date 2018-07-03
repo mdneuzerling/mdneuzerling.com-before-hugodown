@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Uni on mdneuzerling</title>
-    <link>/tags/uni/</link>
+    <link>https://mdneuzerling.com/tags/uni/</link>
     <description>Recent content in Uni on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Mar 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/uni/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mdneuzerling.com/tags/uni/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>We started a maths and stats society at our university, and everyone loves it</title>
-      <link>/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</link>
+      <link>https://mdneuzerling.com/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</link>
       <pubDate>Wed, 16 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</guid>
+      <guid>https://mdneuzerling.com/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</guid>
       <description>Last year an honours student noticed something missing in mathematics and statistics at La Trobe University. She saw that there was no society at the university to cultivate an interest in mathematics. There were no social events to help the undergraduate students get to know one another. And there was very little in the way of extracurricular lectures for students without several years of mathematical study already under their belt. So she started the Mathematics and Statistics Society at La Trobe University.</description>
     </item>
     
