@@ -4,6 +4,9 @@
 
 # Certain data files
 wine_reviews.csv
+/content/post/*.csv
+/content/post/*.txt
+/content/post/*.rds
 
 # Session Data files
 .RData
