@@ -8,6 +8,9 @@ wine_reviews.csv
 /content/post/*.txt
 /content/post/*.rds
 
+# Blogdown cache
+/blogdown/*
+
 # Session Data files
 .RData
 
