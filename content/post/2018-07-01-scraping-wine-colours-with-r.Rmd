@@ -340,3 +340,17 @@ classification. But we've got the most popular wines---the pinot noirs and the
 chardonnays---classified, and we can hope that any errors are only "kind of 
 wrong" rather than "totally wrong", and limited to the varieties that only 
 appear once or twice.
+
+## Data sources
+
+To avoid any potential licencing issues, I prefer not to post Kaggle data 
+directly here. I encourage you to download the csv 
+[directly from Kaggle](https://www.kaggle.com/zynicide/wine-reviews/). This will
+require a (free) Kaggle account. I've renamed the file here to `wine_reviews.csv`,
+but otherwise the data is unchanged before it is read. Other data used here:
+
+* My manual classification of variety colours: [manually_classified.csv](data/manually_classified.csv)
+* The final outcome, giving just varieties and colours: [variety_colours.csv](data/variety_colours.csv)
+
+The header image at the top of this page is in the 
+[public domain](https://www.pexels.com/photo/abundance-alcohol-berries-berry-357742/).
