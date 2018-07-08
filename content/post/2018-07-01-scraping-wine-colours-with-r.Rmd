@@ -48,7 +48,7 @@ ahead anyway.
 
 ## Quick look at the data
 
-```{r setup, results = FALSE, warning = FALSE, message = FALSE, cache = FALSE}
+```{r setup, warning = FALSE, message = FALSE, cache = FALSE}
 knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
 
 set.seed(42275) # Chosen by fair dice roll. Guaranteed to be random.
@@ -71,6 +71,8 @@ rose_wine_colour <- "#F5C0A2"
 wine <- "wine_reviews.csv" %>% 
     read_csv %>% 
     mutate(variety = variety %>% tolower)
+
+wine %>% str
 ```
 
 

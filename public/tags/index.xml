@@ -2,84 +2,84 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on mdneuzerling</title>
-    <link>https://mdneuzerling.com/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://mdneuzerling.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Dcom</title>
-      <link>https://mdneuzerling.com/tags/dcom/</link>
+      <link>/tags/dcom/</link>
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/tags/dcom/</guid>
+      <guid>/tags/dcom/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Email</title>
-      <link>https://mdneuzerling.com/tags/email/</link>
+      <link>/tags/email/</link>
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/tags/email/</guid>
+      <guid>/tags/email/</guid>
       <description></description>
     </item>
     
     <item>
       <title>From_the_archive</title>
-      <link>https://mdneuzerling.com/tags/from_the_archive/</link>
+      <link>/tags/from_the_archive/</link>
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/tags/from_the_archive/</guid>
+      <guid>/tags/from_the_archive/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Maths</title>
-      <link>https://mdneuzerling.com/tags/maths/</link>
+      <link>/tags/maths/</link>
       <pubDate>Wed, 16 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/tags/maths/</guid>
+      <guid>/tags/maths/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://mdneuzerling.com/tags/r/</link>
+      <link>/tags/r/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/tags/r/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Markdown</title>
-      <link>https://mdneuzerling.com/tags/r-markdown/</link>
+      <link>/tags/r-markdown/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/tags/r-markdown/</guid>
+      <guid>/tags/r-markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Uni</title>
-      <link>https://mdneuzerling.com/tags/uni/</link>
+      <link>/tags/uni/</link>
       <pubDate>Wed, 16 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/tags/uni/</guid>
+      <guid>/tags/uni/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Wine</title>
-      <link>https://mdneuzerling.com/tags/wine/</link>
+      <link>/tags/wine/</link>
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/tags/wine/</guid>
+      <guid>/tags/wine/</guid>
       <description></description>
     </item>
     
