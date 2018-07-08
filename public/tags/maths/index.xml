@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Maths on mdneuzerling</title>
-    <link>https://mdneuzerling.com/tags/maths/</link>
+    <link>/tags/maths/</link>
     <description>Recent content in Maths on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Mar 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://mdneuzerling.com/tags/maths/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/maths/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>We started a maths and stats society at our university, and everyone loves it</title>
-      <link>https://mdneuzerling.com/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</link>
+      <link>/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</link>
       <pubDate>Wed, 16 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</guid>
+      <guid>/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</guid>
       <description>Last year an honours student noticed something missing in mathematics and statistics at La Trobe University. She saw that there was no society at the university to cultivate an interest in mathematics. There were no social events to help the undergraduate students get to know one another. And there was very little in the way of extracurricular lectures for students without several years of mathematical study already under their belt. So she started the Mathematics and Statistics Society at La Trobe University.</description>
     </item>
     
     <item>
       <title>My fourth Australasian Combinatorics Conference</title>
-      <link>https://mdneuzerling.com/post/my-fourth-australasian-combinatorics-conference/</link>
+      <link>/post/my-fourth-australasian-combinatorics-conference/</link>
       <pubDate>Mon, 14 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://mdneuzerling.com/post/my-fourth-australasian-combinatorics-conference/</guid>
+      <guid>/post/my-fourth-australasian-combinatorics-conference/</guid>
       <description>My first maths conference was The 36th Australasian Conference on Combinatorial Mathematics and Combinatorial Computing. I had just finished my honours thesis, Generalising the Clique-Coclique Bound, and I had travelled to Sydney to present my results to a room full of people much smarter than me.
 I’m no longer working in graph theory or finite geometry, but every year since 2012 I have attended the ACCMCC. I keep up to date with the research, and I maintain contact with some of the best mathematicians I’ve ever met.</description>
     </item>
