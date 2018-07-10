@@ -1,0 +1,1306 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "/"
+        },
+        "articleSection" : "post",
+        "name" : "useR: Getting started with R and Docker",
+        "headline" : "useR: Getting started with R and Docker",
+        "description" : "Docker glossary Running docker images Rocker R hello world Playing with the hello-world image A note on security Managing Docker without leaving R  Docker on AWS And that’s it!   These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2018",
+        "datePublished": "2018-07-11 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-07-11 00:00:00 &#43;0000 UTC",
+        "url" : "/post/user-getting-started-with-r-and-docker/",
+        "wordCount" : "2115",
+        "keywords" : [ "R","R Markdown","useR2018","Blog" ]
+    }
+    </script>
+        
+            
+                <title>useR: Getting started with R and Docker</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.42.2" />
+        
+
+
+        
+        
+            
+                <meta name="description" content="data, maths, R">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="useR: Getting started with R and Docker"/>
+<meta name="twitter:description" content="Docker glossary Running docker images Rocker R hello world Playing with the hello-world image A note on security Managing Docker without leaving R  Docker on AWS And that’s it!   These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!"/>
+<meta name="twitter:site" content="@mdneuzerling"/>
+
+        <meta property="og:title" content="useR: Getting started with R and Docker" />
+<meta property="og:description" content="Docker glossary Running docker images Rocker R hello world Playing with the hello-world image A note on security Managing Docker without leaving R  Docker on AWS And that’s it!   These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/user-getting-started-with-r-and-docker/" />
+
+
+
+<meta property="article:published_time" content="2018-07-11T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-07-11T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        
+<meta itemprop="name" content="useR: Getting started with R and Docker">
+<meta itemprop="description" content="Docker glossary Running docker images Rocker R hello world Playing with the hello-world image A note on security Managing Docker without leaving R  Docker on AWS And that’s it!   These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!">
+
+
+<meta itemprop="datePublished" content="2018-07-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2115">
+
+
+
+<meta itemprop="keywords" content="R,R Markdown,useR2018," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">post</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/user-getting-started-with-r-and-docker/">useR: Getting started with R and Docker</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-11'>
+                                    July 11, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/user-getting-started-with-r-and-docker/" class="image featured">
+            <img src="/img/useR/tutorial_one.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/scraping-wine-colours-with-r/">Scraping wine colours with R</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-07-01'>
+                                    July 1, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/scraping-wine-colours-with-r/" class="image featured">
+            <img src="/img/grapes.jpeg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/using-r-to-send-an-outlook-email-with-an-inline-image/">Using R to send an Outlook email with an inline image</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2017-03-19'>
+                                    March 19, 2017</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/using-r-to-send-an-outlook-email-with-an-inline-image/" class="image featured">
+            <img src="/img/sending_an_email_with_rdcomclient.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/">We started a maths and stats society at our university, and everyone loves it</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2016-03-16'>
+                                    March 16, 2016</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/" class="image featured">
+            <img src="/img/katherine_crochet.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/my-fourth-australasian-combinatorics-conference/">My fourth Australasian Combinatorics Conference</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2015-12-14'>
+                                    December 14, 2015</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/my-fourth-australasian-combinatorics-conference/" class="image featured">
+            <img src="/img/ACCMCC_UQ.jpg" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            "/post/"
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2fuser-getting-started-with-r-and-docker%2f&amp;text=useR%3a%20Getting%20started%20with%20R%20and%20Docker&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2fuser-getting-started-with-r-and-docker%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fuser-getting-started-with-r-and-docker%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2fuser-getting-started-with-r-and-docker%2f&amp;title=useR%3a%20Getting%20started%20with%20R%20and%20Docker" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fuser-getting-started-with-r-and-docker%2f&amp;title=useR%3a%20Getting%20started%20with%20R%20and%20Docker" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fuser-getting-started-with-r-and-docker%2f&amp;title=useR%3a%20Getting%20started%20with%20R%20and%20Docker" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fuser-getting-started-with-r-and-docker%2f&amp;description=useR%3a%20Getting%20started%20with%20R%20and%20Docker" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fuser-getting-started-with-r-and-docker%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/post/user-getting-started-with-r-and-docker/">useR: Getting started with R and Docker</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2018-07-11'>
+            July 11, 2018</time>
+        <span class="author"></span>
+        
+            <p>10 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/user-getting-started-with-r-and-docker/" class="image featured">
+            <img src="/img/useR/tutorial_one.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    <div id="TOC">
+<ul>
+<li><a href="#docker-glossary">Docker glossary</a></li>
+<li><a href="#running-docker-images">Running docker images</a></li>
+<li><a href="#rocker">Rocker</a></li>
+<li><a href="#r-hello-world">R hello world</a><ul>
+<li><a href="#playing-with-the-hello-world-image">Playing with the <code>hello-world</code> image</a></li>
+<li><a href="#a-note-on-security">A note on security</a></li>
+<li><a href="#managing-docker-without-leaving-r">Managing Docker without leaving R</a></li>
+</ul></li>
+<li><a href="#docker-on-aws">Docker on AWS</a></li>
+<li><a href="#and-thats-it">And that’s it!</a></li>
+</ul>
+</div>
+
+<hr />
+<p>These are my notes for the super helpful tutorial given by
+<a href="https://twitter.com/tech_is_dead">Elizabeth Stark</a> on the first day of the
+UseR 2018 conference. This was an introduction to Docker for R users who have
+no prior experience with Docker (which was me!).</p>
+<ul>
+<li><a href="https://github.com/SymbolixAU/useR_docker_tutorial">Elizabeth’s slides</a></li>
+<li><a href="https://github.com/SymbolixAU/R_docker_hello">Elizabeth’s exercises and examples</a></li>
+</ul>
+<p>This tutorial took me through setting up an RStudio Server container. I’m on a
+Linux machine, but I’m particularly interested by the idea that you could run
+these traditionally Linux-only servers on a Windows machine through Docker.</p>
+<div id="docker-glossary" class="section level2">
+<h2>Docker glossary</h2>
+<ul>
+<li>A container is like a virtual machine, but it just has the user-space stuff.
+It consists of:
+<ul>
+<li>A Docker image. This is an <a href="https://docs.docker.com/glossary/?term=image">“ordered collection of root filesystem changes
+and the corresponding execution parameters for use within a container
+runtime.”</a></li>
+<li>An execution environment</li>
+<li>A standard set of instructions</li>
+</ul></li>
+<li>A Dockerfile is like source code for an image.</li>
+<li>Docker is software that builds images and runs containers. Its logo is an
+adorable whale/cargo ship.</li>
+</ul>
+<p>I will admit, the difference between an image and a container confuses me. From
+what I can tell, you <code>build</code> an <strong>image</strong>, and then when you <code>run</code> the image it
+turns into a <strong>container</strong>. Images are layered on top of one another. The <code>run</code>
+command takes an image, adds a file system, and executes some instructions.</p>
+<p>It sounds like a virtual machine to me, though. But a virtual machine has a
+guest operating system, whereas a container doesn’t. Docker provides the guest
+operating system, and the container provides the application and the libraries.
+The advantage here is that a virtual machine has to boot, which can take a long
+time, whereas Docker images can be run in seconds.</p>
+<p>Containers are ephemeral. Any changes to a running container, such as new user
+data, will disappear as soon as Docker stops running the container.</p>
+</div>
+<div id="running-docker-images" class="section level2">
+<h2>Running docker images</h2>
+<p>Docker images require <code>sudo</code> by default. You can do without <code>sudo</code> by adding
+your use to the docker group, but this carries some security implications. In
+particular, users in the group will have unmoderated access to the root
+filesystem. I’ve added myself to the group for the duration of this tutorial. <a href="https://www.projectatomic.io/blog/2015/08/why-we-dont-let-non-root-users-run-docker-in-centos-fedora-or-rhel/">This article</a> gives a good rundown of why you might <em>not</em> want to allow
+non-root access to Docker.</p>
+<p>The first Docker image you ever <code>run</code> is likely to be <code>hello-world</code>. If you’ve
+never run it before, Docker will download it from <a href="https://hub.docker.com">Docker Hub</a>.</p>
+<pre class="bash"><code>docker run hello-world</code></pre>
+<pre><code>## 
+## Hello from Docker!
+## This message shows that your installation appears to be working correctly.
+## 
+## To generate this message, Docker took the following steps:
+##  1. The Docker client contacted the Docker daemon.
+##  2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+##     (amd64)
+##  3. The Docker daemon created a new container from that image which runs the
+##     executable that produces the output you are currently reading.
+##  4. The Docker daemon streamed that output to the Docker client, which sent it
+##     to your terminal.
+## 
+## To try something more ambitious, you can run an Ubuntu container with:
+##  $ docker run -it ubuntu bash
+## 
+## Share images, automate workflows, and more with a free Docker ID:
+##  https://hub.docker.com/
+## 
+## For more examples and ideas, visit:
+##  https://docs.docker.com/engine/userguide/</code></pre>
+<p>Quick aside: yes, this is me running a Docker image in an R Markdown file.
+Remember that R Markdown can handle languages other than R, including bash!
+This code chunk is <code>{bash docker_hello_world}</code>, which tells <code>knitr</code> to run this
+chunk (called <code>docker-hello-world</code>) with bash. I imagine this only works
+because the <code>hello-world</code> container outputs to <code>stdout</code>.</p>
+</div>
+<div id="rocker" class="section level2">
+<h2>Rocker</h2>
+<p><a href="https://hub.docker.com/u/rocker/">Rocker</a> exists on <a href="https://hub.docker.com">Docker Hub</a>
+and contains a whole bunch of images relevant to R users.</p>
+<p>Dockerfiles (the source code for images) start <code>FROM</code> a base image. We can
+<code>COPY</code> files, <code>RUN</code> commands, or set <code>ENV</code> variables. Here’s the head of the
+RStudio Dockerfile:</p>
+<pre class="bash"><code>FROM rocker/r-ver:latest
+
+ARG RSTUDIO_VERSION
+ENV PATH=/usr/lib/rstudio-server/bin:$PATH
+
+## Download and install RStudio server &amp; dependencies
+## Attempts to get detect latest version, otherwise falls back to version given in $VER
+## Symlink pandoc, pandoc-citeproc so they are available system-wide
+RUN apt-get update \
+  &amp;&amp; apt-get install -y --no-install-recommends \
+    file \
+    git \
+    libapparmor1 \
+    libcurl4-openssl-dev \
+    libedit2 \
+    libssl-dev \
+    lsb-release \
+    psmisc \
+    procps \
+    python-setuptools \
+    sudo \
+    wget \
+  &amp;&amp; wget -O libssl1.0.0.deb http://ftp.debian.org/debian/pool/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u8_amd64.deb \
+  &amp;&amp; dpkg -i libssl1.0.0.deb \
+  &amp;&amp; rm libssl1.0.0.deb \
+  &amp;&amp; RSTUDIO_LATEST=$(wget --no-check-certificate -qO- https://s3.amazonaws.com/rstudio-server/current.ver) \
+  &amp;&amp; [ -z &quot;$RSTUDIO_VERSION&quot; ] &amp;&amp; RSTUDIO_VERSION=$RSTUDIO_LATEST || true \
+  &amp;&amp; wget -q http://download2.rstudio.org/rstudio-server-${RSTUDIO_VERSION}-amd64.deb \</code></pre>
+</div>
+<div id="r-hello-world" class="section level2">
+<h2>R hello world</h2>
+<p>We’re going to build and run the example R hello world image linked at the top
+of this page. This is following Elizabeth Stark’s <a href="https://www.symbolix.com.au/blog-main/r-docker-hello">blog post</a>. First, clone the
+repository at the top of this page and <code>cd</code> into the newly created directory.</p>
+<p>Here’s the Dockerfile, which tells us what is going on here. Note the base image,
+RStudio, and a <code>requirements.R</code> file. The required R packages for the image are
+stored in this file. When the image is built, the libraries are installed.</p>
+<pre class="bash"><code># Base image https://hub.docker.com/u/rocker/
+FROM rocker/rstudio
+
+## Install extra R packages using requirements.R
+## Specify requirements as R install commands e.g.
+## 
+## install.packages(&quot;&lt;myfavouritepacakge&gt;&quot;) or
+## devtools::install(&quot;SymbolixAU/googleway&quot;)
+
+## Copy requirements.R to container directory /tmp
+COPY ./DockerConfig/requirements.R /tmp/requirements.R 
+## install required libs on container
+RUN Rscript /tmp/requirements.R
+
+# create an R user
+ENV USER rstudio
+
+## Copy your working files over
+## The $USER defaults to `rstudio` but you can change this at runtime
+COPY ./Analysis /home/$USER/Analysis
+COPY ./Data /home/$USER/Data</code></pre>
+<p>Run the following command to <code>build</code> the image:</p>
+<pre class="bash"><code>docker build --rm --force-rm -t rstudio/hello-world .</code></pre>
+<p>The <code>--rm --force-rm</code> command tells Docker to delete the container once it’s
+run. This keeps the server clean. The <code>-t rstudio/hello-world</code> option names the
+resulting image. We can see our installed Docker images, including the
+<code>hello-world</code> image we just built, by running the following command:</p>
+<pre class="bash"><code>docker image list</code></pre>
+<pre><code>## REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
+## rstudio/hello-world   latest              167d3183d252        2 hours ago         1.27GB
+## &lt;none&gt;                &lt;none&gt;              6bfb299cec5f        3 hours ago         1.09GB
+## rocker/rstudio        latest              36ed6c844cb3        2 days ago          1.09GB
+## rocker/geospatial     latest              e15468cb4018        2 days ago          3.45GB
+## hello-world           latest              e38bc07ac18e        2 months ago        1.85kB</code></pre>
+<p>Now we can <code>run</code> the image. We <code>--name</code> the container <code>hello-world</code>. You may be
+aware that RStudio server runs on port 8787 by default, but here we <code>run</code> the
+container on port 28787.</p>
+<pre class="bash"><code>docker run -d --rm -p 28787:8787 --name hello-world rstudio/hello-world</code></pre>
+<p>The command runs and then we are returned to the terminal. At first I thought
+nothing had happened and I had managed to break something this early on. But
+when I opened my browser and went to <a href="http://127.0.0.1:28787" class="uri">http://127.0.0.1:28787</a> I saw a login page!</p>
+<p><img src="/img/useR/rstudio_login.png" /></p>
+<p>The default username and password are both <code>rstudio</code>. Logging in, I see a
+familiar interface.</p>
+<p><img src="/img/useR/rstudio_in_container.png" /></p>
+<p>We can stop the container with the <code>stop</code> command. This will interrupt the
+RStudio Server instance and delete any inputted data.</p>
+<pre class="bash"><code>docker stop hello-world</code></pre>
+<div id="playing-with-the-hello-world-image" class="section level3">
+<h3>Playing with the <code>hello-world</code> image</h3>
+<ul>
+<li>The <code>docker ps</code> command lists running images.</li>
+<li>You can run the same container more than once, but they have to have different
+names and run on different ports.</li>
+<li>If you add a package to the requirements.R and rebuild, it will install the
+package and all dependencies.</li>
+<li>Set environment variables when running an image by using the <code>-e</code> option, eg.
+<code>-e USERID=$UID -e PASSWORD=SoSecret!</code></li>
+<li>Save data to a persistent location by mounting a volume using the <code>-v</code> option, eg.
+<code>-v $DATA_DIR:/home/rstudio/Data</code></li>
+</ul>
+</div>
+<div id="a-note-on-security" class="section level3">
+<h3>A note on security</h3>
+<p>For security reasons, you often can’t access environment variables (such as
+those set by <code>ENV</code> or <code>-e</code>) from RStudio Server or Shiny. Instead, you could
+include an <code>.Renviron</code> file in the build context. Be sure to configure your
+<code>.gitignore</code> file so that you don’t accidentally upload secrets to GitHub!</p>
+<p>Elizabeth went through an example with the <code>googleway</code> package, which uses
+Google Maps API keys. In the Dockerbuild file, she includes a <code>COPY</code> command
+to copy the API key to <code>/home/$USER</code>.</p>
+</div>
+<div id="managing-docker-without-leaving-r" class="section level3">
+<h3>Managing Docker without leaving R</h3>
+<p>Like many R users, I don’t like having to do anything outside of R. The
+<code>docker</code> R package uses Python (through <code>reticulate</code>) to manage Docker. See
+the <a href="https://cran.r-project.org/web/packages/docker/vignettes/Getting_Started_with_Docker.html">vignette</a>.</p>
+</div>
+</div>
+<div id="docker-on-aws" class="section level2">
+<h2>Docker on AWS</h2>
+<p>Elizabeth kindly offered to taked us through launching an EC2 instance on AWS
+and running Docker on it.</p>
+<p>We’re going to be a little bit lazy with some of the
+settings here under the assumption that we’ll delete everything when we’re done.
+If you don’t do this, you may be charged more than you intended!</p>
+<p>I already have an AWS account, although I haven’t used it in a while. You can
+see my 0 EC2 instances below:</p>
+<p><img src="/img/useR/EC2_dashboard.png" /></p>
+<p>I’m going to launch a new instance. I will first be prompted to choose the type
+of image. I’m going to go with the generic Ubuntu image at the bottom of the
+picture below:</p>
+<p><img src="/img/useR/choose_image.png" /></p>
+<p>I’ll next be asked to choose the specifications of my machine. I’m going to
+launch an instance with 4GB of RAM. As of now, this will charge me USD 0.0584
+per hour to run the instance in Sydney. I don’t see myself needing it for more
+than an hour.</p>
+<p><img src="/img/useR/select_specs.png" /></p>
+<p>Click on “Next: Configure Instance Details”. On the next page we’re going to
+change the shutdown behaviour from “Stop” to “Terminate”. This will
+permanently remove the instance when it is stopped, which is okay for now
+because we only want a temporary instance.</p>
+<p><img src="/img/useR/shutdown_terminate.png" /></p>
+<p>On the next screen, we’ll give ourselves some storage. I’m choosing 20GB here,
+which should be enough for this machine’s temporary purpose.</p>
+<p><img src="/img/useR/configure_storage.png" /></p>
+<p>When you go to launch the instance, you’ll be asked about key pairs. Create a
+new key and be sure to download the pem file. I’m going to call the keypair
+“temp_docker”.</p>
+<p><img src="/img/useR/key_pair.png" /></p>
+<p>Proceed to see that your instance is launched! You can click through here to
+see your EC2 instance up and running. Take note of the IPv4 public IP here: we
+will need this to SSH into the machine, and to access our RStudio server.</p>
+<p><img src="/img/useR/instance_monitoring.png" /></p>
+<p>You can click on the instance and then on the “Connect” button to view detailed
+instructions on how to SSH into your newly created instance. Once you’ve SSH’d
+into the machine, run the following bash command to install the Community
+Edition of Docker. If the command fails, try to install <code>docker-ce</code> instead.</p>
+<pre class="bash"><code>sudo apt-get update &amp;&amp; sudo apt-get install -y docker-io</code></pre>
+<p>You can test that the installation works by running
+<code>sudo docker run hello-world</code>, as we did locally earlier. Docker will first
+install the <code>hello-world</code> image, since it hasn’t been <code>run</code> before.</p>
+<pre class="bash"><code>sudo docker pull rocker/rstudio</code></pre>
+<p>It’s a big install (around a gigabyte) so you may have to wait a few minutes.
+Now we can run our server:</p>
+<pre class="bash"><code>sudo docker run --rm -p 8787:8787 --name rstudio rocker/rstudio</code></pre>
+<p>Remember that IPv4 address you noted earlier? Put that in the address bar of
+your browser, followed by the default RStudio port 8787. For my example, I went
+to 13.211.29.244:8787, but your instance will be running on a different IP
+address.</p>
+<p>And it won’t work!</p>
+<p>You’ll notice that the page will try to load for a while but won’t get anywhere.
+This smells like a firewall issue to me. Go back to your EC2 dashboard and
+scroll to the right to see the securty group in use by your EC2 instance. Click
+on the security group, which for me was “launch-wizard-1”. Click on “Actions”
+and “Edit inbound rules”.</p>
+<p>You’ll see that SSH is allowed through port 22 to an ip address range 0.0.0.0/0.
+This actually refers to every IP address. We’re going to add a new “Custom TCP”
+rule and allow all access to port 8787 from 0.0.0.0/0.</p>
+<p><img src="/img/useR/edit_security_group.png" /></p>
+<p>Usually we would be very concerned about security here; in general we don’t
+want everyone in the world to be able to access our R Studio server! But this
+short-lived machine isn’t used for anything important, so we can skip along here.</p>
+<p>Save your changes and return to your instances ip address, which for me was
+13.211.29.244:8787. You should see the same RStudio log-in screen that appeared
+when we ran the R <code>hello-world</code> image earlier. At this point, feel free to log
+in using the default username and password, <code>rstudio</code>.</p>
+<p>As a final step, be sure to go to your AWS dashboard to stop (and therefore
+terminate) your EC2 instance. The storage volume we created earlier <em>should</em> be
+deleted alongside the EC2 instance, but you may wish to double-check.</p>
+</div>
+<div id="and-thats-it" class="section level2">
+<h2>And that’s it!</h2>
+<p>That’s the end of the workshop. Many thanks to Elizabeth for her time, and for
+a great start to useR 2018!</p>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/r-markdown">R Markdown</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/user2018">useR2018</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+<ul class="actions pagination">
+    
+        <li><a href="/post/scraping-wine-colours-with-r/"
+                class="button big previous">Scraping wine colours with R</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/'><img src="/img/profile/profile_1_small.png" class="intro-circle" width="250px" alt="mdneuzerling" /></a>
+      
+    
+    
+      <header>
+        <h2>Murray David Neuzerling</h2>
+        <p>Data, maths, R</p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/mdneuzerling" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/mdneuzerling" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/user-getting-started-with-r-and-docker/">useR: Getting started with R and Docker</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-11'>
+                July 11, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/user-getting-started-with-r-and-docker/" class="image featured">
+            <img src="/img/useR/tutorial_one.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/scraping-wine-colours-with-r/">Scraping wine colours with R</a>
+              </h3>
+              
+              <time class="published" datetime='2018-07-01'>
+                July 1, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/scraping-wine-colours-with-r/" class="image featured">
+            <img src="/img/grapes.jpeg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/using-r-to-send-an-outlook-email-with-an-inline-image/">Using R to send an Outlook email with an inline image</a>
+              </h3>
+              
+              <time class="published" datetime='2017-03-19'>
+                March 19, 2017
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/using-r-to-send-an-outlook-email-with-an-inline-image/" class="image featured">
+            <img src="/img/sending_an_email_with_rdcomclient.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/">We started a maths and stats society at our university, and everyone loves it</a>
+              </h3>
+              
+              <time class="published" datetime='2016-03-16'>
+                March 16, 2016
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/" class="image featured">
+            <img src="/img/katherine_crochet.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/my-fourth-australasian-combinatorics-conference/">My fourth Australasian Combinatorics Conference</a>
+              </h3>
+              
+              <time class="published" datetime='2015-12-14'>
+                December 14, 2015
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/my-fourth-australasian-combinatorics-conference/" class="image featured">
+            <img src="/img/ACCMCC_UQ.jpg" alt="">
+        </a>
+    
+
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            "/post/"
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+
+  
+  
+
+  
+  <section id="footer">
+    
+    <p class="copyright">
+      
+        &copy; 2018
+        
+          mdneuzerling
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

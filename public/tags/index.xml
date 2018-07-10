@@ -50,7 +50,7 @@
     <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/r/</guid>
       <description></description>
@@ -59,7 +59,7 @@
     <item>
       <title>R Markdown</title>
       <link>/tags/r-markdown/</link>
-      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/r-markdown/</guid>
       <description></description>
@@ -71,6 +71,15 @@
       <pubDate>Wed, 16 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>/tags/uni/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UseR2018</title>
+      <link>/tags/user2018/</link>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/user2018/</guid>
       <description></description>
     </item>
     

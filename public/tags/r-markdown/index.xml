@@ -6,10 +6,19 @@
     <description>Recent content in R Markdown on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>useR: Getting started with R and Docker</title>
+      <link>/post/user-getting-started-with-r-and-docker/</link>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/user-getting-started-with-r-and-docker/</guid>
+      <description>Docker glossary Running docker images Rocker R hello world Playing with the hello-world image A note on security Managing Docker without leaving R  Docker on AWS And that’s it!   These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!</description>
+    </item>
     
     <item>
       <title>Scraping wine colours with R</title>
