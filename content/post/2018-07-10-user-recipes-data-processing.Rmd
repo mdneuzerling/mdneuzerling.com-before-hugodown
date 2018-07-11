@@ -192,10 +192,9 @@ names(ames_test_dummies)
 
 ## Other uses
 
-That covered slightly less than half the material that Max presented. I have to 
-admit that the rest got away from me a little bit, because I'm not overly 
-familiar with all of the transformations/methods that were used (what is a 
-Yeo-Johnson Power Transformation?!).
+I have to admit that the rest got away from me a little bit, because I'm not 
+overly familiar with all of the transformations/methods that were used (what 
+is a Yeo-Johnson Power Transformation?!).
 
 However, there's a tonne of cool stuff in the slides that I'll be coming back 
 to later, I'm sure. Max used `recipes` and `rsample` to:
