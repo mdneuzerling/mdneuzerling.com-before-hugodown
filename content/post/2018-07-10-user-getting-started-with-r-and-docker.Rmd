@@ -1,7 +1,8 @@
 ---
 title: 'useR: Getting started with R and Docker'
 author: ''
-date: '2018-07-11'
+date: '2018-07-10'
+weight: 2
 slug: user-getting-started-with-r-and-docker
 categories: []
 tags: [R, R Markdown, useR2018]
@@ -74,7 +75,7 @@ docker run hello-world
 Quick aside: yes, this is me running a Docker image in an R Markdown file. 
 Remember that R Markdown can handle languages other than R, including bash!
 This code chunk is `{bash docker_hello_world}`, which tells `knitr` to run this
-chunk (called `docker-hello-world`) with bash. I imagine this only works 
+chunk (called `docker_hello_world`) with bash. I imagine this only works 
 because the `hello-world` container outputs to `stdout`.
 
 ## Rocker

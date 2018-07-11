@@ -6,7 +6,7 @@
     <description>Recent content in UseR2018 on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/user2018/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +14,20 @@
     <item>
       <title>useR: Getting started with R and Docker</title>
       <link>/post/user-getting-started-with-r-and-docker/</link>
-      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/user-getting-started-with-r-and-docker/</guid>
       <description>Docker glossary Running docker images Rocker R hello world Playing with the hello-world image A note on security Managing Docker without leaving R  Docker on AWS And that’s it!   These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!</description>
+    </item>
+    
+    <item>
+      <title>useR: Recipes for data processing</title>
+      <link>/post/user-recipes-for-data-processing/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/user-recipes-for-data-processing/</guid>
+      <description>Reasons for modifying the data The ames data A simple log-transform Infrequently occurring levels The recipes process Other uses   These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
+Full confession here: I was having trouble deciding between this tutorial and another one, and eventually decided on the other one. But then I accidentally came to the wrong room and I took it as a sign that it was time to learn more about preprocessing.</description>
     </item>
     
   </channel>
