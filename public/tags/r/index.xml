@@ -6,10 +6,21 @@
     <description>Recent content in R on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>useR: The Week in Review</title>
+      <link>/post/user-the-week-in-review/</link>
+      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/user-the-week-in-review/</guid>
+      <description>That’s it for #useR2018. After 6 keynotes, 132 parallel sessions, many more lightning talks and posters, and an all-important conference dinner, we’ve reached the end of the week.
+This was my first proper conference since 2015. I had almost forgotten how it felt to be surrounded by hundreds of people who are just as passionate (if not more) about your tiny area of specialised knowledge than you are.
+I took notes for the three tutorials I went to, but I wanted to take a moment to review the week as a whole, including the talks that stood out to me.</description>
+    </item>
     
     <item>
       <title>useR: Missing values imputation</title>

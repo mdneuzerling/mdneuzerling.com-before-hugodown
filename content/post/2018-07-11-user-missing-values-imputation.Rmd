@@ -131,7 +131,7 @@ First of all, recall the definition of an *eigenvector*. You probably
 encountered this in your first or second year of university, and then promptly 
 forgot it. In the example below, the column vector $(6, 4)^T$ is an eigenvector 
 of the square matrix, because the result of the matrix multiplication is a scale 
-multiple of $(6, 4)^T$. In other words, the square matrix make the eigenvector 
+multiple of $(6, 4)^T$. In other words, the square matrix makes the eigenvector 
 *bigger*, but it doesn't change its *direction*. The scalar multiple is $4$, and 
 that's the *eigenvalue* associated with the eigenvector.
 
