@@ -46,12 +46,12 @@ class: inverse, center, middle
 ---
 class: inverse, center, middle
 
-#R-fresher: Piping data
+#Refresh-R: Piping data
 <img src="https://i.giphy.com/Y8qTuvMUjSh7a.gif" style="width: 60%; height: 60%;"></img>
 
 ---
 class: left
-## R-fresher: Ceci **est** pas une pipe
+## Refresh-R: Ceci **est** pas une pipe
 
 `%>%` is a *pipe*. It puts the object on the left into the *first* argument of
 the function on the right:
@@ -59,7 +59,17 @@ the function on the right:
 * `4 %>% sqrt` is the same as `sqrt(4)`
 * `data %>% head` is the same as `head(data)`
 
---
+<img src="hex/magrittr.png" style="width: 15%; height: 15%;"></img>
+
+---
+class: left
+## Refresh-R: Ceci **est** pas une pipe
+
+`%>%` is a *pipe*. It puts the object on the left into the *first* argument of
+the function on the right:
+
+* `4 %>% sqrt` is the same as `sqrt(4)`
+* `data %>% head` is the same as `head(data)`
 
 Or, if we wanted to calculate the average BMI of all droids in the Star Wars movies:
 
@@ -81,13 +91,13 @@ It's 32.7.
 ---
 class: inverse, center, middle
 
-#R-fresher: Visualisation
+#Refresh-R: Visualisation
 <img src="https://i.giphy.com/media/3og0IExSrnfW2kUaaI/source.gif" style="width: 70%; height: 70%;"></img>
 
 ---
 class: center, middle
 
-## R-fresher: visualisation
+## Refresh-R: visualisation
 
 ```{r bomrang_plot_data, echo = FALSE, warning = FALSE, message = FALSE}
 library(tidyverse)
@@ -114,9 +124,9 @@ weather_plot <- weather %>%
     group_by(Year, Season) %>% 
     summarise(Average_max_temp = mean(Max_temperature)) %>% 
     ggplot(aes(x = Year, y = Average_max_temp)) +  
-        geom_point() +
-        geom_smooth() + 
         facet_grid(Season ~ .) +
+        geom_point() +
+        geom_smooth() +
         ggtitle("Cape Otway Lighthouse seasonal temperatures")
 ```
 
@@ -131,16 +141,27 @@ frameWidget(weather_plotly)
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
-```{r bomrang_plot_data_code, eval = FALSE}
+```{r bomrang_plot_data_code_1, eval = FALSE}
 library(tidyverse)
 library(bomrang)
 
 weather <- get_historical(stationid = "090015", type = "max")
 ```
 
---
+<img src="hex/tidyverse.png" style="width: 15%; height: 15%;"></img><img src="hex/bomrang.png" style="width: 15%; height: 15%;"></img>
+
+---
+class: left
+## Refresh-R: Visualisation
+
+```{r bomrang_plot_data_code_2, eval = FALSE}
+library(tidyverse)
+library(bomrang)
+
+weather <- get_historical(stationid = "090015", type = "max")
+```
 
 ```{r bomrang_plot_data_head, eval = FALSE}
 weather %>% sample_n(6)
@@ -154,7 +175,7 @@ weather %>% sample_n(6) %>%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 ```{r weather_code_1, eval = FALSE}
 weather %>% 
@@ -163,7 +184,7 @@ weather %>%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 ```{r weather_code_2, eval = FALSE}
 weather %>% 
@@ -181,7 +202,7 @@ weather %>%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 ```{r weather_summarised, eval = TRUE}
 weather %>% 
@@ -208,7 +229,7 @@ weather_summarised %>% ungroup %>% sample_n(4) %>%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 .pull-left[
 ```{r weather_partial_plot_code_1, eval = FALSE}
@@ -230,15 +251,15 @@ weather_summarised %>%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 .pull-left[
 ```{r weather_partial_plot_code_2, eval = FALSE}
 weather_summarised %>% 
     ggplot(
       aes(x = Year, y = Average_max_temp)
-    ) +
-    geom_point()
+    ) + 
+    facet_grid(Season ~ .)
 ```
 ]
 
@@ -247,23 +268,23 @@ weather_summarised %>%
 weather_summarised %>% 
     ggplot(
       aes(x = Year, y = Average_max_temp)
-    ) +
-    geom_point()
+    ) + 
+    facet_grid(Season ~ .)
 ```
 ]
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 .pull-left[
 ```{r weather_partial_plot_code_3, eval = FALSE}
 weather_summarised %>% 
     ggplot(
       aes(x = Year, y = Average_max_temp)
-    ) +
-    geom_point() +
-    geom_smooth()
+    ) + 
+    facet_grid(Season ~ .) +
+    geom_point() 
 ```
 ]
 
@@ -272,15 +293,15 @@ weather_summarised %>%
 weather_summarised %>% 
     ggplot(
       aes(x = Year, y = Average_max_temp)
-    ) +
-    geom_point() +
-    geom_smooth()
+    ) + 
+    facet_grid(Season ~ .) +
+    geom_point() 
 ```
 ]
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 .pull-left[
 ```{r weather_partial_plot_code_4, eval = FALSE}
@@ -288,9 +309,9 @@ weather_summarised %>%
     ggplot(
       aes(x = Year, y = Average_max_temp)
     ) +
+    facet_grid(Season ~ .) +
     geom_point() +
-    geom_smooth() + 
-    facet_grid(Season ~ .)
+    geom_smooth() 
 ```
 
 We can pass this to plotly with the `ggplotly` function.
@@ -302,21 +323,21 @@ weather_summarised %>%
     ggplot(
       aes(x = Year, y = Average_max_temp)
     ) +
+    facet_grid(Season ~ .) +
     geom_point() +
-    geom_smooth() + 
-    facet_grid(Season ~ .)
+    geom_smooth() 
 ```
 ]
 
 ---
 class: inverse, center, middle
 
-#R-fresher: Modelling
+#Refresh-R: Modelling
 <img src="https://i.imgur.com/muNWT5A.gif" style="width: 40%; height: 40%;"></img>
 
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 ```{r diamonds_nrow}
 diamonds %>% nrow
@@ -334,7 +355,7 @@ diamonds %>% head %>%
 
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 The `glance` function from the `broom` library makes model results tidy.
 ```{r broom, cache = FALSE, message = FALSE, warning = FALSE}
@@ -355,9 +376,11 @@ diamonds %>%
     kable_styling(font_size = 16)
 ```
 
+<img src="hex/broom.png" style="width: 15%; height: 15%;"></img>
+
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 Suppose we wanted to make a different model for every `color`.
 
@@ -379,7 +402,7 @@ diamonds %>%
 
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 We can use the `augment` function from the `broom` package to get 
 *observation-level* statistics for our linear models.
@@ -405,7 +428,7 @@ According to these models, some diamonds have... negative prices?
 
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 ```{r diamonds_ggplot, eval = FALSE}
 diamonds %>% 
@@ -419,7 +442,7 @@ diamonds %>%
 
 ---
 class: center
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 ```{r diamonds_ggplot_display, echo = FALSE, message = FALSE, warning = FALSE, dpi = 300, fig.width = 10, fig.height = 5, out.height = 500, out.width = 1000}
 
@@ -434,7 +457,7 @@ diamonds %>%
 
 ---
 class: center
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 .pull-left[
 ```{r diamond_unmodified, echo = FALSE, message = FALSE, warning = FALSE, dpi = 300, fig.width = 5, fig.height = 5, out.height = 500, out.width = 500}
@@ -479,6 +502,8 @@ class: left
 ```{r library_recipes, cache = FALSE, warning = FALSE, message = FALSE}
 library(recipes)
 ```
+
+<img src="hex/recipes.png" style="width: 18%; height: 18%;"></img>
 
 ---
 ## `ames` housing data
@@ -558,14 +583,24 @@ ames %>%
 ---
 ## Preparing and baking a recipe
 
-```{r data_split, message = FALSE, warning = FALSE}
+```{r data_split_1, message = FALSE, warning = FALSE}
 library(rsample)
 data_split <- initial_split(ames, strata = "Sale_Price", p = 0.75)
 ames_train <- training(data_split)
 ames_test <- testing(data_split)
 ```
 
---
+<img src="hex/rsample.png" style="width: 15%; height: 15%;"></img>
+
+---
+## Preparing and baking a recipe
+
+```{r data_split_2, eval = FALSE}
+library(rsample)
+data_split <- initial_split(ames, strata = "Sale_Price", p = 0.75)
+ames_train <- training(data_split)
+ames_test <- testing(data_split)
+```
 
 ```{r recipe}
 recipe(
@@ -640,6 +675,9 @@ ozone <- read_csv("ozoneNA.csv") %>%
     select(-X1, -WindDirection)
 vis_miss(ozone)
 ```
+
+<img src="hex/naniar.png" style="width: 30%; height: 30%;"></img>
+
 ]
 
 .pull-right[
@@ -674,6 +712,7 @@ class: left
 ## `fable`
 
 ```{r library_fable, warning = FALSE, message = FALSE}
+library(tsibble) 
 library(fable) 
 ```
 
@@ -682,12 +721,18 @@ cafe <- fpp2::auscafe %>% as_tsibble
 cafe %>% head
 ```
 
+.pull-left[
 ```{r cafe_data_display, echo = FALSE}
 cafe  <- fpp2::auscafe %>% as_tsibble
 cafe %>% head %>% 
     knitr::kable(format = "html") %>% 
     kable_styling(font_size = 18)
 ```
+]
+
+.pull-right[
+<img src="hex/tsibble.png" style="width: 30%; height: 30%;"></img><img src="hex/fable.png" style="width: 30%; height: 30%;"></img>
+]
 
 ---
 class: left

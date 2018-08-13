@@ -53,12 +53,12 @@ class: inverse, center, middle
 ---
 class: inverse, center, middle
 
-#R-fresher: Piping data
+#Refresh-R: Piping data
 &lt;img src="https://i.giphy.com/Y8qTuvMUjSh7a.gif" style="width: 60%; height: 60%;"&gt;&lt;/img&gt;
 
 ---
 class: left
-## R-fresher: Ceci **est** pas une pipe
+## Refresh-R: Ceci **est** pas une pipe
 
 `%&gt;%` is a *pipe*. It puts the object on the left into the *first* argument of
 the function on the right:
@@ -66,7 +66,17 @@ the function on the right:
 * `4 %&gt;% sqrt` is the same as `sqrt(4)`
 * `data %&gt;% head` is the same as `head(data)`
 
---
+&lt;img src="hex/magrittr.png" style="width: 15%; height: 15%;"&gt;&lt;/img&gt;
+
+---
+class: left
+## Refresh-R: Ceci **est** pas une pipe
+
+`%&gt;%` is a *pipe*. It puts the object on the left into the *first* argument of
+the function on the right:
+
+* `4 %&gt;% sqrt` is the same as `sqrt(4)`
+* `data %&gt;% head` is the same as `head(data)`
 
 Or, if we wanted to calculate the average BMI of all droids in the Star Wars movies:
 
@@ -90,13 +100,13 @@ It's 32.7.
 ---
 class: inverse, center, middle
 
-#R-fresher: Visualisation
+#Refresh-R: Visualisation
 &lt;img src="https://i.giphy.com/media/3og0IExSrnfW2kUaaI/source.gif" style="width: 70%; height: 70%;"&gt;&lt;/img&gt;
 
 ---
 class: center, middle
 
-## R-fresher: visualisation
+## Refresh-R: visualisation
 
 
 
@@ -107,7 +117,7 @@ class: center, middle
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 
 ```r
@@ -117,7 +127,19 @@ library(bomrang)
 weather &lt;- get_historical(stationid = "090015", type = "max")
 ```
 
---
+&lt;img src="hex/tidyverse.png" style="width: 15%; height: 15%;"&gt;&lt;/img&gt;&lt;img src="hex/bomrang.png" style="width: 15%; height: 15%;"&gt;&lt;/img&gt;
+
+---
+class: left
+## Refresh-R: Visualisation
+
+
+```r
+library(tidyverse)
+library(bomrang)
+
+weather &lt;- get_historical(stationid = "090015", type = "max")
+```
 
 
 ```r
@@ -210,7 +232,7 @@ weather %&gt;% sample_n(6)
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 
 ```r
@@ -220,7 +242,7 @@ weather %&gt;%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 
 ```r
@@ -239,7 +261,7 @@ weather %&gt;%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 
 ```r
@@ -293,7 +315,7 @@ weather %&gt;%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 .pull-left[
 
@@ -311,7 +333,7 @@ weather_summarised %&gt;%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 .pull-left[
 
@@ -319,8 +341,8 @@ class: left
 weather_summarised %&gt;% 
     ggplot(
       aes(x = Year, y = Average_max_temp)
-    ) +
-    geom_point()
+    ) + 
+    facet_grid(Season ~ .)
 ```
 ]
 
@@ -330,7 +352,7 @@ weather_summarised %&gt;%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 .pull-left[
 
@@ -338,9 +360,9 @@ class: left
 weather_summarised %&gt;% 
     ggplot(
       aes(x = Year, y = Average_max_temp)
-    ) +
-    geom_point() +
-    geom_smooth()
+    ) + 
+    facet_grid(Season ~ .) +
+    geom_point() 
 ```
 ]
 
@@ -350,7 +372,7 @@ weather_summarised %&gt;%
 
 ---
 class: left
-## R-fresher: Visualisation
+## Refresh-R: Visualisation
 
 .pull-left[
 
@@ -359,9 +381,9 @@ weather_summarised %&gt;%
     ggplot(
       aes(x = Year, y = Average_max_temp)
     ) +
+    facet_grid(Season ~ .) +
     geom_point() +
-    geom_smooth() + 
-    facet_grid(Season ~ .)
+    geom_smooth() 
 ```
 
 We can pass this to plotly with the `ggplotly` function.
@@ -374,12 +396,12 @@ We can pass this to plotly with the `ggplotly` function.
 ---
 class: inverse, center, middle
 
-#R-fresher: Modelling
+#Refresh-R: Modelling
 &lt;img src="https://i.imgur.com/muNWT5A.gif" style="width: 40%; height: 40%;"&gt;&lt;/img&gt;
 
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 
 ```r
@@ -488,7 +510,7 @@ diamonds %&gt;% head
 
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 The `glance` function from the `broom` library makes model results tidy.
 
@@ -536,9 +558,11 @@ diamonds %&gt;%
 &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;img src="hex/broom.png" style="width: 15%; height: 15%;"&gt;&lt;/img&gt;
+
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 Suppose we wanted to make a different model for every `color`.
 
@@ -672,7 +696,7 @@ diamonds %&gt;%
 
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 We can use the `augment` function from the `broom` package to get 
 *observation-level* statistics for our linear models.
@@ -809,7 +833,7 @@ According to these models, some diamonds have... negative prices?
 
 ---
 class: left
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 
 ```r
@@ -824,13 +848,13 @@ diamonds %&gt;%
 
 ---
 class: center
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 &lt;img src="user2018_full_files/figure-html/diamonds_ggplot_display-1.png" width="1000" height="500" /&gt;
 
 ---
 class: center
-## R-fresher: Modelling
+## Refresh-R: Modelling
 
 .pull-left[
 &lt;img src="user2018_full_files/figure-html/diamond_unmodified-1.png" width="500" height="500" /&gt;
@@ -864,6 +888,8 @@ class: left
 ```r
 library(recipes)
 ```
+
+&lt;img src="hex/recipes.png" style="width: 18%; height: 18%;"&gt;&lt;/img&gt;
 
 ---
 ## `ames` housing data
@@ -934,7 +960,18 @@ ames_train &lt;- training(data_split)
 ames_test &lt;- testing(data_split)
 ```
 
---
+&lt;img src="hex/rsample.png" style="width: 15%; height: 15%;"&gt;&lt;/img&gt;
+
+---
+## Preparing and baking a recipe
+
+
+```r
+library(rsample)
+data_split &lt;- initial_split(ames, strata = "Sale_Price", p = 0.75)
+ames_train &lt;- training(data_split)
+ames_test &lt;- testing(data_split)
+```
 
 
 ```r
@@ -989,6 +1026,9 @@ ozone &lt;- read_csv("ozoneNA.csv") %&gt;%
     select(-X1, -WindDirection)
 vis_miss(ozone)
 ```
+
+&lt;img src="hex/naniar.png" style="width: 30%; height: 30%;"&gt;&lt;/img&gt;
+
 ]
 
 .pull-right[
@@ -1015,6 +1055,7 @@ class: left
 
 
 ```r
+library(tsibble) 
 library(fable) 
 ```
 
@@ -1024,6 +1065,7 @@ cafe &lt;- fpp2::auscafe %&gt;% as_tsibble
 cafe %&gt;% head
 ```
 
+.pull-left[
 &lt;table class="table" style="font-size: 18px; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
@@ -1058,6 +1100,11 @@ cafe %&gt;% head
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+]
+
+.pull-right[
+&lt;img src="hex/tsibble.png" style="width: 30%; height: 30%;"&gt;&lt;/img&gt;&lt;img src="hex/fable.png" style="width: 30%; height: 30%;"&gt;&lt;/img&gt;
+]
 
 ---
 class: left
