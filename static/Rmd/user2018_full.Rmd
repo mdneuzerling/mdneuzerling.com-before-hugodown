@@ -13,8 +13,6 @@ output:
       countIncrementalSlides: false
 ---
 
-
-
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(cache = TRUE)
@@ -539,10 +537,7 @@ leaflet(ames) %>%
 ```{r neighbourhood_plot_code, eval = FALSE}
 ames %>% 
     ggplot(aes(x = Neighborhood)) +
-    geom_bar(
-        fill = "#6d1e3b", 
-        colour = "white"
-    ) + 
+    geom_bar(fill = "#6d1e3b") + 
     coord_flip()
 ```    
 ]
@@ -551,10 +546,7 @@ ames %>%
 ```{r neighbourhood_plot, echo = FALSE, dpi = 300, fig.width = 5, fig.height = 5, out.height = 500, out.width = 500}
 ames %>% 
     ggplot(aes(x = Neighborhood)) +
-    geom_bar(
-        fill = "#6d1e3b", 
-        colour = "white"
-    ) + 
+    geom_bar(fill = "#6d1e3b") + 
     coord_flip()
 ``` 
 ]

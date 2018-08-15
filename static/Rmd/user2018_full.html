@@ -27,8 +27,6 @@
 
 
 
-
-
 class: center, middle
 
 # David Neuzerling
@@ -920,10 +918,7 @@ leaflet(ames) %&gt;%
 ```r
 ames %&gt;% 
     ggplot(aes(x = Neighborhood)) +
-    geom_bar(
-        fill = "#6d1e3b", 
-        colour = "white"
-    ) + 
+    geom_bar(fill = "#6d1e3b") + 
     coord_flip()
 ```
 ]
