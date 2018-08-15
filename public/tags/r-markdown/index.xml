@@ -6,10 +6,21 @@
     <description>Recent content in R Markdown on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How I&#39;d like to send an email from R</title>
+      <link>/post/how-i-d-like-to-send-an-email-from-r/</link>
+      <pubDate>Sun, 15 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-i-d-like-to-send-an-email-from-r/</guid>
+      <description>When I found myself using R in a corporate environment, my workflow went like this:
+Connect to databases Do stuff to data Email results  Yes, there exist options for presenting results that are a bit more modern than the old-fashioned email—R Markdown, Shiny, or even Slack, for example. But email is embedded in corporate culture and will be around for a long time to come.
+I want to set down how I think a send_email function should work in R.</description>
+    </item>
     
     <item>
       <title>useR: The Week in Review</title>
