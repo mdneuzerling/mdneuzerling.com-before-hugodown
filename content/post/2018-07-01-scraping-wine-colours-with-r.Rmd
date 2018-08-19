@@ -131,13 +131,20 @@ wine data from the [List of grape varieties](https://en.wikipedia.org/wiki/List_
 Wikipedia page, using the `rvest` package. The first three tables of this page
 give red, white and rosé wines, in that order.
 
+We're going to use an older version of the article, dated 2018-06-29, for 
+consistency. Wikipedia displays a notice that the user is reading an older 
+version of the article. This counts as a table, and so the code below refers to
+tables 2, 3 and 4. If using the live version, replace these figures with 1, 2
+and 3.
+
 ```{r grape_colours_wiki_scrape, message = FALSE}
-wiki_tables <- "https://en.wikipedia.org/wiki/List_of_grape_varieties" %>% 
+# Use an old revision of the article for consistency
+wiki_tables <- "https://en.wikipedia.org/w/index.php?title=List_of_grape_varieties&oldid=847983339" %>% 
     read_html %>% 
     html_nodes("table")
-red_wines <- wiki_tables[[1]] %>% html_table %>% cbind(colour = "red")
-white_wines <- wiki_tables[[2]] %>% html_table %>% cbind(colour = "white")
-rose_wines <- wiki_tables[[3]] %>% html_table %>% cbind(colour = "rosé")
+red_wines <- wiki_tables[[2]] %>% html_table %>% cbind(colour = "red")
+white_wines <- wiki_tables[[3]] %>% html_table %>% cbind(colour = "white")
+rose_wines <- wiki_tables[[4]] %>% html_table %>% cbind(colour = "rosé")
 all_wines <- rbind(red_wines, white_wines, rose_wines)
 all_wines %>% 
     select(`Common Name(s)`, `All Synonyms`, colour) %>% 
@@ -351,8 +358,8 @@ directly here. I encourage you to download the csv
 require a (free) Kaggle account. I've renamed the file here to `wine_reviews.csv`,
 but otherwise the data is unchanged before it is read. Other data used here:
 
-* My manual classification of variety colours: [manually_classified.csv](data/manually_classified.csv)
-* The final outcome, giving just varieties and colours: [variety_colours.csv](data/variety_colours.csv)
+* My manual classification of variety colours: [manually_classified.csv](/data/manually_classified.csv)
+* The final outcome, giving just varieties and colours: [variety_colours.csv](/data/variety_colours.csv)
 
 The header image at the top of this page is in the 
 [public domain](https://www.pexels.com/photo/abundance-alcohol-berries-berry-357742/).

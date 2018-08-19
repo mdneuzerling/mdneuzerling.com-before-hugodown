@@ -132,12 +132,18 @@ information from the review:</p>
 wine data from the <a href="https://en.wikipedia.org/wiki/List_of_grape_varieties">List of grape varieties</a>
 Wikipedia page, using the <code>rvest</code> package. The first three tables of this page
 give red, white and rosé wines, in that order.</p>
-<pre class="r"><code>wiki_tables &lt;- &quot;https://en.wikipedia.org/wiki/List_of_grape_varieties&quot; %&gt;% 
+<p>We’re going to use an older version of the article, dated 2018-06-29, for
+consistency. Wikipedia displays a notice that the user is reading an older
+version of the article. This counts as a table, and so the code below refers to
+tables 2, 3 and 4. If using the live version, replace these figures with 1, 2
+and 3.</p>
+<pre class="r"><code># Use an old revision of the article for consistency
+wiki_tables &lt;- &quot;https://en.wikipedia.org/w/index.php?title=List_of_grape_varieties&amp;oldid=847983339&quot; %&gt;% 
     read_html %&gt;% 
     html_nodes(&quot;table&quot;)
-red_wines &lt;- wiki_tables[[1]] %&gt;% html_table %&gt;% cbind(colour = &quot;red&quot;)
-white_wines &lt;- wiki_tables[[2]] %&gt;% html_table %&gt;% cbind(colour = &quot;white&quot;)
-rose_wines &lt;- wiki_tables[[3]] %&gt;% html_table %&gt;% cbind(colour = &quot;rosé&quot;)
+red_wines &lt;- wiki_tables[[2]] %&gt;% html_table %&gt;% cbind(colour = &quot;red&quot;)
+white_wines &lt;- wiki_tables[[3]] %&gt;% html_table %&gt;% cbind(colour = &quot;white&quot;)
+rose_wines &lt;- wiki_tables[[4]] %&gt;% html_table %&gt;% cbind(colour = &quot;rosé&quot;)
 all_wines &lt;- rbind(red_wines, white_wines, rose_wines)
 all_wines %&gt;% 
     select(`Common Name(s)`, `All Synonyms`, colour) %&gt;% 
@@ -239,6 +245,30 @@ colour
 <tbody>
 <tr>
 <td style="text-align:left;">
+barbera dolce
+</td>
+<td style="text-align:left;">
+red
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cosses barbusen
+</td>
+<td style="text-align:left;">
+red
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+limberger blauer
+</td>
+<td style="text-align:left;">
+red
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 22 a baco
 </td>
 <td style="text-align:left;">
@@ -256,30 +286,6 @@ white
 <tr>
 <td style="text-align:left;">
 abboudossa
-</td>
-<td style="text-align:left;">
-white
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abbsudosa
-</td>
-<td style="text-align:left;">
-white
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abbuoto
-</td>
-<td style="text-align:left;">
-red
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-abelione
 </td>
 <td style="text-align:left;">
 white
@@ -334,7 +340,7 @@ plot_wine_colours &lt;- function(wine_colours) {
 
 plot_wine_colours(wine_colours)</code></pre>
 <p><img src="/post/2018-07-01-scraping-wine-colours-with-r_files/figure-html/join_with_variety_colours-1.png" width="672" /></p>
-<p>All but 6709 wines have been
+<p>All but 6734 wines have been
 classified. We still have some colours missing, but first we consider the wines
 that have been classified as multiple colours:</p>
 <pre class="r"><code>wine_colours %&gt;% 
@@ -516,13 +522,13 @@ spaces or dashes.</p>
 
 plot_wine_colours(wine_colours)</code></pre>
 <p><img src="/post/2018-07-01-scraping-wine-colours-with-r_files/figure-html/join_with_blend_colours-1.png" width="672" /></p>
-<p>All but 4066 wines have been
+<p>All but 4091 wines have been
 classified. This is an improvement, but we still have to classify the rest.</p>
 </div>
 <div id="manual-classifications" class="section level2">
 <h2>Manual classifications</h2>
 <p>We manually classify the remaining
-153
+154
 varieties using web searches or the <code>description</code>s (reviews) associated with
 the wines.</p>
 <pre class="r"><code>manual_colours &lt;- &quot;manually_classified.csv&quot; %&gt;% read_csv</code></pre>
@@ -551,8 +557,8 @@ directly here. I encourage you to download the csv
 require a (free) Kaggle account. I’ve renamed the file here to <code>wine_reviews.csv</code>,
 but otherwise the data is unchanged before it is read. Other data used here:</p>
 <ul>
-<li>My manual classification of variety colours: <a href="data/manually_classified.csv">manually_classified.csv</a></li>
-<li>The final outcome, giving just varieties and colours: <a href="data/variety_colours.csv">variety_colours.csv</a></li>
+<li>My manual classification of variety colours: <a href="/data/manually_classified.csv">manually_classified.csv</a></li>
+<li>The final outcome, giving just varieties and colours: <a href="/data/variety_colours.csv">variety_colours.csv</a></li>
 </ul>
 <p>The header image at the top of this page is in the
 <a href="https://www.pexels.com/photo/abundance-alcohol-berries-berry-357742/">public domain</a>.</p>
