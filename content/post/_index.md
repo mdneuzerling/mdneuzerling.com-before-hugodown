@@ -1,4 +1,5 @@
----
-title: Blog posts
----
++++
+title = "Blog posts"
+type = "post"
++++
 
