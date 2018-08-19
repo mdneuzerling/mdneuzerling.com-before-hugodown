@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>From_the_archive on mdneuzerling</title>
-    <link>/tags/from_the_archive/</link>
+    <link>https://mdneuzerling.com/tags/from_the_archive/</link>
     <description>Recent content in From_the_archive on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/from_the_archive/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mdneuzerling.com/tags/from_the_archive/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Using R to send an Outlook email with an inline image</title>
-      <link>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</link>
+      <link>https://mdneuzerling.com/post/using-r-to-send-an-outlook-email-with-an-inline-image/</link>
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</guid>
+      <guid>https://mdneuzerling.com/post/using-r-to-send-an-outlook-email-with-an-inline-image/</guid>
       <description>If you work in a corporate environment, there’s a good chance you’re using Microsoft Office. I wanted to set up a way to email tables and plots from R using Outlook. Sending an email is simple enough with the RDCOMClient library, but inserting a plot inline—rather than as an attachment—took a little bit of working out. I’m sharing my code here in case anyone else wants to do something similar. The trick is to save your plot as an image with a temporary file, attach it to the email, and then insert it inline using a cid (Content-ID).</description>
     </item>
     
     <item>
       <title>We started a maths and stats society at our university, and everyone loves it</title>
-      <link>/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</link>
+      <link>https://mdneuzerling.com/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</link>
       <pubDate>Wed, 16 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</guid>
+      <guid>https://mdneuzerling.com/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</guid>
       <description>Last year an honours student noticed something missing in mathematics and statistics at La Trobe University. She saw that there was no society at the university to cultivate an interest in mathematics. There were no social events to help the undergraduate students get to know one another. And there was very little in the way of extracurricular lectures for students without several years of mathematical study already under their belt. So she started the Mathematics and Statistics Society at La Trobe University.</description>
     </item>
     
     <item>
       <title>My fourth Australasian Combinatorics Conference</title>
-      <link>/post/my-fourth-australasian-combinatorics-conference/</link>
+      <link>https://mdneuzerling.com/post/my-fourth-australasian-combinatorics-conference/</link>
       <pubDate>Mon, 14 Dec 2015 00:00:00 +0000</pubDate>
       
-      <guid>/post/my-fourth-australasian-combinatorics-conference/</guid>
+      <guid>https://mdneuzerling.com/post/my-fourth-australasian-combinatorics-conference/</guid>
       <description>My first maths conference was The 36th Australasian Conference on Combinatorial Mathematics and Combinatorial Computing. I had just finished my honours thesis, Generalising the Clique-Coclique Bound, and I had travelled to Sydney to present my results to a room full of people much smarter than me.
 I’m no longer working in graph theory or finite geometry, but every year since 2012 I have attended the ACCMCC. I keep up to date with the research, and I maintain contact with some of the best mathematicians I’ve ever met.</description>
     </item>
