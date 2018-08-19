@@ -1,29 +1,15 @@
 +++
-title = "About Hugo"
+title = "About"
 date = "2014-04-09"
 +++
 
-Hugo is a static site engine written in Go.
+![](/images/logo.png)
 
+I'm a data specialist and former mathematician, with a background in modelling, forecasting and visualisation. I'm experienced with both R and Python, but currently using R.
 
-It makes use of a variety of open source projects including:
+In my spare time, I'm often playing with fountain pens or calligraphy, or obsessing over corgis.
 
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
+* Pronouns: [they/them or he/him](https://pronoun.is/they/them?or=he)
+* Preferred name: David
 
-Learn more and contribute on [GitHub](https://github.com/spf13).
-
-## Setup
-
-Some fun facts about [Hugo](http://gohugo.io/):
-
-* Built in [Go](http://golang.org/)
-* Loosely inspired by [Jekyll](http://jekyllrb.com/)
-* Primarily developed by [spf13](http://spf13.com/) on the train while commuting to and from Manhattan.
-* Coded in [Vim](http://vim.org) using [spf13-vim](http://vim.spf13.com/)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/spf13/hugo/issues/new) or [ask me on Twitter](https://twitter.com/spf13).
-
-Thanks for reading!
+Want to reach out? Send me a [tweet](https://twitter.com/mdneuzerling) or email me at contact (at) this domain.

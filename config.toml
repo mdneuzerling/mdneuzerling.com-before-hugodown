@@ -118,10 +118,34 @@ canonifyURLs = true
   weight = 1
 
 [[menu.main]]
+  name = "Blog"
+  url = "/post/"
+  identifier = "fa fa-newspaper-o"
+  weight = 2
+
+[[menu.main]]
+  name = "R Markdown"
+  url = "/Rmd/"
+  identifier = "fa fa-file-text-o"
+  weight = 3
+
+[[menu.main]]
+  name = "Shiny"
+  url = "/shiny/"
+  identifier = "fa fa-bar-chart"
+  weight = 4
+
+[[menu.main]]
+  name = "GitHub"
+  url = "https://github.com/mdneuzerling"
+  identifier = "fa fa-github"
+  weight = 5
+
+[[menu.main]]
   name = "About"
   url = "/about/"
   identifier = "fa fa-id-card-o"
-  weight = 2
+  weight = 6
 
 # Sets Social Media icons to appear and link to your account. Value should be your
 # username unless otherwise noted. These are the icons affected by socialAppearAtTop
@@ -143,7 +167,7 @@ canonifyURLs = true
   #wordpress        = ""
   #medium           = ""
   # Professional/Business Oriented Communities
-  #linkedin         = "example"
+  linkedin         = "mdneuzerling"
   #linkedin_company = "examplebusiness"
   #foursquare       = ""
   #xing             = ""

@@ -49,7 +49,7 @@ ahead anyway.
 ## Quick look at the data
 
 ```{r setup, warning = FALSE, message = FALSE, cache = FALSE}
-knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 set.seed(42275) # Chosen by fair dice roll. Guaranteed to be random.
  
