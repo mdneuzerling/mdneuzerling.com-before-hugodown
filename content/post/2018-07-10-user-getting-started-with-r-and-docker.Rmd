@@ -2,7 +2,7 @@
 title: 'useR: Getting started with R and Docker'
 author: ''
 date: '2018-07-10'
-weight: 2
+# weight: 2
 slug: user-getting-started-with-r-and-docker
 categories: []
 tags: [R, R Markdown, useR2018]
@@ -68,7 +68,7 @@ non-root access to Docker.
 The first Docker image you ever `run` is likely to be `hello-world`. If you've
 never run it before, Docker will download it from [Docker Hub](https://hub.docker.com).
 
-```{bash docker_hello_world}
+```{bash docker_hello_world, cache = TRUE}
 docker run hello-world
 ```
 

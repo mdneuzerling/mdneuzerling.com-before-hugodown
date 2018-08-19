@@ -47,7 +47,7 @@ acknowledge how aggressive this classification is, but I’m going to charge
 ahead anyway.</p>
 <div id="quick-look-at-the-data" class="section level2">
 <h2>Quick look at the data</h2>
-<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
 set.seed(42275) # Chosen by fair dice roll. Guaranteed to be random.
  
@@ -245,30 +245,6 @@ colour
 <tbody>
 <tr>
 <td style="text-align:left;">
-barbera dolce
-</td>
-<td style="text-align:left;">
-red
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-cosses barbusen
-</td>
-<td style="text-align:left;">
-red
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-limberger blauer
-</td>
-<td style="text-align:left;">
-red
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 22 a baco
 </td>
 <td style="text-align:left;">
@@ -286,6 +262,30 @@ white
 <tr>
 <td style="text-align:left;">
 abboudossa
+</td>
+<td style="text-align:left;">
+white
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abbsudosa
+</td>
+<td style="text-align:left;">
+white
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abbuoto
+</td>
+<td style="text-align:left;">
+red
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abelione
 </td>
 <td style="text-align:left;">
 white
@@ -340,7 +340,7 @@ plot_wine_colours &lt;- function(wine_colours) {
 
 plot_wine_colours(wine_colours)</code></pre>
 <p><img src="/post/2018-07-01-scraping-wine-colours-with-r_files/figure-html/join_with_variety_colours-1.png" width="672" /></p>
-<p>All but 6734 wines have been
+<p>All but 6709 wines have been
 classified. We still have some colours missing, but first we consider the wines
 that have been classified as multiple colours:</p>
 <pre class="r"><code>wine_colours %&gt;% 
@@ -522,13 +522,13 @@ spaces or dashes.</p>
 
 plot_wine_colours(wine_colours)</code></pre>
 <p><img src="/post/2018-07-01-scraping-wine-colours-with-r_files/figure-html/join_with_blend_colours-1.png" width="672" /></p>
-<p>All but 4091 wines have been
+<p>All but 4066 wines have been
 classified. This is an improvement, but we still have to classify the rest.</p>
 </div>
 <div id="manual-classifications" class="section level2">
 <h2>Manual classifications</h2>
 <p>We manually classify the remaining
-154
+153
 varieties using web searches or the <code>description</code>s (reviews) associated with
 the wines.</p>
 <pre class="r"><code>manual_colours &lt;- &quot;manually_classified.csv&quot; %&gt;% read_csv</code></pre>
