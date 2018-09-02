@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scraping on mdneuzerling</title>
+    <link>/tags/scraping/</link>
+    <description>Recent content in Scraping on mdneuzerling</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/scraping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Markdown monsters</title>
+      <link>/post/markdown-monsters/</link>
+      <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/markdown-monsters/</guid>
+      <description>Whenever I take an interest in something I think to myself, “How can I combine this with R?”
+This post is the result of applying that attitude to Dungeons and Dragons.
+So how would I combine D&amp;amp;D with R? A good start would be to have a nice data set of Dungeons and Dragons monsters, with all of their statistics, abilities and attributes. One of the core D&amp;amp;D rule books is the Monster Manual.</description>
+    </item>
+    
+  </channel>
+</rss>
