@@ -1983,12 +1983,12 @@
 					font-weight: bold;
 				}
 
-					table > thead > tr > th:first-child,
+					/*table > thead > tr > th:first-child,
 					table > thead > tr > td:first-child,
 					table > tbody > tr > td:first-child {
 						border-right: 2px solid #e0e0e0;
 						font-weight: bold;
-					}
+					}*/
 
 	@media screen and (min-width: 715px) {
 
