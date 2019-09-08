@@ -1,5 +1,5 @@
 # mdneuzerling.com
-Personal website and blog hosted at mdneuzerling.com
+Personal website and blog hosted at [mdneuzerling.com](https://mdneuzerling.com)
 
 All website and blog **content** is CC BY 4.0 unless otherwise noted.
 
