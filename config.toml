@@ -88,7 +88,7 @@ canonifyURLs = true
   # These are optional params related to the sidebar. They are recommended, but not
   # required for proper functionality. HTML is supported within the params.
 [params.intro]
-  header    = "Murray David Neuzerling"
+  header    = "David Neuzerling"
 
   paragraph = "Data, maths, R"
 
@@ -167,7 +167,7 @@ canonifyURLs = true
   #wordpress        = ""
   #medium           = ""
   # Professional/Business Oriented Communities
-  linkedin         = "mdneuzerling"
+  #linkedin         = "mdneuzerling"
   #linkedin_company = "examplebusiness"
   #foursquare       = ""
   #xing             = ""
