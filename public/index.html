@@ -21,8 +21,8 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2018",
-        "datePublished": "2018-09-02 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-09-02 00:00:00 &#43;0000 UTC",
+        "datePublished": "2018-11-09 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-11-09 00:00:00 &#43;0000 UTC",
         "url" : "/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -59,7 +59,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-09-02T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2018-11-09T00:00:00&#43;00:00"/>
 
 
 
@@ -266,6 +266,42 @@
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/post/my-data-science-job-hunt/">My data science job hunt</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-11-09'>
+                                    November 9, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/my-data-science-job-hunt/" class="image featured">
+            <img src="/img/job_outcomes.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/post/markdown-monsters/">Markdown monsters</a></h3>
                                 
                                 <time class="published" datetime=
@@ -408,42 +444,6 @@
 
                         </article>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/user-getting-started-with-r-and-docker/">useR: Getting started with R and Docker</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-07-10'>
-                                    July 10, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/user-getting-started-with-r-and-docker/" class="image featured">
-            <img src="/img/useR/tutorial_one.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
 
                 
                     <a href=
@@ -466,7 +466,7 @@
   <header>
     <div class="title">
         
-            <h2><a href="/post/markdown-monsters/">Markdown monsters</a></h2>
+            <h2><a href="/post/my-data-science-job-hunt/">My data science job hunt</a></h2>
         
         
     </div>
@@ -474,11 +474,11 @@
         
 
         <time class="published"
-            datetime='2018-09-02'>
-            September 2, 2018</time>
+            datetime='2018-11-09'>
+            November 9, 2018</time>
         <span class="author"></span>
         
-            <p>17 minute read</p>
+            <p>7 minute read</p>
         
         
     </div>
@@ -507,960 +507,103 @@
         
         
 
-        <a href="/post/markdown-monsters/" class="image featured">
-            <img src="/img/dice.jpg" alt="">
+        <a href="/post/my-data-science-job-hunt/" class="image featured">
+            <img src="/img/job_outcomes.png" alt="">
         </a>
     
 
 
   <div id="content">
-    <p>Whenever I take an interest in something I think to myself, “How can I combine this with R?”</p>
-<p>This post is the result of applying that attitude to Dungeons and Dragons.</p>
-<p>So how would I combine D&amp;D with R? A good start would be to have a nice data set of Dungeons and Dragons monsters, with all of their statistics, abilities and attributes. One of the core D&amp;D rule books is the <a href="http://dnd.wizards.com/products/tabletop-games/rpg-products/monster-manual">Monster Manual</a>. I could attempt to scrape the Monster Manual but I figured that the lovely people behind D&amp;D wouldn’t be too happy if I uploaded most of the book to GitHub!</p>
-<p>Fortunately, Wizards of the Coast have included around 300 monsters in the <a href="http://dnd.wizards.com/articles/features/systems-reference-document-srd">Systems Reference Document</a> (SRD) for 5th edition D&amp;D. This is made available under the Open Gaming License Version 1.0a.</p>
-<p>I started off trying to scrape the SRD directly, but scraping a PDF was looking to be a nightmare. Fortunately, <a href="https://github.com/vitusventure/5thSRD">vitusventure had already converted the SRD to markdown documents</a> to host the content on the (rather pretty) <a href="https://5thsrd.org/" class="uri">https://5thsrd.org/</a>. I figured it would be easier to scrape markdown files, since they are structured but simple text. Here’s an example of a monster’s “stat block” written in markdown:</p>
-<hr />
-<p>name: Medusa
-type: monstrosity
-cr: 6</p>
-<div id="medusa" class="section level1">
-<h1>Medusa</h1>
-<p><em>Medium monstrosity, lawful evil</em></p>
-<p><strong>Armor Class</strong> 15 (natural armor)<br />
-<strong>Hit Points</strong> 127 (17d8 + 51)<br />
-<strong>Speed</strong> 30 ft.</p>
-<table>
-<thead>
-<tr class="header">
-<th>STR</th>
-<th>DEX</th>
-<th>CON</th>
-<th>INT</th>
-<th>WIS</th>
-<th>CHA</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>10 (+0)</td>
-<td>15 (+2)</td>
-<td>16 (+3)</td>
-<td>12 (+1)</td>
-<td>13 (+1)</td>
-<td>15 (+2)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Skills</strong> Deception +5, Insight +4, Perception +4, Stealth +5<br />
-<strong>Senses</strong> darkvision 60 ft., passive Perception 14<br />
-<strong>Languages</strong> Common<br />
-<strong>Challenge</strong> 6 (2,300 XP)</p>
-<p><strong>Petrifying Gaze.</strong> When a creature that can see the medusa’s eyes starts its turn within 30 feet of the medusa, the medusa can force it to make a DC 14 Constitution saving throw if the medusa isn’t incapacitated and can see the creature. If the saving throw fails by 5 or more, the creature is instantly petrified. Otherwise, a creature that fails the save begins to turn to stone and is restrained. The restrained creature must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the creature is freed by the greater restoration spell or other magic.<br />
-Unless surprised, a creature can avert its eyes to avoid the saving throw at the start of its turn. If the creature does so, it can’t see the medusa until the start of its next turn, when it can avert its eyes again. If the creature looks at the medusa in the meantime, it must immediately make the save.<br />
-If the medusa sees itself reflected on a polished surface within 30 feet of it and in an area of bright light, the medusa is, due to its curse, affected by its own gaze.</p>
-<div id="actions" class="section level3">
-<h3>Actions</h3>
-<p><strong>Multiattack.</strong> The medusa makes either three melee attacks–one with its snake hair and two with its shortsword–or two ranged attacks with its longbow.<br />
-<strong>Snake Hair.</strong> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one creature. <em>Hit:</em> 4 (1d4 + 2) piercing damage plus 14 (4d6) poison damage.<br />
-<strong>Shortsword.</strong> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.<br />
-<strong>Longbow.</strong> <em>Ranged Weapon Attack:</em> +5 to hit, range 150/600 ft., one target. <em>Hit:</em> 6 (1d8 + 2) piercing damage plus 7 (2d6) poison damage.</p>
-<hr />
-<p>I put the scraped monsters in the SRD into the <code>monsters</code> data set and uploaded it to a quickly created <code>monstr</code> package. You can access the data set by installing the package with <code>devtools::install_github(&quot;mdneuzerling/monstr&quot;)</code>.</p>
-<pre class="r"><code>library(monstr)
-skimr::skim(monstr::monsters) %&gt;% skimr::kable()</code></pre>
-<p>Skim summary statistics<br />
-n obs: 317<br />
-n variables: 39</p>
-<p>Variable type: character</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">variable</th>
-<th align="left">missing</th>
-<th align="left">complete</th>
-<th align="left">n</th>
-<th align="left">min</th>
-<th align="left">max</th>
-<th align="left">empty</th>
-<th align="left">n_unique</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">ac_note</td>
-<td align="left">108</td>
-<td align="left">209</td>
-<td align="left">317</td>
-<td align="left">5</td>
-<td align="left">23</td>
-<td align="left">0</td>
-<td align="left">22</td>
-</tr>
-<tr class="even">
-<td align="left">alignment</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">7</td>
-<td align="left">40</td>
-<td align="left">0</td>
-<td align="left">16</td>
-</tr>
-<tr class="odd">
-<td align="left">description</td>
-<td align="left">274</td>
-<td align="left">43</td>
-<td align="left">317</td>
-<td align="left">96</td>
-<td align="left">654</td>
-<td align="left">0</td>
-<td align="left">43</td>
-</tr>
-<tr class="even">
-<td align="left">hp</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">3</td>
-<td align="left">11</td>
-<td align="left">0</td>
-<td align="left">168</td>
-</tr>
-<tr class="odd">
-<td align="left">languages</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">1</td>
-<td align="left">91</td>
-<td align="left">0</td>
-<td align="left">86</td>
-</tr>
-<tr class="even">
-<td align="left">name</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">3</td>
-<td align="left">25</td>
-<td align="left">0</td>
-<td align="left">317</td>
-</tr>
-<tr class="odd">
-<td align="left">senses</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">20</td>
-<td align="left">170</td>
-<td align="left">0</td>
-<td align="left">88</td>
-</tr>
-<tr class="even">
-<td align="left">size</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">4</td>
-<td align="left">10</td>
-<td align="left">0</td>
-<td align="left">6</td>
-</tr>
-<tr class="odd">
-<td align="left">speed</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">4</td>
-<td align="left">52</td>
-<td align="left">0</td>
-<td align="left">90</td>
-</tr>
-<tr class="even">
-<td align="left">type</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">3</td>
-<td align="left">30</td>
-<td align="left">0</td>
-<td align="left">35</td>
-</tr>
-</tbody>
-</table>
-<p>Variable type: list</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">variable</th>
-<th align="left">missing</th>
-<th align="left">complete</th>
-<th align="left">n</th>
-<th align="left">n_unique</th>
-<th align="left">min_length</th>
-<th align="left">median_length</th>
-<th align="left">max_length</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">actions</td>
-<td align="left">3</td>
-<td align="left">314</td>
-<td align="left">317</td>
-<td align="left">305</td>
-<td align="left">1</td>
-<td align="left">2</td>
-<td align="left">10</td>
-</tr>
-</tbody>
-</table>
-<p>Variable type: numeric</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">variable</th>
-<th align="left">missing</th>
-<th align="left">complete</th>
-<th align="left">n</th>
-<th align="left">mean</th>
-<th align="left">sd</th>
-<th align="left">p0</th>
-<th align="left">p25</th>
-<th align="left">p50</th>
-<th align="left">p75</th>
-<th align="left">p100</th>
-<th align="left">hist</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">ac</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">14.07</td>
-<td align="left">3.27</td>
-<td align="left">5</td>
-<td align="left">12</td>
-<td align="left">13</td>
-<td align="left">17</td>
-<td align="left">25</td>
-<td align="left">▁▂▇▇▃▃▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">acrobatics</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">1.12</td>
-<td align="left">1.64</td>
-<td align="left">-5</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">2</td>
-<td align="left">9</td>
-<td align="left">▁▁▆▇▂▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">animal_handling</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">0.66</td>
-<td align="left">1.49</td>
-<td align="left">-5</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">1</td>
-<td align="left">7</td>
-<td align="left">▁▁▁▇▂▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">arcana</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">-1.07</td>
-<td align="left">3.46</td>
-<td align="left">-5</td>
-<td align="left">-4</td>
-<td align="left">-2</td>
-<td align="left">1</td>
-<td align="left">18</td>
-<td align="left">▇▆▃▁▁▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">athletics</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">2.55</td>
-<td align="left">3.48</td>
-<td align="left">-5</td>
-<td align="left">0</td>
-<td align="left">3</td>
-<td align="left">4</td>
-<td align="left">14</td>
-<td align="left">▂▂▇▇▃▂▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">cha</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">9.79</td>
-<td align="left">5.76</td>
-<td align="left">0</td>
-<td align="left">5</td>
-<td align="left">8</td>
-<td align="left">14</td>
-<td align="left">30</td>
-<td align="left">▃▇▅▃▂▂▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">con</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">15.16</td>
-<td align="left">4.5</td>
-<td align="left">8</td>
-<td align="left">12</td>
-<td align="left">14</td>
-<td align="left">18</td>
-<td align="left">30</td>
-<td align="left">▃▇▇▃▂▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">cr</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">4.6</td>
-<td align="left">5.91</td>
-<td align="left">0</td>
-<td align="left">0.5</td>
-<td align="left">2</td>
-<td align="left">6</td>
-<td align="left">30</td>
-<td align="left">▇▂▁▁▁▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">deception</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">-0.11</td>
-<td align="left">3.37</td>
-<td align="left">-5</td>
-<td align="left">-3</td>
-<td align="left">-1</td>
-<td align="left">2</td>
-<td align="left">11</td>
-<td align="left">▇▇▅▃▃▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">dex</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">12.61</td>
-<td align="left">3.22</td>
-<td align="left">1</td>
-<td align="left">10</td>
-<td align="left">13</td>
-<td align="left">15</td>
-<td align="left">28</td>
-<td align="left">▁▁▇▇▆▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">history</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">-1.05</td>
-<td align="left">3.46</td>
-<td align="left">-5</td>
-<td align="left">-4</td>
-<td align="left">-2</td>
-<td align="left">1</td>
-<td align="left">13</td>
-<td align="left">▇▃▅▂▁▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">hp_avg</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">82.31</td>
-<td align="left">99.88</td>
-<td align="left">1</td>
-<td align="left">18</td>
-<td align="left">45</td>
-<td align="left">114</td>
-<td align="left">676</td>
-<td align="left">▇▂▁▁▁▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">insight</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">0.95</td>
-<td align="left">2.12</td>
-<td align="left">-5</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">1</td>
-<td align="left">10</td>
-<td align="left">▁▁▇▇▂▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">int</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">7.86</td>
-<td align="left">5.69</td>
-<td align="left">1</td>
-<td align="left">2</td>
-<td align="left">7</td>
-<td align="left">12</td>
-<td align="left">25</td>
-<td align="left">▇▃▃▃▂▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">intimidation</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">-0.35</td>
-<td align="left">2.94</td>
-<td align="left">-5</td>
-<td align="left">-3</td>
-<td align="left">-1</td>
-<td align="left">2</td>
-<td align="left">10</td>
-<td align="left">▃▇▅▅▃▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">investigation</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">-1.26</td>
-<td align="left">2.94</td>
-<td align="left">-5</td>
-<td align="left">-4</td>
-<td align="left">-2</td>
-<td align="left">1</td>
-<td align="left">7</td>
-<td align="left">▇▃▁▅▁▂▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">medicine</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">0.68</td>
-<td align="left">1.55</td>
-<td align="left">-5</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">1</td>
-<td align="left">7</td>
-<td align="left">▁▁▁▇▂▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">nature</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">-1.26</td>
-<td align="left">2.93</td>
-<td align="left">-5</td>
-<td align="left">-4</td>
-<td align="left">-2</td>
-<td align="left">1</td>
-<td align="left">7</td>
-<td align="left">▇▃▁▅▁▂▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">perception</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">2.87</td>
-<td align="left">4.02</td>
-<td align="left">-5</td>
-<td align="left">0</td>
-<td align="left">2</td>
-<td align="left">4</td>
-<td align="left">17</td>
-<td align="left">▁▇▇▅▁▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">performance</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">-0.36</td>
-<td align="left">2.94</td>
-<td align="left">-5</td>
-<td align="left">-3</td>
-<td align="left">-1</td>
-<td align="left">2</td>
-<td align="left">10</td>
-<td align="left">▃▇▅▃▃▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">persuasion</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">-0.19</td>
-<td align="left">3.34</td>
-<td align="left">-5</td>
-<td align="left">-3</td>
-<td align="left">-1</td>
-<td align="left">2</td>
-<td align="left">16</td>
-<td align="left">▆▇▃▃▁▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">religion</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">-1.18</td>
-<td align="left">3.12</td>
-<td align="left">-5</td>
-<td align="left">-4</td>
-<td align="left">-2</td>
-<td align="left">1</td>
-<td align="left">15</td>
-<td align="left">▇▆▃▂▁▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">sleight_of_hand</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">1.11</td>
-<td align="left">1.62</td>
-<td align="left">-5</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">2</td>
-<td align="left">9</td>
-<td align="left">▁▁▆▇▂▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">stealth</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">2.3</td>
-<td align="left">2.56</td>
-<td align="left">-5</td>
-<td align="left">0</td>
-<td align="left">2</td>
-<td align="left">4</td>
-<td align="left">10</td>
-<td align="left">▁▁▆▇▆▃▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">str</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">15.34</td>
-<td align="left">6.63</td>
-<td align="left">1</td>
-<td align="left">11</td>
-<td align="left">16</td>
-<td align="left">19</td>
-<td align="left">30</td>
-<td align="left">▂▂▂▅▇▂▂▂</td>
-</tr>
-<tr class="even">
-<td align="left">survival</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">0.7</td>
-<td align="left">1.54</td>
-<td align="left">-5</td>
-<td align="left">0</td>
-<td align="left">1</td>
-<td align="left">1</td>
-<td align="left">7</td>
-<td align="left">▁▁▁▇▂▁▁▁</td>
-</tr>
-<tr class="odd">
-<td align="left">wis</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">11.72</td>
-<td align="left">2.98</td>
-<td align="left">0</td>
-<td align="left">10</td>
-<td align="left">12</td>
-<td align="left">13</td>
-<td align="left">25</td>
-<td align="left">▁▁▁▇▃▁▁▁</td>
-</tr>
-<tr class="even">
-<td align="left">xp</td>
-<td align="left">0</td>
-<td align="left">317</td>
-<td align="left">317</td>
-<td align="left">4275.3</td>
-<td align="left">12436.13</td>
-<td align="left">0</td>
-<td align="left">100</td>
-<td align="left">450</td>
-<td align="left">2300</td>
-<td align="left">155000</td>
-<td align="left">▇▁▁▁▁▁▁▁</td>
-</tr>
-</tbody>
-</table>
-<p>Because it’s an R crime to introduce a new data set without a ggplot, here we can see the relationship between strength and constritution, faceted by monster size:</p>
-<pre class="r"><code>monsters %&gt;% 
-    ggplot(aes(x = str, y = con)) + 
-    geom_point() + 
-    facet_wrap(. ~ size, nrow = 2)</code></pre>
-<p><img src="/post/2018-09-02-markdown-monsters_files/figure-html/monster_ggplot-1.png" width="672" /></p>
-<p>One note before we go on: “monster” is a generic term. This data set contains bandits which, while of questionable moral character, are not necessarily monstrous. You can also find a simple frog in this data set, capable of nothing more than a ribbit. We refer to them all as “monsters”, perhaps unfairly!</p>
+    <p>If you listen to university advertisements for data science masters degrees, you’d believe that data scientists are so in-demand that they can walk into any company, state their salary, and start work straight away.</p>
+<p>Not quite.</p>
+<p>Interviewing for data science positions is tough, and job-seekers face some bad behaviour from recruiters and hiring managers. Many companies understand that they need to do <em>something</em> with data, but they don’t know what. They’ll say they want machine learning when they really want a few dashboards. I’ve fallen for it.</p>
+<p>I’m going to put some advice here for anyone about to face the same job market. This is lifted from my own experience, when I was looking for a job a while back.</p>
+<p>A few notes about where I was at when I was hunting for this job, in case your circumstances are different: This wasn’t my first job, and I understand that fresh graduates can’t afford to be as selective as I was. I was specifically looking for something with a machine learning focus. And keep in mind that everything here is written from an Australian perspective.</p>
+<div id="advice-for-job-seekers" class="section level1">
+<h1>Advice for job-seekers</h1>
+<div id="verify-the-position-description" class="section level3">
+<h3>Verify the position description</h3>
+<p>Simply put, make sure that the job that was advertised is the job that you’re interviewing for.</p>
+<p>Companies understand that they need to do <em>something</em> with data. Machine learning, R, Python, etc. are trendy right now, so sometimes they put these terms into their job requirements without really understanding why. You need to cut through this.</p>
+<p>I was once grilled in a phone interview for 20 minutes over my knowledge of random forests and modelling in R. After all that I asked how R or machine learning would be used in the role. Not at all! It turns out the company wanted a candidate with the <em>capacity</em> to train a model, but they didn’t think it was important that those skills were actually <em>used</em>.</p>
+<p>Ask some simple questions to test if the position description is genuine. If the advertisement mentions R/Python, ask how R/Python is <em>currently</em> used in the team. If the advertisement talks about “advanced analytics” or “machine learning”, ask what machine learning models are <em>currently</em> in production.</p>
 </div>
-<div id="scraping-line-by-line" class="section level2">
-<h2>Scraping line-by-line</h2>
-<p>Let’s take the Medusa <code>monster</code> above, loaded as a single string. I’m going to make life easier for myself by separating the string into lines. At first I tried to do this myself with <code>strsplit</code>, but please take my advice: use the <code>stringi</code> package. You’ll notice that I turn the resulting list into a single-column tibble. I won’t lie: I find manipulating lists directly difficult, so being able to use <code>dplyr</code> verbs makes me happy. I’m also going to remove the italics (represented in markdown by underscores) since I won’t need them here.</p>
-<pre class="r"><code>lines &lt;- monster %&gt;% 
-        stringi::stri_split_lines(omit_empty = TRUE) %&gt;% 
-        unlist %&gt;% 
-        as_tibble %&gt;% # much easier to deal with than lists
-        mutate_all(trimws) %&gt;% 
-        mutate_all(function(x) gsub(&quot;_&quot;, &quot;&quot;, x)) # remove italics
-print(lines, n = nrow(lines))</code></pre>
-<pre><code>## # A tibble: 23 x 1
-##    value                                                                   
-##    &lt;chr&gt;                                                                   
-##  1 name: Medusa                                                            
-##  2 type: monstrosity                                                       
-##  3 cr: 6                                                                   
-##  4 # Medusa                                                                
-##  5 Medium monstrosity, lawful evil                                         
-##  6 **Armor Class** 15 (natural armor)                                      
-##  7 **Hit Points** 127 (17d8 + 51)                                          
-##  8 **Speed** 30 ft.                                                        
-##  9 | STR     | DEX     | CON     | INT     | WIS     | CHA     |           
-## 10 |---------|---------|---------|---------|---------|---------|           
-## 11 | 10 (+0) | 15 (+2) | 16 (+3) | 12 (+1) | 13 (+1) | 15 (+2) |           
-## 12 **Skills** Deception +5, Insight +4, Perception +4, Stealth +5          
-## 13 **Senses** darkvision 60 ft., passive Perception 14                     
-## 14 **Languages** Common                                                    
-## 15 **Challenge** 6 (2,300 XP)                                              
-## 16 **Petrifying Gaze.** When a creature that can see the medusa&#39;s eyes sta…
-## 17 Unless surprised, a creature can avert its eyes to avoid the saving thr…
-## 18 If the medusa sees itself reflected on a polished surface within 30 fee…
-## 19 ### Actions                                                             
-## 20 **Multiattack.** The medusa makes either three melee attacks--one with …
-## 21 **Snake Hair.** Melee Weapon Attack: +5 to hit, reach 5 ft., one creatu…
-## 22 **Shortsword.** Melee Weapon Attack: +5 to hit, reach 5 ft., one target…
-## 23 **Longbow.** Ranged Weapon Attack: +5 to hit, range 150/600 ft., one ta…</code></pre>
+<div id="focus-on-what-the-team-is-doing-now-not-their-aspirations" class="section level3">
+<h3>Focus on what the team is doing now, not their aspirations</h3>
+<p>Aspirations are good—you wouldn’t want to work for a team without them. But while you’re waiting for your new team to meet those aspirations your skills are stagnating. This is especially true when talking about machine learning.</p>
+<p>Introducing the first machine learning model to an organisation is a huge task. It takes time, and during that time you may not be doing the job you were hired to do. If the implementation of machine learning fails or if there’s a restructure and you’re moved to a different team, those aspirations won’t mean anything.</p>
+<p>Make sure that your skills and goals align with the team as it exists now. If your next role must include machine learning, ask about machine learning models currently in use. Listen for phrases like “we’re getting into” and “we’re hoping to start doing”. Don’t let them sell you a dream.</p>
+<p>There’s an exception here if the team you’re joining is being spun up solely to focus on machine learning. Otherwise, watch out for the word “transformation”.</p>
 </div>
-<div id="scraping-monster-name-type-and-cr" class="section level2">
-<h2>Scraping monster name, type and CR</h2>
-<p>The wonderful thing about these markdown files is that they have a nifty couple of lines up the top listing the name, type and challenge rating (cr) of the monster. These are marked by headings with colons, so we’ll define a function to extract the data based on that.</p>
-<pre class="r"><code>extract_from_colon_heading &lt;- function(lines, heading) {
-    lines %&gt;% 
-        filter(grepl(paste0(heading, &quot;:&quot;), value)) %&gt;% 
-        gsub(paste0(heading, &quot;:&quot;), &quot;&quot;, .) %&gt;% 
-        as.character %&gt;% 
-        trimws
-}
-
-c(
-    extract_from_colon_heading(lines, &quot;name&quot;),
-    extract_from_colon_heading(lines, &quot;type&quot;),
-    extract_from_colon_heading(lines, &quot;cr&quot;)
-)</code></pre>
-<pre><code>## [1] &quot;Medusa&quot;      &quot;monstrosity&quot; &quot;6&quot;</code></pre>
-<p>I should offer some explanations for those new to D&amp;D! The “type” of a monster is a category like beast, undead or—in the case of the Medusa—monstrosity. The challenge rating is a rough measure of difficulty. The Medusa has a challenge rating of 6, so is a suitable encounter for 4 players with characters of level 6. Characters begin at level 1 and move up to level 20 (if the campaign lasts that long).</p>
-</div>
-<div id="scraping-based-on-bold-text" class="section level2">
-<h2>Scraping based on bold text</h2>
-<p>Most of the information we need is labelled by bold text, represented in markdown by double asterisks. We’ll define three functions:</p>
-<ol style="list-style-type: decimal">
-<li><code>identify_bold_text</code> looks for a given <code>bold_text</code> in a string <code>x</code>, and returns a Boolean value.</li>
-<li><code>strip_bold_text</code> removes <em>all</em> bolded text from a string <code>x</code>, and trims white space from either end of the result.</li>
-<li><code>extract_from_bold_text</code> looks through a list of lines (like the <code>lines</code> defined above) for a particular <code>bold_text</code>. It will return all text in the string <em>except</em> the <code>bold_text</code>. This function uses the two above.</li>
-</ol>
-<pre class="r"><code>identify_bold_text &lt;- function(x, bold_text) {
-    grepl(paste0(&quot;\\*\\*&quot;, bold_text, &quot;\\*\\*&quot;), x, ignore.case = TRUE)
-}
-
-strip_bold_text &lt;- function(x) {
-    gsub(&quot;\\*\\*(.*?)\\*\\*&quot;, &quot;&quot;, x, ignore.case = TRUE) %&gt;% trimws
-}
-
-extract_from_bold_text &lt;- function(lines, bold_text) {
-    lines %&gt;% 
-        filter(identify_bold_text(value, bold_text)) %&gt;% 
-        as.character %&gt;% 
-        strip_bold_text
-}
-
-extract_from_bold_text(lines, &quot;Languages&quot;)</code></pre>
-<pre><code>## [1] &quot;Common&quot;</code></pre>
-</div>
-<div id="scraping-based-on-brackets" class="section level2">
-<h2>Scraping based on brackets</h2>
-<p>Some of the data we need is found in bracketed information. The <code>extract_bracketed</code> function returns all text inside the first set of brackets found in a string <code>x</code>, or returns <code>NA</code> if no bracketed text is found.</p>
-<pre class="r"><code>extract_bracketed &lt;- function(x) {
-    if (!grepl(&quot;\\(.*\\)&quot;, x)) {
-        return(NA)
-    } else {
-        gsub(&quot;.*\\((.*?)\\).*&quot;, &quot;\\1&quot;, x)
-    }
-}
-
-lines %&gt;% extract_from_bold_text(&quot;Armor Class&quot;) %&gt;% extract_bracketed</code></pre>
-<pre><code>## [1] &quot;natural armor&quot;</code></pre>
-<p>A monster’s armor class (AC) determines how hard it is to hit the creature with a weapon or certain spells. The Medusa has an AC of 15. To attack the Medusa, a player will roll a 20-sided die (d20) and add certain modifiers based on their character’s skills and proficiencies. If the result is at least 15, the attack hits. The “natural armor” note means that the Medusa’s armor class is provided by thickened skin or scales, and not a separate piece of armour.</p>
-</div>
-<div id="abilities" class="section level2">
-<h2>Abilities</h2>
-<p>Player characters and monsters in D&amp;D have six ability scores that influence almost everything that they do: strength, dexterity, constitution, intelligence, wisdom and charisma. These abilities are represented by numeric scores that usually (but not always) fall between 10 and 20, with 10 being “average” and 20 being superb.</p>
-<p>In the markdown files, these ability scores are tables. We look for the table header and find the ability scores two rows below.</p>
-<pre class="r"><code>ability_header &lt;- min(which(grepl(&quot;\\| STR&quot;, lines$value), arr.ind = TRUE))
-ability_text &lt;- lines$value[ability_header + 2]
-ability_vector &lt;- ability_text %&gt;% strsplit(&quot;\\|&quot;) %&gt;% unlist
-monster_ability &lt;- readr::parse_number(ability_vector[!(ability_vector == &quot;&quot;)])
-names(monster_ability) &lt;- c(&quot;STR&quot;, &quot;DEX&quot;, &quot;CON&quot;, &quot;INT&quot;, &quot;WIS&quot;, &quot;CHA&quot;)
-monster_ability    </code></pre>
-<pre><code>## STR DEX CON INT WIS CHA 
-##  10  15  16  12  13  15</code></pre>
-</div>
-<div id="skills" class="section level2">
-<h2>Skills</h2>
-<p>Skills represent the monster’s ability to perform activities. There are 18 skills, and each skill is associated with one of the 6 ability scores.</p>
-<pre class="r"><code>skill_ability &lt;- tribble(
-~skill, ~ability_code_upper,
-#-------|------------------
-&quot;athletics&quot;, &quot;STR&quot;,
-&quot;acrobatics&quot;, &quot;DEX&quot;,
-&quot;sleight_of_hand&quot;, &quot;DEX&quot;,
-&quot;stealth&quot;, &quot;DEX&quot;,
-&quot;arcana&quot;, &quot;INT&quot;,
-&quot;history&quot;, &quot;INT&quot;,
-&quot;investigation&quot;, &quot;INT&quot;,
-&quot;nature&quot;, &quot;INT&quot;,
-&quot;religion&quot;, &quot;INT&quot;,
-&quot;animal_handling&quot;, &quot;WIS&quot;,
-&quot;insight&quot;, &quot;WIS&quot;,
-&quot;medicine&quot;, &quot;WIS&quot;,
-&quot;perception&quot;, &quot;WIS&quot;,
-&quot;survival&quot;, &quot;WIS&quot;,
-&quot;deception&quot;, &quot;CHA&quot;,
-&quot;intimidation&quot;, &quot;CHA&quot;,
-&quot;performance&quot;, &quot;CHA&quot;,
-&quot;persuasion&quot;, &quot;CHA&quot;,
-)</code></pre>
-<p>All skills begin with a roll of a d20 for an element of chance. Modifiers, which can be negative, are then added to the result to determine how well the monster did. The Medusa has a +5 bonus to Deception, which would be added to the roll.</p>
-<p>If a skill isn’t listed in the Medusa’s stat block, she can still use it. In this case, she would rely instead on her ability scores. For example, the Medusa isn’t trained in acrobatics, but her high dexterity would give her a slight advantage nevertheless.</p>
-<p>Modifiers can be calculated from ability scores with a simple formula, defined below. Note that modifiers can be negative. Zombies, for example, are not known for their high intelligence, and have a history modifier of -4.</p>
-<pre class="r"><code>modifier &lt;- function(x) {
-    floor((x - 10) / 2)
-}
-
-monster_modifiers &lt;- monster_ability %&gt;% 
-    as.list %&gt;% # preserves list names as column names
-    as_tibble %&gt;% 
-    mutate_all(modifier) %&gt;% # convert raw ability to modifiers
-    gather(key = ability_code_upper, value = modifier) # convert to long
-monster_modifiers</code></pre>
-<pre><code>## # A tibble: 6 x 2
-##   ability_code_upper modifier
-##   &lt;chr&gt;                 &lt;dbl&gt;
-## 1 STR                       0
-## 2 DEX                       2
-## 3 CON                       3
-## 4 INT                       1
-## 5 WIS                       1
-## 6 CHA                       2</code></pre>
-<p>We’re going to list every skill modifier for each monster. We start with the <code>base_skills</code>, determined solely by the monster’s ability scores.</p>
-<pre class="r"><code>base_skills &lt;- skill_ability %&gt;% 
-    left_join(monster_modifiers, by = &quot;ability_code_upper&quot;) %&gt;% 
-    select(skill, modifier)
-head(base_skills, 6)</code></pre>
-<pre><code>## # A tibble: 6 x 2
-##   skill           modifier
-##   &lt;chr&gt;              &lt;dbl&gt;
-## 1 athletics              0
-## 2 acrobatics             2
-## 3 sleight_of_hand        2
-## 4 stealth                2
-## 5 arcana                 1
-## 6 history                1</code></pre>
-<p>Now we find the <code>listed_skills</code>, which are those explicitly provided in the markdown. We use the <code>extract_from_bold_text</code> function, and split the resulting line along the commas into a vector. The words in an element name the skill, while the number gives the modifier.</p>
-<p>This chain of piped functions has a peculiar <code>unlist %&gt;% as.list</code>, which seems to be necessary to preserve the vector names. I’d love to do without this code, since it seems very ugly!</p>
-<pre class="r"><code>listed_skills &lt;- lines %&gt;% 
-    extract_from_bold_text(&quot;Skills&quot;) %&gt;% 
-    strsplit(&quot;, &quot;) %&gt;% 
-        unlist %&gt;%  
-        lapply(function(x) {
-            skill_name &lt;- word(x)
-            skill_modifier &lt;- c(readr::parse_number(x))
-            names(skill_modifier) &lt;- tolower(skill_name)
-            skill_modifier
-        }) %&gt;% 
-        unlist %&gt;% # This is 
-        as.list %&gt;% # so weird
-        as_tibble %&gt;% 
-        gather(key = skill, value = modifier) %&gt;% 
-        mutate(skill = gsub(&quot; &quot;, &quot;_&quot;, skill)) # keep naming conventions (underscores)
-listed_skills</code></pre>
-<pre><code>## # A tibble: 4 x 2
-##   skill      modifier
-##   &lt;chr&gt;         &lt;dbl&gt;
-## 1 deception         5
-## 2 insight           4
-## 3 perception        4
-## 4 stealth           5</code></pre>
-<p>Finally, we combine <code>listed_skills</code> and <code>base_skills</code>, allowing listed skills to override base skills.</p>
-<pre class="r"><code>monster_skills &lt;- if (length(listed_skills) == 0) {
-    base_skills
-} else {
-    listed_skills %&gt;% rbind(
-        anti_join(base_skills, listed_skills, by = &quot;skill&quot;)
-    )
-}
-monster_skills &lt;- monster_skills[match(base_skills$skill, monster_skills$skill),] # maintain skill order
-head(monster_skills, 6)</code></pre>
-<pre><code>## # A tibble: 6 x 2
-##   skill           modifier
-##   &lt;chr&gt;              &lt;dbl&gt;
-## 1 athletics              0
-## 2 acrobatics             2
-## 3 sleight_of_hand        2
-## 4 stealth                5
-## 5 arcana                 1
-## 6 history                1</code></pre>
-</div>
-<div id="monster-actions" class="section level2">
-<h2>Monster actions</h2>
-<p>Actions are are a tough one. Take a look at the last 5 lines of the markdown:</p>
-<pre class="r"><code>tail(lines, 5)</code></pre>
-<pre><code>## # A tibble: 5 x 1
-##   value                                                                    
-##   &lt;chr&gt;                                                                    
-## 1 ### Actions                                                              
-## 2 **Multiattack.** The medusa makes either three melee attacks--one with i…
-## 3 **Snake Hair.** Melee Weapon Attack: +5 to hit, reach 5 ft., one creatur…
-## 4 **Shortsword.** Melee Weapon Attack: +5 to hit, reach 5 ft., one target.…
-## 5 **Longbow.** Ranged Weapon Attack: +5 to hit, range 150/600 ft., one tar…</code></pre>
-<p>We’re going to look for an actions h3 heading (three hashes) “Actions”. The lines that correspond to actions begin after this <code>### Actions</code> line. The last action is determined by finding either:</p>
-<ol style="list-style-type: decimal">
-<li>the line before the next h3 heading or, failing that,</li>
-<li>the last line.</li>
-</ol>
-<p>We then have a list of lines that correspond to monster actions. We’re going to turn these lines into a named vector, in which the name of the action (taken from the bold text) corresponds to the action text.</p>
-<pre class="r"><code>header_rows &lt;- which(grepl(&quot;###&quot;, lines$value), arr.ind = TRUE)
-    actions_header_row &lt;- which(lines == &quot;### Actions&quot;, arr.ind = TRUE)[,&quot;row&quot;]
-    if (length(actions_header_row) == 0) { # This monster has no actions
-        monster_actions &lt;- NA
-    } else {
-        if (max(header_rows) == actions_header_row) {
-            last_action = nrow(lines) # in this case, the actions are the last lines
-        } else {
-            last_action &lt;-  min(header_rows[header_rows &gt; actions_header_row]) - 1 # the row before the heading that comes after ### Actions
-        }
-        action_rows &lt;-  seq(actions_header_row + 1, last_action)
-        monster_actions &lt;- lines$value[action_rows]
-        monster_actions &lt;- monster_actions %&gt;% purrr::map(function(x) {
-            action_name &lt;- gsub(&quot;.*\\*\\*(.*?)\\.\\*\\*.*&quot;, &quot;\\1&quot;, x)
-            action &lt;- x %&gt;% strip_bold_text %&gt;% trimws
-            names(action) &lt;- action_name
-            action
-        }) %&gt;% purrr::reduce(c)
-    }
-monster_actions</code></pre>
-<pre><code>##                                                                                                                                 Multiattack 
-## &quot;The medusa makes either three melee attacks--one with its snake hair and two with its shortsword--or two ranged attacks with its longbow.&quot; 
-##                                                                                                                                  Snake Hair 
-##                  &quot;Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 4 (1d4 + 2) piercing damage plus 14 (4d6) poison damage.&quot; 
-##                                                                                                                                  Shortsword 
-##                                                &quot;Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.&quot; 
-##                                                                                                                                     Longbow 
-##              &quot;Ranged Weapon Attack: +5 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage plus 7 (2d6) poison damage.&quot;</code></pre>
-</div>
-<div id="putting-it-all-together" class="section level2">
-<h2>Putting it all together</h2>
-<p>We can now put everything together into a single-row tibble:</p>
-<pre class="r"><code>tibble(
-    name = lines %&gt;% extract_from_colon_heading(&quot;name&quot;),
-    type = lines %&gt;% extract_from_colon_heading(&quot;type&quot;),
-    cr = lines %&gt;% extract_from_colon_heading(&quot;cr&quot;) %&gt;% as.numeric,
-    xp = lines %&gt;% extract_from_bold_text(&quot;challenge&quot;) %&gt;% extract_bracketed %&gt;% readr::parse_number(),
-    ac = lines %&gt;% extract_from_bold_text(&quot;Armor Class&quot;) %&gt;% readr::parse_number(),
-    ac_note = lines %&gt;% extract_from_bold_text(&quot;Armor Class&quot;) %&gt;% extract_bracketed,
-    hp_avg = lines %&gt;% extract_from_bold_text(&quot;Hit Points&quot;) %&gt;% readr::parse_number(),
-    hp = lines %&gt;% extract_from_bold_text(&quot;Hit Points&quot;) %&gt;% extract_bracketed,
-    str = monster_ability[&quot;STR&quot;],
-    dex = monster_ability[&quot;DEX&quot;],
-    con = monster_ability[&quot;CON&quot;],
-    int = monster_ability[&quot;INT&quot;],
-    wis = monster_ability[&quot;WIS&quot;],
-    cha = monster_ability[&quot;CHA&quot;],
-    senses = lines %&gt;% extract_from_bold_text(&quot;Senses&quot;),
-    languages = lines %&gt;% extract_from_bold_text(&quot;Languages&quot;),
-    speed = lines %&gt;% extract_from_bold_text(&quot;Speed&quot;),
-    actions = monster_actions %&gt;% list
-    ) %&gt;% 
-    cbind(spread(monster_skills, skill, modifier)) %&gt;% 
-    as_tibble</code></pre>
-<pre><code>## # A tibble: 1 x 36
-##   name  type     cr    xp    ac ac_note hp_avg hp      str   dex   con
-##   &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 Medu… mons…     6  2300    15 natura…    127 17d8…    10    15    16
-## # ... with 25 more variables: int &lt;dbl&gt;, wis &lt;dbl&gt;, cha &lt;dbl&gt;,
-## #   senses &lt;chr&gt;, languages &lt;chr&gt;, speed &lt;chr&gt;, actions &lt;list&gt;,
-## #   acrobatics &lt;dbl&gt;, animal_handling &lt;dbl&gt;, arcana &lt;dbl&gt;,
-## #   athletics &lt;dbl&gt;, deception &lt;dbl&gt;, history &lt;dbl&gt;, insight &lt;dbl&gt;,
-## #   intimidation &lt;dbl&gt;, investigation &lt;dbl&gt;, medicine &lt;dbl&gt;, nature &lt;dbl&gt;,
-## #   perception &lt;dbl&gt;, performance &lt;dbl&gt;, persuasion &lt;dbl&gt;, religion &lt;dbl&gt;,
-## #   sleight_of_hand &lt;dbl&gt;, stealth &lt;dbl&gt;, survival &lt;dbl&gt;</code></pre>
-<p>There are a few more fields that I haven’t covered here (size, alignment and description, for example). I’ve put the full version of the <code>parse_monster.R</code> script in a <a href="https://gist.github.com/mdneuzerling/1a70a2da97300c478186aba226053595">gist</a>.</p>
-<p>Of course, this is how to parse just one monster. Fortunately, the <code>purrr</code> package exists. Here’s how to scrape every monster:</p>
-<ol style="list-style-type: decimal">
-<li>Clone <a href="https://github.com/vitusventure/5thSRD">vitusventure’s 5th edition SRD repository</a></li>
-<li>Set the <code>/docs/gamemaster_rules/monsters</code> directory to a variable <code>monster_dir</code></li>
-<li>Run the following code:</li>
-</ol>
-<pre class="r"><code>monsters &lt;- list.files(monster_dir, full.names = TRUE) %&gt;% 
-    purrr::map(function(x) readChar(x, file.info(x)$size)) %&gt;% # read files as strings
-    purrr::map(parse_monster) %&gt;% 
-    purrr::reduce(rbind)</code></pre>
-</div>
-<div id="whats-next" class="section level2">
-<h2>What’s next</h2>
-<p>A few things are missing here:</p>
+<div id="make-sure-the-team-can-scope-analytics-work" class="section level3">
+<h3>Make sure the team can scope analytics work</h3>
+<p>Analytics teams are inundated with ad hoc requests, and these don’t always produce something of substantial value. Some people want cost-benefit analyses, a dashboard to track a metric, or a new report to send up the chain. It takes a talented data professional supported by a strong people leader to sort through these requests and decide what does and doesn’t have value.</p>
+<p>A bad team will treat this as a prioritisation problem—every request has to be honoured, it’s just a matter of working out when. A good team will ask the right questions to determine if there’s any value to the task, and <strong>reject</strong> the task if it’s low-value. You want to make sure the team you’re going to work for is capable of this.</p>
+<p>You won’t know for sure until you start working there, but here are some things to think about in the interview:</p>
 <ul>
-<li>Damage/condition immunities and resistances are not being scraped.</li>
-<li>Monster traits, such as the ability to breathe underwater, are not being scraped. I think this is a matter of finding any bold heading that isn’t “standard” and treating it as a trait.</li>
-<li>Some monsters have complicated armor classes. For example, the werewolf has an AC of “11 in humanoid form, 12 (natural armor) in wolf or hybrid form”. This doesn’t fit the template of <code>ac</code> and <code>ac_note</code>.</li>
+<li>How does the team value a piece of analytics work? What questions do they ask their stakeholders to determine this?</li>
+<li>When a team receives a piece of ad hoc work, where does it go? Is there a backlog, or some sort of sprint planning?</li>
+<li>Ask the team to estimate what proportion of their work is spent on <em>long-term</em> projects.</li>
+<li>How does the team push back on ad hoc work from a superior?</li>
 </ul>
-<p>I’d like to incorporate the spells in the SRD, as well as some basic mechanics. Imagine being able to generate an encounter in R according to a specific party level!</p>
 </div>
-<div id="sources" class="section level2">
-<h2>Sources</h2>
-<p>The Medusa and all Dungeons and Dragons 5th edition mechanics are available in the <a href="https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf">Systems Reference Document under the Open Gaming License Version 1.0a</a>. The <code>monsters</code> data set in the <code>monstr</code> package is available under the same license.</p>
+<div id="watch-out-for-combination-jobs" class="section level3">
+<h3>Watch out for combination jobs</h3>
+<p>Job advertisements for “Data Scientist/Data Engineer” or “Data Scientist/Software Developer” stick out as red flags. These are indicators that a company doesn’t know what they want in a candidate, so they’re hoping to hire a single person to do “all things data”.</p>
+<p>Obviously there’s an exception here for small companies for whom specialisation is a luxury. But any moderately sized company serious about data should be building a team of complementary skills, rather than trying to hire an “all-in-one” candidate.</p>
+<p>A word of advice to companies out there who think they need to take this approach to hiring: work out which part of the job is more important, and move the other part to the body of the advertisement. Rather than a “Data Scientist/Software Developer”, advertise for a Data Scientist, but point out that some software development experience would be viewed favourably. Bonus points if you can explain why those skills matter for the role!</p>
+<p>I can’t imagine that there are too many people out there who can confidently bill themselves as experienced data scientists and experienced software developers. I hope they’re paid well.</p>
 </div>
+<div id="respect-yourself" class="section level3">
+<h3>Respect yourself</h3>
+<p>Some companies forget that recruitment is a two-sided process. Faced with more candidates than time, they can implement hiring practices that range from pointless to demeaning, or even downright illegal. I experienced:</p>
+<ul>
+<li>Pre-recorded video interviews, in which I was asked to record my answer to a question and send it in to be reviewed later.</li>
+<li>One-hour handwritten exams, in which I was asked to write code and even specify a logistic regression from memory.</li>
+<li>Questions about my “family situation”.</li>
+</ul>
+<p><strong>In each of these situations I walked away from the role</strong>. But I was in a position in which I could walk away. If you’ve got rent to pay then you may have to subject yourself to bad hiring practices, and you shouldn’t be shamed for that.</p>
+<p>Some advice to employers: handwritten code tests are only acceptable if handwritten code is a big part of the role. Handwritten code should never be a big part of the role, so handwritten code tests are never acceptable.</p>
+</div>
+</div>
+<div id="there-are-some-great-companies-out-there" class="section level1">
+<h1>There are some great companies out there</h1>
+<p>Don’t think that it’s all bad. Some companies out there are doing truly amazing stuff with data. Some of the projects I heard were innovative, interesting, and not evil!</p>
+<p>The good jobs are out there. After all, I’ve got one now!</p>
+</div>
+<div id="the-alluvial-graph" class="section level1">
+<h1>The alluvial graph</h1>
+<p>The graph at the top of this post is real data from my job hunt. You can track each application from its source to its outcome. “Ghosted” means that I received no response from the company. I strongly recommend some sort of tracking tool for your own job hunt—it’s therapeutic.</p>
+<p>If you’d like to reproduce the graph above for your own job hunt, the code is below, and the (censored) data is available <a href="/data/job_outcomes.csv">here</a>.</p>
+<pre class="r"><code>library(tidyverse)
+library(ggalluvial)
+
+# Colours by Dr. Katie Lotterhos
+# http://dr-k-lo.blogspot.com/2013/07/a-color-blind-friendly-palette-for-r.html
+
+&quot;job_outcomes.csv&quot; %&gt;% 
+    read_csv %&gt;%
+    mutate(final_outcome = coalesce(outcome, `2nd stage`, `1st stage`)) %&gt;% 
+    to_lodes(key = &quot;contact&quot;, axes = 2:5) %&gt;% 
+    ggplot(aes(x = contact, stratum = stratum,
+                  alluvium = alluvium, label = stratum)) + 
+    geom_alluvium(aes(fill = final_outcome), color = &quot;darkgrey&quot;, na.rm = TRUE) +
+    geom_stratum(na.rm = TRUE) +
+    geom_text(stat = &quot;stratum&quot;, na.rm = TRUE, size = 12 * 0.352778) + # convert pt to mm
+    theme(
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        text = element_text(size = 16)
+    ) +
+    xlab(NULL) +
+    labs(fill = &quot;final outcome&quot;) + # legend title 
+    scale_fill_manual(values = c(
+        &quot;ghosted&quot; = &quot;#F0E442&quot;,
+        &quot;no role&quot; = &quot;#CC79A7&quot;,
+        &quot;withdrew&quot; = &quot;#0072B2&quot;,
+        &quot;rejected&quot; = &quot;#D55E00&quot;,
+        &quot;offer&quot; = &quot;#009E73&quot;
+    )) </code></pre>
 </div>
 
   </div>
@@ -1469,9 +612,6 @@ monster_actions</code></pre>
     <ul class="stats">
   <li class="categories">
     <ul>
-        
-            
-            
         
     </ul>
   </li>
@@ -1486,7 +626,7 @@ monster_actions</code></pre>
                 <li><a class="article-category-link" href="/tags/r">R</a></li>
                 
                 
-                <li><a class="article-category-link" href="/tags/scraping">scraping</a></li>
+                <li><a class="article-category-link" href="/tags/industry">industry</a></li>
                 
             
         
@@ -1500,8 +640,8 @@ monster_actions</code></pre>
 
 <ul class="actions pagination">
     
-        <li><a href="/post/how-i-d-like-to-send-an-email-from-r/"
-                class="button big previous">How I&#39;d like to send an email from R</a></li>
+        <li><a href="/post/markdown-monsters/"
+                class="button big previous">Markdown monsters</a></li>
     
 
     
@@ -1520,7 +660,7 @@ monster_actions</code></pre>
 
 
 <li>
-  <a href="//twitter.com/share?url=%2fpost%2fmarkdown-monsters%2f&amp;text=Markdown%20monsters&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fpost%2fmy-data-science-job-hunt%2f&amp;text=My%20data%20science%20job%20hunt&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -1530,7 +670,7 @@ monster_actions</code></pre>
 
 
 <li>
-  <a href="//plus.google.com/share?url=%2fpost%2fmarkdown-monsters%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=%2fpost%2fmy-data-science-job-hunt%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -1541,7 +681,7 @@ monster_actions</code></pre>
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fmarkdown-monsters%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fmy-data-science-job-hunt%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -1551,7 +691,7 @@ monster_actions</code></pre>
 
 
 <li>
-  <a href="//reddit.com/submit?url=%2fpost%2fmarkdown-monsters%2f&amp;title=Markdown%20monsters" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=%2fpost%2fmy-data-science-job-hunt%2f&amp;title=My%20data%20science%20job%20hunt" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -1561,7 +701,7 @@ monster_actions</code></pre>
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fmarkdown-monsters%2f&amp;title=Markdown%20monsters" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fmy-data-science-job-hunt%2f&amp;title=My%20data%20science%20job%20hunt" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -1571,7 +711,7 @@ monster_actions</code></pre>
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fmarkdown-monsters%2f&amp;title=Markdown%20monsters" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fmy-data-science-job-hunt%2f&amp;title=My%20data%20science%20job%20hunt" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -1581,7 +721,7 @@ monster_actions</code></pre>
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fmarkdown-monsters%2f&amp;description=Markdown%20monsters" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fmy-data-science-job-hunt%2f&amp;description=My%20data%20science%20job%20hunt" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -1591,7 +731,7 @@ monster_actions</code></pre>
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fmarkdown-monsters%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fmy-data-science-job-hunt%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -1732,6 +872,44 @@ monster_actions</code></pre>
           
         
 
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/my-data-science-job-hunt/">My data science job hunt</a>
+              </h3>
+              
+              <time class="published" datetime='2018-11-09'>
+                November 9, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/my-data-science-job-hunt/" class="image featured">
+            <img src="/img/job_outcomes.png" alt="">
+        </a>
+    
+
+
+          </article>
         
           <article class="mini-post">
             <header>
@@ -1879,44 +1057,6 @@ monster_actions</code></pre>
 
         <a href="/post/user-missing-values-imputation/" class="image featured">
             <img src="/img/useR/tutorial_three.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/user-getting-started-with-r-and-docker/">useR: Getting started with R and Docker</a>
-              </h3>
-              
-              <time class="published" datetime='2018-07-10'>
-                July 10, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/user-getting-started-with-r-and-docker/" class="image featured">
-            <img src="/img/useR/tutorial_one.png" alt="">
         </a>
     
 

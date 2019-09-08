@@ -6,10 +6,21 @@
     <description>Recent content in Blog posts on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My data science job hunt</title>
+      <link>/post/my-data-science-job-hunt/</link>
+      <pubDate>Fri, 09 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/my-data-science-job-hunt/</guid>
+      <description>If you listen to university advertisements for data science masters degrees, you’d believe that data scientists are so in-demand that they can walk into any company, state their salary, and start work straight away.
+Not quite.
+Interviewing for data science positions is tough, and job-seekers face some bad behaviour from recruiters and hiring managers. Many companies understand that they need to do something with data, but they don’t know what. They’ll say they want machine learning when they really want a few dashboards.</description>
+    </item>
     
     <item>
       <title>Markdown monsters</title>
