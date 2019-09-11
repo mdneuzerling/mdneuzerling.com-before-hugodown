@@ -15,7 +15,7 @@ canonifyURLs = true
 
 [params]
   # Sets the meta tag description
-  description          = "data, maths, R"
+  description          = "data, maths, R."
   # Sets the navbarTitle that appears in the top left of the navigation bar
   navbarTitle          = "mdneuzerling"
   # Sets where "View More Posts" links

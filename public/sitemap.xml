@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/an-update-on-copyright-and-licencing/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/my-data-science-job-hunt/</loc>
     <lastmod>2019-09-08T00:00:00+00:00</lastmod>
   </url>
@@ -100,7 +105,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -193,7 +198,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
