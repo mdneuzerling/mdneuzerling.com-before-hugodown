@@ -14,7 +14,7 @@ linktitle: ''
 
 When I started this blog I wanted a way to share the quick little projects that distract me. I gave some thought to licencing, but I wanted to make sure that people could use my code if it had any value to them. This is just a little blog by a very unimportant guy---if someone got some use out of my code, I would be flattered!
 
-However, in the last few days I've seen some fairly icky behaviour. People have been copying my work into their own LinkedIn posts, changing my words but not adding value. It makes me uncomfortable to see my work used this way.
+However, in the last few days I've seen some unwelcome behaviour. People have been copying my work into their own LinkedIn posts, changing my words but not adding value. It makes me uncomfortable to see my work used this way.
 
 All of the **content** on this site will now be licenced under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, unless otherwise noted.
 
@@ -28,3 +28,5 @@ This is a restrictive licence, and I don't want to restrict anyone who is genuin
 * Fira Sans Condensed, Raleway: [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web)
 * [Fira Code](https://github.com/tonsky/FiraCode): [SIL Open Font License](https://github.com/tonsky/FiraCode/blob/master/LICENSE) 
 
+The header image at the top of this page is in the 
+[public domain](https://www.pexels.com/photo/door-green-closed-lock-4291/).
