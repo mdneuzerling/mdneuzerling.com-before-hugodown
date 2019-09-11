@@ -1,7 +1,7 @@
 # mdneuzerling.com
 Personal website and blog hosted at [mdneuzerling.com](https://mdneuzerling.com)
 
-All website and blog **content** is CC BY 4.0 unless otherwise noted.
+All website and blog **content** is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/) except where stated otherwise.
 
 ## Third-party components, tools and fonts
 
