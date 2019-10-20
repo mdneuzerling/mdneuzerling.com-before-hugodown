@@ -1,0 +1,88 @@
+---
+title: Avoiding leaks on The Titanic
+author: ''
+date: '2019-10-20'
+slug: avoiding-leaks-on-the-titanic
+categories: []
+tags: []
+description: ''
+featured: ''
+featuredalt: ''
+featuredpath: ''
+linktitle: ''
+---
+
+
+
+<p>Let’s get some things set up.</p>
+<pre class="r"><code>library(tidyverse)
+library(rsample)
+library(recipes)
+library(parsnip)
+
+set.seed(21545732)
+
+# nifty function for making our table output pretty
+output_table &lt;- function(dat) {
+  knitr::kable(dat, format = &quot;html&quot;) %&gt;% 
+  kableExtra::kable_styling(full_width = F)
+}
+
+# R has no built-in mode function
+# Copied from https://stackoverflow.com/a/8189441
+# This function isn&#39;t displayed in the outputted file, so we hide it as a 
+# setup step.
+mode_avg &lt;- function(x) {
+  ux &lt;- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}</code></pre>
+<div id="data-load" class="section level1">
+<h1>Data load</h1>
+<p>We’ll load our <code>train</code> and <code>test</code> data sets with some preparation. First we’ll convert the column names to snake case. We’ll also convert <code>age</code> and <code>pclass</code> (passenger class) to factors, as this will be needed for some data transformation steps later on. We’ll also take <code>survived</code> as a factor (if it exists) as this is better for plotting.</p>
+<pre class="r"><code>data_clean &lt;- function(data) {
+    data %&gt;% 
+        janitor::clean_names(case = &quot;snake&quot;) %&gt;% 
+        rename(sibsp = sib_sp) %&gt;% # Keep this consistent with par_ch
+        mutate_at(vars(&quot;sex&quot;, &quot;pclass&quot;), list(factor)) %&gt;% 
+        mutate_at(if(&quot;survived&quot; %in% names(.)) &quot;survived&quot; else integer(0), as.factor)
+}
+
+train &lt;- readr::read_csv(&quot;data/titanic/train.csv&quot;) %&gt;% data_clean
+test &lt;- readr::read_csv(&quot;data/titanic/test.csv&quot;) %&gt;% data_clean</code></pre>
+<pre class="r"><code>visdat::vis_dat(train)</code></pre>
+<p><img src="/post/2019-10-20-avoiding-leaks-on-the-titanic_files/figure-html/visdat_train-1.png" width="672" /></p>
+<pre class="r"><code>skimr::skim_with(numeric = list(hist = NULL)) # sparklines don&#39;t work on Windows
+skimr::skim(train)</code></pre>
+<pre><code>## Skim summary statistics
+##  n obs: 891 
+##  n variables: 12 
+## 
+## Variable type: character 
+##  variable missing complete   n min max empty n_unique
+##     cabin     687      204 891   1  15     0      147
+##  embarked       2      889 891   1   1     0        3
+##      name       0      891 891  12  82     0      891
+##    ticket       0      891 891   3  18     0      681
+## 
+## Variable type: factor 
+##  variable missing complete   n n_unique                    top_counts ordered
+##    pclass       0      891 891        3 3: 491, 1: 216, 2: 184, NA: 0   FALSE
+##       sex       0      891 891        2     mal: 577, fem: 314, NA: 0   FALSE
+##  survived       0      891 891        2         0: 549, 1: 342, NA: 0   FALSE
+## 
+## Variable type: integer 
+##      variable missing complete   n   mean     sd p0   p25 p50   p75 p100
+##         parch       0      891 891   0.38   0.81  0   0     0   0      6
+##  passenger_id       0      891 891 446    257.35  1 223.5 446 668.5  891
+##         sibsp       0      891 891   0.52   1.1   0   0     0   1      8
+##      hist
+##  ▇▂▁▁▁▁▁▁
+##  ▇▇▇▇▇▇▇▇
+##  ▇▁▁▁▁▁▁▁
+## 
+## Variable type: numeric 
+##  variable missing complete   n mean    sd   p0   p25   p50 p75   p100
+##       age     177      714 891 29.7 14.53 0.42 20.12 28     38  80   
+##      fare       0      891 891 32.2 49.69 0     7.91 14.45  31 512.33</code></pre>
+<p>The above reveals some missing values in the following columns: age, cabin, embarked. We’ll deal with this later.</p>
+</div>

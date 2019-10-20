@@ -6,10 +6,20 @@
     <description>Recent content in Blog posts on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Avoiding leaks on The Titanic</title>
+      <link>/post/avoiding-leaks-on-the-titanic/</link>
+      <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/avoiding-leaks-on-the-titanic/</guid>
+      <description>Let’s get some things set up.
+library(tidyverse) library(rsample) library(recipes) library(parsnip) set.seed(21545732) # nifty function for making our table output pretty output_table &amp;lt;- function(dat) { knitr::kable(dat, format = &amp;quot;html&amp;quot;) %&amp;gt;% kableExtra::kable_styling(full_width = F) } # R has no built-in mode function # Copied from https://stackoverflow.com/a/8189441 # This function isn&amp;#39;t displayed in the outputted file, so we hide it as a # setup step. mode_avg &amp;lt;- function(x) { ux &amp;lt;- unique(x) ux[which.max(tabulate(match(x, ux)))] } Data load We’ll load our train and test data sets with some preparation.</description>
+    </item>
     
     <item>
       <title>An update on copyright and licencing</title>

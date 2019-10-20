@@ -11,28 +11,27 @@
              "@id": "/"
         },
         "articleSection" : "post",
-        "name" : "useR: The Week in Review",
-        "headline" : "useR: The Week in Review",
-        "description" : "That’s it for #useR2018. After 6 keynotes, 132 parallel sessions, many more lightning talks and posters, and an all-important conference dinner, we’ve reached the end of the week.
-This was my first proper conference since 2015. I had almost forgotten how it felt to be surrounded by hundreds of people who are just as passionate (if not more) about your tiny area of specialised knowledge than you are.
-I took notes for the three tutorials I went to, but I wanted to take a moment to review the week as a whole, including the talks that stood out to me.",
+        "name" : "Avoiding leaks on The Titanic",
+        "headline" : "Avoiding leaks on The Titanic",
+        "description" : "Let’s get some things set up.
+library(tidyverse) library(rsample) library(recipes) library(parsnip) set.seed(21545732) # nifty function for making our table output pretty output_table &lt;- function(dat) { knitr::kable(dat, format = &quot;html&quot;) %&gt;% kableExtra::kable_styling(full_width = F) } # R has no built-in mode function # Copied from https://stackoverflow.com/a/8189441 # This function isn&#39;t displayed in the outputted file, so we hide it as a # setup step. mode_avg &lt;- function(x) { ux &lt;- unique(x) ux[which.max(tabulate(match(x, ux)))] } Data load We’ll load our train and test data sets with some preparation.",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
         "publisher": "",
         "accountablePerson" : "",
         "copyrightHolder" : "",
-        "copyrightYear" : "2018",
-        "datePublished": "2018-07-13 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-07-13 00:00:00 &#43;0000 UTC",
-        "url" : "/post/user-the-week-in-review/",
-        "wordCount" : "800",
-        "keywords" : [ "R","R Markdown","useR2018","Blog" ]
+        "copyrightYear" : "2019",
+        "datePublished": "2019-10-20 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2019-10-20 00:00:00 &#43;0000 UTC",
+        "url" : "/post/avoiding-leaks-on-the-titanic/",
+        "wordCount" : "423",
+        "keywords" : [ "Blog" ]
     }
     </script>
         
             
-                <title>useR: The Week in Review</title>
+                <title>Avoiding leaks on The Titanic</title>
             
         
 
@@ -50,24 +49,22 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
         
 
         <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="useR: The Week in Review"/>
-<meta name="twitter:description" content="That’s it for #useR2018. After 6 keynotes, 132 parallel sessions, many more lightning talks and posters, and an all-important conference dinner, we’ve reached the end of the week.
-This was my first proper conference since 2015. I had almost forgotten how it felt to be surrounded by hundreds of people who are just as passionate (if not more) about your tiny area of specialised knowledge than you are.
-I took notes for the three tutorials I went to, but I wanted to take a moment to review the week as a whole, including the talks that stood out to me."/>
+<meta name="twitter:title" content="Avoiding leaks on The Titanic"/>
+<meta name="twitter:description" content="Let’s get some things set up.
+library(tidyverse) library(rsample) library(recipes) library(parsnip) set.seed(21545732) # nifty function for making our table output pretty output_table &lt;- function(dat) { knitr::kable(dat, format = &quot;html&quot;) %&gt;% kableExtra::kable_styling(full_width = F) } # R has no built-in mode function # Copied from https://stackoverflow.com/a/8189441 # This function isn&#39;t displayed in the outputted file, so we hide it as a # setup step. mode_avg &lt;- function(x) { ux &lt;- unique(x) ux[which.max(tabulate(match(x, ux)))] } Data load We’ll load our train and test data sets with some preparation."/>
 <meta name="twitter:site" content="@mdneuzerling"/>
 
-        <meta property="og:title" content="useR: The Week in Review" />
-<meta property="og:description" content="That’s it for #useR2018. After 6 keynotes, 132 parallel sessions, many more lightning talks and posters, and an all-important conference dinner, we’ve reached the end of the week.
-This was my first proper conference since 2015. I had almost forgotten how it felt to be surrounded by hundreds of people who are just as passionate (if not more) about your tiny area of specialised knowledge than you are.
-I took notes for the three tutorials I went to, but I wanted to take a moment to review the week as a whole, including the talks that stood out to me." />
+        <meta property="og:title" content="Avoiding leaks on The Titanic" />
+<meta property="og:description" content="Let’s get some things set up.
+library(tidyverse) library(rsample) library(recipes) library(parsnip) set.seed(21545732) # nifty function for making our table output pretty output_table &lt;- function(dat) { knitr::kable(dat, format = &quot;html&quot;) %&gt;% kableExtra::kable_styling(full_width = F) } # R has no built-in mode function # Copied from https://stackoverflow.com/a/8189441 # This function isn&#39;t displayed in the outputted file, so we hide it as a # setup step. mode_avg &lt;- function(x) { ux &lt;- unique(x) ux[which.max(tabulate(match(x, ux)))] } Data load We’ll load our train and test data sets with some preparation." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/post/user-the-week-in-review/" />
+<meta property="og:url" content="/post/avoiding-leaks-on-the-titanic/" />
 
 
 
-<meta property="article:published_time" content="2018-07-13T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2019-10-20T00:00:00&#43;00:00"/>
 
-<meta property="article:modified_time" content="2018-07-13T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-10-20T00:00:00&#43;00:00"/>
 
 
 
@@ -84,19 +81,18 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
         
-<meta itemprop="name" content="useR: The Week in Review">
-<meta itemprop="description" content="That’s it for #useR2018. After 6 keynotes, 132 parallel sessions, many more lightning talks and posters, and an all-important conference dinner, we’ve reached the end of the week.
-This was my first proper conference since 2015. I had almost forgotten how it felt to be surrounded by hundreds of people who are just as passionate (if not more) about your tiny area of specialised knowledge than you are.
-I took notes for the three tutorials I went to, but I wanted to take a moment to review the week as a whole, including the talks that stood out to me.">
+<meta itemprop="name" content="Avoiding leaks on The Titanic">
+<meta itemprop="description" content="Let’s get some things set up.
+library(tidyverse) library(rsample) library(recipes) library(parsnip) set.seed(21545732) # nifty function for making our table output pretty output_table &lt;- function(dat) { knitr::kable(dat, format = &quot;html&quot;) %&gt;% kableExtra::kable_styling(full_width = F) } # R has no built-in mode function # Copied from https://stackoverflow.com/a/8189441 # This function isn&#39;t displayed in the outputted file, so we hide it as a # setup step. mode_avg &lt;- function(x) { ux &lt;- unique(x) ux[which.max(tabulate(match(x, ux)))] } Data load We’ll load our train and test data sets with some preparation.">
 
 
-<meta itemprop="datePublished" content="2018-07-13T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-07-13T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="800">
+<meta itemprop="datePublished" content="2019-10-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="423">
 
 
 
-<meta itemprop="keywords" content="R,R Markdown,useR2018," />
+<meta itemprop="keywords" content="" />
 
         
 
@@ -465,7 +461,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
 
 
 <li>
-  <a href="//twitter.com/share?url=%2fpost%2fuser-the-week-in-review%2f&amp;text=useR%3a%20The%20Week%20in%20Review&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fpost%2favoiding-leaks-on-the-titanic%2f&amp;text=Avoiding%20leaks%20on%20The%20Titanic&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -475,7 +471,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
 
 
 <li>
-  <a href="//plus.google.com/share?url=%2fpost%2fuser-the-week-in-review%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=%2fpost%2favoiding-leaks-on-the-titanic%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -486,7 +482,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fuser-the-week-in-review%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2favoiding-leaks-on-the-titanic%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -496,7 +492,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
 
 
 <li>
-  <a href="//reddit.com/submit?url=%2fpost%2fuser-the-week-in-review%2f&amp;title=useR%3a%20The%20Week%20in%20Review" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=%2fpost%2favoiding-leaks-on-the-titanic%2f&amp;title=Avoiding%20leaks%20on%20The%20Titanic" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -506,7 +502,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fuser-the-week-in-review%2f&amp;title=useR%3a%20The%20Week%20in%20Review" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2favoiding-leaks-on-the-titanic%2f&amp;title=Avoiding%20leaks%20on%20The%20Titanic" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -516,7 +512,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fuser-the-week-in-review%2f&amp;title=useR%3a%20The%20Week%20in%20Review" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2favoiding-leaks-on-the-titanic%2f&amp;title=Avoiding%20leaks%20on%20The%20Titanic" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -526,7 +522,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fuser-the-week-in-review%2f&amp;description=useR%3a%20The%20Week%20in%20Review" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2favoiding-leaks-on-the-titanic%2f&amp;description=Avoiding%20leaks%20on%20The%20Titanic" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -536,7 +532,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fuser-the-week-in-review%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2favoiding-leaks-on-the-titanic%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -555,7 +551,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
   <header>
     <div class="title">
         
-            <h1><a href="/post/user-the-week-in-review/">useR: The Week in Review</a></h1>
+            <h1><a href="/post/avoiding-leaks-on-the-titanic/">Avoiding leaks on The Titanic</a></h1>
             
         
         
@@ -564,11 +560,11 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
         
 
         <time class="published"
-            datetime='2018-07-13'>
-            July 13, 2018</time>
+            datetime='2019-10-20'>
+            October 20, 2019</time>
         <span class="author"></span>
         
-            <p>4 minute read</p>
+            <p>2 minute read</p>
         
         
     </div>
@@ -578,138 +574,79 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
   
 
   
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/user-the-week-in-review/" class="image featured">
-            <img src="/img/useR/week_in_review.png" alt="">
-        </a>
-    
-
 
   <div id="content">
-    <p>That’s it for #useR2018. After 6 keynotes, 132 parallel sessions, many more
-lightning talks and posters, and an all-important conference dinner, we’ve
-reached the end of the week.</p>
-<p>This was my first proper conference since 2015. I had almost forgotten how
-it felt to be surrounded by hundreds of people who are just as passionate
-(if not more) about your tiny area of specialised knowledge than you are.</p>
-<p>I took notes for the three tutorials I went to, but I wanted to take a moment
-to review the week as a whole, including the talks that stood out to me.
-You can find my tutorial notes below:</p>
-<ul>
-<li><a href="/post/user-getting-started-with-r-and-docker/">Tutorial one: Getting Started with R and Docker</a></li>
-<li><a href="/post/user-recipes-for-data-processing/">Tutorial two: Recipes for Data Processing</a></li>
-<li><a href="/post/user-missing-values-imputation/">Tutorial three: Missing Values Imputation</a></li>
-</ul>
-<p>All talks and tutorials were recorded, so keep an eye out for them on the
-<a href="https://user2018.r-project.org/">useR2018 site</a>. The #rstats community is
-active on Twitter, so check out the <a href="https://twitter.com/search?q=%23useR2018">#useR2018</a>
-hashtag as well.</p>
-<div class="figure">
-<img src="/img/useR/hexwall.jpg" alt="The famous #hexwall, with Adam Gruer" />
-<p class="caption">The famous #hexwall, with <a href="https://twitter.com/AdamGruer">Adam Gruer</a></p>
-</div>
-<div id="a-quick-personal-note" class="section level2">
-<h2>A quick personal note</h2>
-<p>I’d like to declare my own biggest success and biggest failure of the
-conference:</p>
-<ul>
-<li><strong>Biggest personal win</strong>: I posted notes from each of the three tutorials I
-went to! This forced me to learn more about PCA, which is a big win.</li>
-<li><strong>Biggest personal not-win</strong>: I didn’t present anything. I told myself this
-was because I had nothing to present, but I’m not so sure that’s true.</li>
-</ul>
-</div>
-<div id="talk-highlights" class="section level2">
-<h2>Talk highlights</h2>
-<ul>
-<li><a href="https://twitter.com/StephdeSilva">Steph de Silva</a> spoke of R as not just a
-language but a <em>community</em>. And in this community you go from seeing R as
-something you use to seeing R as something you share. The R subculture(s) have
-real power to contribute in a world where data affects decisions.</li>
-<li><a href="https://twitter.com/robjhyndman">Rob Hyndman</a>’s new <code>fable</code> package looks
-super easy to use. It’s a tidyverse-compatible replacement for his extremely
-popular <code>forecast</code> package. He calls it “fable” because “fables aren’t true but
-they tell you something useful about reality, just like a forecast.”</li>
-<li><a href="https://twitter.com/thomasp85">Thomas Lin Pedersen</a> is rewriting the
-<code>gganimate</code> package and it looks <em>so cool</em>. He described visualisation as
-existing on a spectrum between static, interactive, and animated. Traditional
-media (eg. newspapers) use static visualisation and modern journalism websites
-use interactive visualisation, but animated visualisation is often found in
-social media.</li>
-</ul>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Last example done for my <a href="https://twitter.com/useR2018_conf?ref_src=twsrc%5Etfw">@useR2018_conf</a> keynote, showing the automagical transformation of shapes provided by gganimate, courtesy of transformr <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/q7nGSXqWJ2">pic.twitter.com/q7nGSXqWJ2</a></p>&mdash; Thomas Lin Pedersen (@thomasp85) <a href="https://twitter.com/thomasp85/status/1014132180853903360?ref_src=twsrc%5Etfw">July 3, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>Let’s get some things set up.</p>
+<pre class="r"><code>library(tidyverse)
+library(rsample)
+library(recipes)
+library(parsnip)
 
-<ul>
-<li><a href="https://twitter.com/KatieSasso">Katie Sasso</a> introduced <strong>standalone Shiny
-applications</strong> using Electron. I am so keen to try these out! Imagine being
-able to distribute a Shiny app to someone without them needing to so much as
-install R.</li>
-<li><a href="https://twitter.com/nj_tierney">Nicholas Tierney</a>’s <code>maxcovr</code> package makes
-it easier to solve the <a href="https://en.wikipedia.org/wiki/Maximum_coverage_problem">maximal coverage location problem</a> in R.
-His choice of example was apt. Brisbane offers free public wifi in and around
-the CBD, and the <code>maxcovr</code> package can be used to identify optimal placemennt
-of new routers to improver the coverage population and area.</li>
-<li><a href="https://twitter.com/rdpeng">Roger D. Peng</a> spoke about the teaching R.
-I loved the quote from John Chambers on S (R’s predecessor): “We wanted users
-to begin in an interactive environment, where they did not consciously think of
-themselves as programming… they should be able to slide gradually into
-programming.” This is the R value proposition in a nutshell for me: you don’t
-<em>have</em> to jump into the developer side of things, but if you want to start
-going down that path it’s a gradual transition.</li>
-</ul>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Tidyverse philosophy: modularity, clarity, composition, transparency, least surprise, repair... oops, that&#39;s the Unix philosophy! Still applies.<a href="https://twitter.com/rdpeng?ref_src=twsrc%5Etfw">@rdpeng</a> at <a href="https://twitter.com/hashtag/useR2018?src=hash&amp;ref_src=twsrc%5Etfw">#useR2018</a> <a href="https://t.co/nN4ZvvkLbQ">pic.twitter.com/nN4ZvvkLbQ</a></p>&mdash; David Neuzerling (@mdneuzerling) <a href="https://twitter.com/mdneuzerling/status/1017552963861037056?ref_src=twsrc%5Etfw">July 12, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+set.seed(21545732)
 
-<ul>
-<li><a href="https://twitter.com/JennyBryan">Jenny Bryan</a> spoke about code smells and
-feels. Whenever I read something cool and useful about R I look at the author
-and there’s a good chance it’s Jenny. I like that the advice in her talk is
-more “use this in moderation” rather than the prescriptive “Don’t do this”.</li>
-<li><a href="https://twitter.com/djnavarro">Danielle Navarro</a> shared her experience in
-teaching R to psychology students. This one resonated, especially with her
-emphasis on student fear. Student fear stops learning before it can begin!</li>
-<li><a href="https://twitter.com/MMaechler">Martin Mächler</a> of the R Core team discussed
-an often-neglected topic: numerical precision. It was a chance to get into the
-guts of R. He also gave the following bizarre example:</li>
-</ul>
-<pre class="r"><code>unique((1:10)/10 - (0:9)/10)</code></pre>
-<pre><code>## [1] 0.1 0.1 0.1 0.1</code></pre>
-<blockquote>
-<p>“10.0 times 0.1 is hardly ever 1.0” - <em>The Elements of Programming Style</em> by Brian W. Kernighan and P. J. Plauger</p>
-</blockquote>
-</div>
-<div id="wrapping-up" class="section level2">
-<h2>Wrapping up</h2>
-<p>Thank you to the organisers and to everyone who contributed to the conference.</p>
-<p>I met a tonne of people here and I can’t mention everyone. Thank you to the
-following people for existing and for making my #useR2018 experience
-extra-special:
-<a href="https://twitter.com/AdamGruer">Adam Gruer</a>,
-<a href="https://twitter.com/Dale_Masch">Dale Maschette</a>,
-<a href="https://twitter.com/emilyandthelime">Emily Kothe</a>,
-<a href="https://twitter.com/john_t_ormerod">John Ormerod</a>,
-<a href="https://twitter.com/StephdeSilva">Steph de Silva</a>,
-<a href="https://twitter.com/cantabile">Charles T. Gray</a>, and
-<a href="https://twitter.com/BHarrap">Ben Harrap</a>.</p>
+# nifty function for making our table output pretty
+output_table &lt;- function(dat) {
+  knitr::kable(dat, format = &quot;html&quot;) %&gt;% 
+  kableExtra::kable_styling(full_width = F)
+}
+
+# R has no built-in mode function
+# Copied from https://stackoverflow.com/a/8189441
+# This function isn&#39;t displayed in the outputted file, so we hide it as a 
+# setup step.
+mode_avg &lt;- function(x) {
+  ux &lt;- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}</code></pre>
+<div id="data-load" class="section level1">
+<h1>Data load</h1>
+<p>We’ll load our <code>train</code> and <code>test</code> data sets with some preparation. First we’ll convert the column names to snake case. We’ll also convert <code>age</code> and <code>pclass</code> (passenger class) to factors, as this will be needed for some data transformation steps later on. We’ll also take <code>survived</code> as a factor (if it exists) as this is better for plotting.</p>
+<pre class="r"><code>data_clean &lt;- function(data) {
+    data %&gt;% 
+        janitor::clean_names(case = &quot;snake&quot;) %&gt;% 
+        rename(sibsp = sib_sp) %&gt;% # Keep this consistent with par_ch
+        mutate_at(vars(&quot;sex&quot;, &quot;pclass&quot;), list(factor)) %&gt;% 
+        mutate_at(if(&quot;survived&quot; %in% names(.)) &quot;survived&quot; else integer(0), as.factor)
+}
+
+train &lt;- readr::read_csv(&quot;data/titanic/train.csv&quot;) %&gt;% data_clean
+test &lt;- readr::read_csv(&quot;data/titanic/test.csv&quot;) %&gt;% data_clean</code></pre>
+<pre class="r"><code>visdat::vis_dat(train)</code></pre>
+<p><img src="/post/2019-10-20-avoiding-leaks-on-the-titanic_files/figure-html/visdat_train-1.png" width="672" /></p>
+<pre class="r"><code>skimr::skim_with(numeric = list(hist = NULL)) # sparklines don&#39;t work on Windows
+skimr::skim(train)</code></pre>
+<pre><code>## Skim summary statistics
+##  n obs: 891 
+##  n variables: 12 
+## 
+## Variable type: character 
+##  variable missing complete   n min max empty n_unique
+##     cabin     687      204 891   1  15     0      147
+##  embarked       2      889 891   1   1     0        3
+##      name       0      891 891  12  82     0      891
+##    ticket       0      891 891   3  18     0      681
+## 
+## Variable type: factor 
+##  variable missing complete   n n_unique                    top_counts ordered
+##    pclass       0      891 891        3 3: 491, 1: 216, 2: 184, NA: 0   FALSE
+##       sex       0      891 891        2     mal: 577, fem: 314, NA: 0   FALSE
+##  survived       0      891 891        2         0: 549, 1: 342, NA: 0   FALSE
+## 
+## Variable type: integer 
+##      variable missing complete   n   mean     sd p0   p25 p50   p75 p100
+##         parch       0      891 891   0.38   0.81  0   0     0   0      6
+##  passenger_id       0      891 891 446    257.35  1 223.5 446 668.5  891
+##         sibsp       0      891 891   0.52   1.1   0   0     0   1      8
+##      hist
+##  ▇▂▁▁▁▁▁▁
+##  ▇▇▇▇▇▇▇▇
+##  ▇▁▁▁▁▁▁▁
+## 
+## Variable type: numeric 
+##  variable missing complete   n mean    sd   p0   p25   p50 p75   p100
+##       age     177      714 891 29.7 14.53 0.42 20.12 28     38  80   
+##      fare       0      891 891 32.2 49.69 0     7.91 14.45  31 512.33</code></pre>
+<p>The above reveals some missing values in the following columns: age, cabin, embarked. We’ll deal with this later.</p>
 </div>
 
   </div>
@@ -729,18 +666,6 @@ extra-special:
         
             
             
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="/tags/r">R</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/r-markdown">R Markdown</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/user2018">useR2018</a></li>
-                
-            
         
     </ul>
   </li>
@@ -752,13 +677,10 @@ extra-special:
 
 <ul class="actions pagination">
     
-        <li><a href="/post/user-missing-values-imputation/"
-                class="button big previous">useR: Missing values imputation</a></li>
+        <li><a href="/post/an-update-on-copyright-and-licencing/"
+                class="button big previous">An update on copyright and licencing</a></li>
     
 
-    
-        <li><a href="/post/how-i-d-like-to-send-an-email-from-r/"
-                class="button big next">How I&#39;d like to send an email from R</a></li>
     
 </ul>
 

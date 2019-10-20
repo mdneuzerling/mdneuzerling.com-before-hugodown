@@ -1,0 +1,72 @@
+---
+title: Avoiding leaks on The Titanic
+author: ''
+date: '2019-10-20'
+slug: avoiding-leaks-on-the-titanic
+categories: []
+tags: []
+description: ''
+featured: ''
+featuredalt: ''
+featuredpath: ''
+linktitle: ''
+---
+
+```{r hidden_setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(width = 80)
+```
+
+Let's get some things set up.
+
+```{r setup, message = FALSE}
+library(tidyverse)
+library(rsample)
+library(recipes)
+library(parsnip)
+
+set.seed(21545732)
+
+# nifty function for making our table output pretty
+output_table <- function(dat) {
+  knitr::kable(dat, format = "html") %>% 
+  kableExtra::kable_styling(full_width = F)
+}
+
+# R has no built-in mode function
+# Copied from https://stackoverflow.com/a/8189441
+# This function isn't displayed in the outputted file, so we hide it as a 
+# setup step.
+mode_avg <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+```
+
+# Data load
+
+We'll load our `train` and `test` data sets with some preparation. First we'll convert the column names to snake case. We'll also convert `age` and `pclass` (passenger class) to factors, as this will be needed for some data transformation steps later on. We'll also take `survived` as a factor (if it exists) as this is better for plotting.
+
+```{r data_load, message=FALSE}
+data_clean <- function(data) {
+    data %>% 
+        janitor::clean_names(case = "snake") %>% 
+        rename(sibsp = sib_sp) %>% # Keep this consistent with par_ch
+        mutate_at(vars("sex", "pclass"), list(factor)) %>% 
+        mutate_at(if("survived" %in% names(.)) "survived" else integer(0), as.factor)
+}
+
+train <- readr::read_csv("data/titanic/train.csv") %>% data_clean
+test <- readr::read_csv("data/titanic/test.csv") %>% data_clean
+```
+
+```{r visdat_train}
+visdat::vis_dat(train)
+```
+
+```{r skimr_train, width=999}
+skimr::skim_with(numeric = list(hist = NULL)) # sparklines don't work on Windows
+skimr::skim(train)
+```
+
+The above reveals some missing values in the following columns: `r train %>% naniar::miss_var_which()`. We'll deal with this later.
