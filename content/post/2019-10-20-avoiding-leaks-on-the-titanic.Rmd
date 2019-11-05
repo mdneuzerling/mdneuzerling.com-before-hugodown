@@ -12,6 +12,24 @@ featuredpath: ''
 linktitle: ''
 ---
 
+I've been obsessed with data leakage. Paranoid, even.
+
+Here's how it *should* work: you chop your data up into a train and test set. Then you set your test set aside and pretend that it doesn't exist; you pretend it's new data that hasn't come in yet. Then you manipulate your training data, engineer some features, and train a fancy model. Finally, you remember that test set you forgot you had, and use that to determine whether your fancy model is a good one.
+
+Sometimes you'll do some cross-validation, but it's the same idea; you're just chopping your data up into a train and test set multiple times. The end result is the same: it's harder to overfit on data your model hasn't seen.
+
+But it's not a perfect process. *Data leakage* occurs when your model gets a peak at the test data, without directly being trained on the test data. This can happen for tricky reasons, like maybe your data contains groups in some way, and you need to make sure that if one point in a group is in the train/test set, then the rest of that group is as well. But it can also happen due to sloppiness --- you've accidentally done something that pulls information from your test set into your train set.
+
+Here's an *extremely common* example: your data contains some missing values. You decide to use mean-imputation, to fill the missing data with the variable mean before splitting into train and test. Your mean is likely different to what it would have been if you had split into train and test first. When this happens, you can no longer trust the performance of your model on the test set, because that data is no longer *unseen*.
+
+We're going to revisit a classic data set --- [the Titanic survival data](https://www.kaggle.com/c/titanic/data) --- with a focus on avoiding data leakage. We'll be using some great packages that are well worth checking out: 
+
+* `rsample` is what we'll use to split our data up into test and train. We'll also use it set up cross-validation in a way that avoids data leakage.
+* `recipes` lets us manipulate data on the training set while also being able to apply that same manipulation to the test set without having first seen it.
+* `parsnip` gives a unified interface for training models, and is designed to work really well with `rsample` and `recipes`. One of my biggest gripes with R is its inconsistent modelling APIs, and `parsnip` aims to fix this.
+
+# Data setup
+
 ```{r hidden_setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(width = 80)
