@@ -1617,7 +1617,7 @@ test_baked &lt;- prepared_reciped %&gt;% bake(new_data = test)</code></pre>
 <div id="cross-validation" class="section level2">
 <h2>Cross-validation</h2>
 <p>Let’s set up some cross-validation so we can put these recipes to use. As the Kaggle-provided test set doesn’t contain the target <code>survived</code> variable, we’ll split the training data set into two. To avoid confusion, we’ll split the training data set into <code>fold_train</code> and <code>fold_test</code> — one of each for every fold — to distinguih from our original train and test data sets.</p>
-<p>We need to prepare a new recipe for every <code>fold_train</code>. Again, we’ll call this <code>fold_recipe</code> to indicate that its dependent on the fold.</p>
+<p>We need to prepare a new recipe for every <code>fold_train</code>. Again, we’ll call this <code>fold_recipe</code> to indicate that its dependent on the fold. Finally, we’ll add a column for <code>actuals</code>, which is the <code>survived</code> column from <code>fold_test</code>. This will be useful when we’re evaluating model performance.</p>
 <pre class="r"><code>folds &lt;- train %&gt;% vfold_cv(v = 5) %&gt;% mutate(
     fold_recipe = map(splits, prepper, recipe = recipe, retain = TRUE),
     fold_train = map(fold_recipe, juice),
@@ -1625,18 +1625,19 @@ test_baked &lt;- prepared_reciped %&gt;% bake(new_data = test)</code></pre>
         list(fold_recipe = fold_recipe, split = splits), 
         function(fold_recipe, split) bake(fold_recipe,
                                           new_data = assessment(split))
-    )
+    ),
+    actuals = map(fold_test, function(x) select(x, survived)) %&gt;% list
 )
 folds</code></pre>
 <pre><code>## #  5-fold cross-validation 
-## # A tibble: 5 x 5
-##   splits       id    fold_recipe  fold_train          fold_test          
-## * &lt;named list&gt; &lt;chr&gt; &lt;named list&gt; &lt;named list&gt;        &lt;named list&gt;       
-## 1 &lt;rsplit&gt;     Fold1 &lt;recipe&gt;     &lt;tibble [712 × 15]&gt; &lt;tibble [179 × 15]&gt;
-## 2 &lt;rsplit&gt;     Fold2 &lt;recipe&gt;     &lt;tibble [713 × 15]&gt; &lt;tibble [178 × 15]&gt;
-## 3 &lt;rsplit&gt;     Fold3 &lt;recipe&gt;     &lt;tibble [713 × 15]&gt; &lt;tibble [178 × 15]&gt;
-## 4 &lt;rsplit&gt;     Fold4 &lt;recipe&gt;     &lt;tibble [713 × 15]&gt; &lt;tibble [178 × 15]&gt;
-## 5 &lt;rsplit&gt;     Fold5 &lt;recipe&gt;     &lt;tibble [713 × 15]&gt; &lt;tibble [178 × 15]&gt;</code></pre>
+## # A tibble: 5 x 6
+##   splits      id    fold_recipe  fold_train       fold_test        actuals      
+## * &lt;named lis&gt; &lt;chr&gt; &lt;named list&gt; &lt;named list&gt;     &lt;named list&gt;     &lt;list&gt;       
+## 1 &lt;rsplit&gt;    Fold1 &lt;recipe&gt;     &lt;tibble [712 × … &lt;tibble [179 × … &lt;named list …
+## 2 &lt;rsplit&gt;    Fold2 &lt;recipe&gt;     &lt;tibble [713 × … &lt;tibble [178 × … &lt;named list …
+## 3 &lt;rsplit&gt;    Fold3 &lt;recipe&gt;     &lt;tibble [713 × … &lt;tibble [178 × … &lt;named list …
+## 4 &lt;rsplit&gt;    Fold4 &lt;recipe&gt;     &lt;tibble [713 × … &lt;tibble [178 × … &lt;named list …
+## 5 &lt;rsplit&gt;    Fold5 &lt;recipe&gt;     &lt;tibble [713 × … &lt;tibble [178 × … &lt;named list …</code></pre>
 <p>Here we see the five folds, with one row per fold. We have a column for the split used to generate the <code>fold_train</code> and <code>fold_test</code>, and a <code>fold_recipe</code>.</p>
 <p>Now let’s fit a model. With absolutely no consideration towards model selection, we’ll arbitrarily choose to fit some gradient boosted decision trees. We define a <code>fit_xgb</code> function which uses the <code>parsnip</code> package as an interface to the <code>xgboost</code> model <em>engine</em>. We can then use this to fit a model for every fold, and generate predictions for every fold.</p>
 <pre class="r"><code>fit_xgb &lt;- function(data) {
@@ -1648,19 +1649,20 @@ folds</code></pre>
 folds_with_xgb &lt;- folds %&gt;% mutate(
     xgb = map(fold_train, fit_xgb),
     preds = pmap(list(model = xgb, validate = fold_test), 
-                 function(model, validate) predict(model, validate))
-)
+                 function(model, validate) predict(model, validate)) %&gt;% list
+) 
 
 folds_with_xgb</code></pre>
 <pre><code>## #  5-fold cross-validation 
-## # A tibble: 5 x 7
-##   splits    id    fold_recipe  fold_train      fold_test     xgb      preds     
-## * &lt;named l&gt; &lt;chr&gt; &lt;named list&gt; &lt;named list&gt;    &lt;named list&gt;  &lt;named &gt; &lt;named li&gt;
-## 1 &lt;rsplit&gt;  Fold1 &lt;recipe&gt;     &lt;tibble [712 ×… &lt;tibble [179… &lt;fit[+]&gt; &lt;tibble […
-## 2 &lt;rsplit&gt;  Fold2 &lt;recipe&gt;     &lt;tibble [713 ×… &lt;tibble [178… &lt;fit[+]&gt; &lt;tibble […
-## 3 &lt;rsplit&gt;  Fold3 &lt;recipe&gt;     &lt;tibble [713 ×… &lt;tibble [178… &lt;fit[+]&gt; &lt;tibble […
-## 4 &lt;rsplit&gt;  Fold4 &lt;recipe&gt;     &lt;tibble [713 ×… &lt;tibble [178… &lt;fit[+]&gt; &lt;tibble […
-## 5 &lt;rsplit&gt;  Fold5 &lt;recipe&gt;     &lt;tibble [713 ×… &lt;tibble [178… &lt;fit[+]&gt; &lt;tibble […</code></pre>
+## # A tibble: 5 x 8
+##   splits   id    fold_recipe  fold_train    fold_test   actuals   xgb    preds  
+## * &lt;named &gt; &lt;chr&gt; &lt;named list&gt; &lt;named list&gt;  &lt;named lis&gt; &lt;list&gt;    &lt;name&gt; &lt;list&gt; 
+## 1 &lt;rsplit&gt; Fold1 &lt;recipe&gt;     &lt;tibble [712… &lt;tibble [1… &lt;named l… &lt;fit[… &lt;named…
+## 2 &lt;rsplit&gt; Fold2 &lt;recipe&gt;     &lt;tibble [713… &lt;tibble [1… &lt;named l… &lt;fit[… &lt;named…
+## 3 &lt;rsplit&gt; Fold3 &lt;recipe&gt;     &lt;tibble [713… &lt;tibble [1… &lt;named l… &lt;fit[… &lt;named…
+## 4 &lt;rsplit&gt; Fold4 &lt;recipe&gt;     &lt;tibble [713… &lt;tibble [1… &lt;named l… &lt;fit[… &lt;named…
+## 5 &lt;rsplit&gt; Fold5 &lt;recipe&gt;     &lt;tibble [713… &lt;tibble [1… &lt;named l… &lt;fit[… &lt;named…</code></pre>
+<p>Cross-validation without evaluation is pointless. We need to see how our five models are performing. Since we’re dealing with a binary classification, we can look at three simple metrics: absolute error, false positives, and false negatives.</p>
 </div>
 </div>
 

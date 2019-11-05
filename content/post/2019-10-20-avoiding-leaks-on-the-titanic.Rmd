@@ -398,7 +398,7 @@ visdat::vis_dat(test_baked)
 
 Let's set up some cross-validation so we can put these recipes to use. As the Kaggle-provided test set doesn't contain the target `survived` variable, we'll split the training data set into two. To avoid confusion, we'll split the training data set into `fold_train` and `fold_test` --- one of each for every fold --- to distinguih from our original train and test data sets.
 
-We need to prepare a new recipe for every `fold_train`. Again, we'll call this `fold_recipe` to indicate that its dependent on the fold.
+We need to prepare a new recipe for every `fold_train`. Again, we'll call this `fold_recipe` to indicate that its dependent on the fold. Finally, we'll add a column for `actuals`, which is the `survived` column from `fold_test`. This will be useful when we're evaluating model performance.
 
 ```{r setting_up_folds}
 folds <- train %>% vfold_cv(v = 5) %>% mutate(
@@ -408,7 +408,8 @@ folds <- train %>% vfold_cv(v = 5) %>% mutate(
         list(fold_recipe = fold_recipe, split = splits), 
         function(fold_recipe, split) bake(fold_recipe,
                                           new_data = assessment(split))
-    )
+    ),
+    actuals = map(fold_test, function(x) select(x, survived)) %>% list
 )
 folds
 ```
@@ -427,8 +428,10 @@ fit_xgb <- function(data) {
 folds_with_xgb <- folds %>% mutate(
     xgb = map(fold_train, fit_xgb),
     preds = pmap(list(model = xgb, validate = fold_test), 
-                 function(model, validate) predict(model, validate))
-)
+                 function(model, validate) predict(model, validate)) %>% list
+) 
 
 folds_with_xgb
 ```
+
+Cross-validation without evaluation is pointless. We need to see how our five models are performing. Since we're dealing with a binary classification, we can look at three simple metrics: absolute error, false positives, and false negatives.
