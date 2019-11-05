@@ -63,6 +63,8 @@ mode_avg <- function(x) {
 
 # Data load
 
+For those unfamiliar with Kaggle competitions, the data comes already split into train and test. The test set does not contain the target variable, `survived`. Instead, the test set is scored and the scores uploaded to Kaggle, where the results are judged without revealing the "answers". To judge any models we train ourselves we'll need to split out training set up into another train and test. 
+
 We'll load our `train` and `test` data sets with some preparation. First we'll convert the column names to snake case. We'll also convert `age` and `pclass` (passenger class) to factors, as this will be needed for some data transformation steps later on. We'll also take `survived` as a factor (if it exists) as this is better for plotting.
 
 This is as much as we'll manipulate the test set before we forget about it. We can change column names, since these are independent of contents of the data. And by specifying the levels of the factors, we're not assuming anything about the values. The guiding question is this: what happens if, after we've written all of our code, we get a brand new single observation? Can our data manipulation code handle it?

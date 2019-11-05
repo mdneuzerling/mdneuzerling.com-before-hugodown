@@ -353,6 +353,7 @@ mode_avg &lt;- function(x) {
 </div>
 <div id="data-load" class="section level1">
 <h1>Data load</h1>
+<p>For those unfamiliar with Kaggle competitions, the data comes already split into train and test. The test set does not contain the target variable, <code>survived</code>. Instead, the test set is scored and the scores uploaded to Kaggle, where the results are judged without revealing the “answers”. To judge any models we train ourselves we’ll need to split out training set up into another train and test.</p>
 <p>We’ll load our <code>train</code> and <code>test</code> data sets with some preparation. First we’ll convert the column names to snake case. We’ll also convert <code>age</code> and <code>pclass</code> (passenger class) to factors, as this will be needed for some data transformation steps later on. We’ll also take <code>survived</code> as a factor (if it exists) as this is better for plotting.</p>
 <p>This is as much as we’ll manipulate the test set before we forget about it. We can change column names, since these are independent of contents of the data. And by specifying the levels of the factors, we’re not assuming anything about the values. The guiding question is this: what happens if, after we’ve written all of our code, we get a brand new single observation? Can our data manipulation code handle it?</p>
 <pre class="r"><code>data_clean &lt;- function(data) {
