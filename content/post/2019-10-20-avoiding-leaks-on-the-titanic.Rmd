@@ -170,3 +170,203 @@ recipe %>%
 ```
 
 We see here that people travelling by themselves are much less likely to survive. Those in families of size 2 or 3 are more likely to survive. This may tie into the notion of "women and children first", as children won't be travelling alone, and `r solo<-filter(train,sibsp==0&parch==0);scales::percent(nrow(filter(solo,sex=="male"))/nrow(solo))` of solo travellers are male.
+
+# Missing values
+
+Now let's take care of those missing `r knitr::combine_words(naniar::miss_var_which(train), before = '\x60')` values we noted earlier.
+
+## Imputation of `embarked`
+
+We'll start with the variable with the smallest non-zero number of missing values, `embarked`. This gives the port of embarkation for each customer. It can take on three values:
+
+```{r embarked_value_count}
+train %>% 
+    count(embarked, sort = TRUE) %>% 
+    left_join(
+        tribble(
+            ~embarked, ~port,
+            "C",       "Cherbourg",
+            "Q",       "Queenstown",
+            "S",       "Southampton"
+        ),
+        by = "embarked"
+    ) %>% 
+    select(embarked, port, n) %>% 
+    output_table
+```
+
+With only `r sum(is.na(train$embarked))` missing values, we shouldn't spend too much time on this variable. There's also a clear majority here, with `r mode_avg(train$embarked)` being the most common value. A quick way to deal with these missing values is to impute with the mode, so that every missing value is assumed to be `r mode_avg(train$embarked)`.
+
+The `recipes` package is especially useful here, as to avoid data leakage the imputation cannot consider the test set when defining the mode. That is, we define the mode of `embarked` based on the `train` set and then use this value to impute missing values in the `test` set.
+
+```{r recipe_definition_and_embarked_impute}
+recipe <- recipe %>% 
+    step_modeimpute(embarked)
+recipe
+```
+
+Let's take a look at how this recipe imputes missing data:
+
+```{r example_baking}
+recipe %>% 
+    prep(training = train, strings_as_factors = FALSE) %>% 
+    bake(new_data = train) %>% 
+    count(embarked, sort = TRUE) %>% 
+    output_table
+```
+
+As expected, those two missing values became `S`.
+
+## Imputation of `fare`
+
+There are no missing values of `fare` in the `train` set. However, if we peek ahead to the `test` set, we see that `r sum(is.na(test$fare))` point has a missing `fare` value. So we want to be able to handle missing values.
+
+Wait, hang on, we're supposed to be pretending that test set doesn't exist, aren't we? Well I imagine that we would find out about these missing values when we load the data set and errors occur. And this is a great example of using `recipes` to avoid data leakage --- we define an imputation strategy for the missing `fare` values in the test set without even looking at the test set.
+
+We might (sensibly) presume that fares are related to the class in which the passenger is travelling:
+
+```{r fare_density}
+train %>% 
+    filter(fare <= 100) %>% 
+    ggplot(aes(x = pclass, y = fare, fill = pclass)) +
+        geom_violin(alpha = 0.25) + 
+        ggtitle("Fare violin plots")
+```
+
+In fact we can break this down further to include ticket fares based on `sex` and `pclass`.
+
+```{r fare_breakdown_by_sex_pclass}
+train %>% 
+    group_by(sex, pclass) %>% 
+    summarise(
+        passengers = n(),
+        mean_fare = round(mean(fare, na.rm = TRUE), 1),
+    ) %>% 
+    output_table
+```
+
+We'll use k-nearest neighbours to impute any missing fares, so that the imputed age values are considerate of `sex` and `pclass`. We'll do this by using the `recipes` package again. Since we've already defined the `recipe` when imputing `embarked`, we can take that recipe and add the imputation step.
+
+Unfortunately, this step only works if `sex` and `pclass` are factors, not strings. For more information, see [the relevant GitHub issue](https://github.com/tidymodels/recipes/issues/213). Fortunately, we took care of this requirement when loading the data.
+
+```{r recipe_fare_impute}
+recipe <- recipe %>% 
+    step_knnimpute(
+        fare, 
+        impute_with = c("sex", "pclass"), 
+        neighbors = 10
+    )
+recipe
+```
+
+Note that we're able to view the steps for this recipe along the way, in a human-readable form.
+
+## Imputation of `age`
+
+We'll take a bit more care with the `r scales::percent(sum(is.na(train$age))/nrow(train))` of `age` values that are missing. Let's start by taking a look at how the values are distributed (when present):
+
+```{r age_density}
+train %>% 
+    filter(!is.na(age)) %>% 
+    ggplot(aes(x = age, fill = survived)) +
+        geom_density(alpha = 0.25) + 
+        scale_y_continuous(labels = scales::percent) +
+        ggtitle("Age density plot")
+```
+
+We can see a tail in the age here, with older passengers skewing the mean age to be slightly higher than the median.
+
+```{r age_summary}
+summary(train$age)
+```
+
+With this in mind, we might be tempted to impute missing age values with the median value of `r round(median(train$age, na.rm = TRUE), 2)`. However, if we take a look at the age variable by `sex`, `pclass` and `fare`, it looks as though age is not missing at random:
+
+```{r age_breakdown_by_sex_pclass}
+train %>% 
+    group_by(sex, pclass) %>% 
+    summarise(
+        passengers = n(),
+        mean_age = round(mean(age, na.rm = TRUE), 1),
+        mean_fare = round(mean(fare, na.rm = TRUE), 1),
+        missing_age = scales::percent(sum(is.na(age)) / passengers),
+        survived = scales::percent(mean(survived == 1))
+    ) %>% 
+    output_table
+```
+
+Passengers are more likely to survive if they are in women travelling in 1st class with more expensive fares, and this category of passengers has an older mean age. If we impute with the median value, this information would be lost.
+
+We'll use k-nearest neighbours to impute our missing ages instead, so that the imputed age values are considerate of `sex`, `pclass` and `fare`. We'll also consider title here, as some titles such as "Mrs" and "Master" may be relevant to age.
+
+```{r recipe_age_impute}
+recipe <- recipe %>% 
+    step_knnimpute(
+        age, 
+        impute_with = c("sex", "pclass", "fare", "title"), 
+        neighbors = 10
+    )
+recipe
+```
+
+Again, let's look at the impact of this imputation:
+
+```{r age_density_compared_to_imputed_values}
+recipe %>% 
+    prep(training = train, strings_as_factors = FALSE) %>% 
+    bake(new_data = train) %>% 
+    mutate(age_source = "imputed") %>% 
+    bind_rows(
+        mutate(train, age_source = "original")
+    ) %>% 
+    filter(!is.na(age)) %>% # doesn't affect the imputed ages
+    ggplot(aes(x = age, fill = age_source)) +
+    geom_density(alpha = 0.25) + 
+    scale_y_continuous(labels = scales::percent) +
+    scale_fill_manual(values = c("original" = "#FFC42F", "imputed" = "#C77CFF")) +
+    ggtitle("Age density plot")
+```
+
+The slight difference in appearance between the density plots here is reasonable, given that ages are more likely to be missing for passengers in their twenties.
+
+## Presence of a `cabin`
+
+We might be tempted to ignore the `cabin` value entirely, since `r scales::percent(sum(is.na(train$cabin)) / nrow(train))` of its values are missing. However, it's worth testing to see if the *presence* or *absence* of a cabin is in and of itself relevant.
+
+```{r cabin_present_summary}
+train %>% 
+    mutate(cabin_present = !is.na(cabin)) %>% 
+    group_by(cabin_present) %>% 
+    summarise(
+        passengers = n(),
+        survived = scales::percent(sum(survived == 1) / passengers)
+    ) %>% 
+    output_table
+```
+
+The presence of cabin information is related to survival, so we'll include this binary variable as a predictor (for now). Let's set up a recipe step to do this, using the `step_mutate` function:
+
+```{r recipe_cabin}
+recipe <- recipe %>% 
+    step_mutate(cabin_present = !is.na(cabin))
+```
+
+We could go further by considering the *number* of cabins associated with the passenger:
+
+```{r number_of_cabins_summary}
+train %>% 
+    mutate(
+        number_of_cabins = stringr::str_count(cabin, stringr::boundary("word")),
+        number_of_cabins = replace_na(number_of_cabins, 0)
+    ) %>% 
+    group_by(number_of_cabins) %>% 
+    summarise(
+        passengers = n(),
+        survived = scales::percent(sum(survived == 1) / passengers)
+    ) %>% 
+    arrange(number_of_cabins) %>% 
+    output_table
+```
+
+We see here, however, that there are very few instances of passengers with more than 1 cabin (according to the available information). We'll focus our attention to the binary variable already defined for the presence of cabin information.
+
