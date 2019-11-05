@@ -372,3 +372,63 @@ train %>%
 
 We see here, however, that there are very few instances of passengers with more than 1 cabin (according to the available information). We'll focus our attention to the binary variable already defined for the presence of cabin information.
 
+# Modelling efforts
+
+Before we move onto our modelling efforts, let's prepare our recipe to apply all of the missing value imputation and feature engineering that we've done. First, let's remind ourselves what our recipe is going to do:
+
+```{r recipe_final_summary}
+recipe
+```
+
+Now let's use it! Note that we `prep` our recipe on the training data but we can `bake` it on the test set. This separates the training and test data, so that we don't have data leakage from one to the other. Our data manipulation is based entirely on the training data but can be applied to any data with the same variables.
+
+```{r recipe_prepare_and_bake}
+prepared_reciped <- recipe %>% prep(training = train, 
+                                             strings_as_factors = FALSE)
+train_baked <- prepared_reciped %>% bake(new_data = train)
+test_baked <- prepared_reciped %>% bake(new_data = test)
+```
+
+```{r visdat_train_test_baked}
+visdat::vis_dat(train_baked)
+visdat::vis_dat(test_baked)
+```
+
+## Cross-validation
+
+Let's set up some cross-validation so we can put these recipes to use. As the Kaggle-provided test set doesn't contain the target `survived` variable, we'll split the training data set into two. To avoid confusion, we'll split the training data set into `fold_train` and `fold_test` --- one of each for every fold --- to distinguih from our original train and test data sets.
+
+We need to prepare a new recipe for every `fold_train`. Again, we'll call this `fold_recipe` to indicate that its dependent on the fold.
+
+```{r setting_up_folds}
+folds <- train %>% vfold_cv(v = 5) %>% mutate(
+    fold_recipe = map(splits, prepper, recipe = recipe, retain = TRUE),
+    fold_train = map(fold_recipe, juice),
+    fold_test = pmap(
+        list(fold_recipe = fold_recipe, split = splits), 
+        function(fold_recipe, split) bake(fold_recipe,
+                                          new_data = assessment(split))
+    )
+)
+folds
+```
+
+Here we see the five folds, with one row per fold. We have a column for the split used to generate the `fold_train` and `fold_test`, and a `fold_recipe`.
+
+Now let's fit a model. With absolutely no consideration towards model selection, we'll arbitrarily choose to fit some gradient boosted decision trees. We define a `fit_xgb` function which uses the `parsnip` package as an interface to the `xgboost` model *engine*. We can then use this to fit a model for every fold, and generate predictions for every fold.
+
+```{r xgboost}
+fit_xgb <- function(data) {
+    boost_tree(mode = "classification") %>%
+        set_engine("xgboost") %>%
+        fit(survived ~ age, data = data)
+}
+
+folds_with_xgb <- folds %>% mutate(
+    xgb = map(fold_train, fit_xgb),
+    preds = pmap(list(model = xgb, validate = fold_test), 
+                 function(model, validate) predict(model, validate))
+)
+
+folds_with_xgb
+```
