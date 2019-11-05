@@ -65,26 +65,30 @@ mode_avg <- function(x) {
 
 We'll load our `train` and `test` data sets with some preparation. First we'll convert the column names to snake case. We'll also convert `age` and `pclass` (passenger class) to factors, as this will be needed for some data transformation steps later on. We'll also take `survived` as a factor (if it exists) as this is better for plotting.
 
+This is as much as we'll manipulate the test set before we forget about it. We can change column names, since these are independent of contents of the data. And by specifying the levels of the factors, we're not assuming anything about the values. The guiding question is this: what happens if, after we've written all of our code, we get a brand new single observation? Can our data manipulation code handle it?
+
 ```{r data_load, message=FALSE}
 data_clean <- function(data) {
-    data %>% 
-        janitor::clean_names(case = "snake") %>% 
-        rename(sibsp = sib_sp) %>% # Keep this consistent with par_ch
-        mutate_at(vars("sex", "pclass"), list(factor)) %>% 
-        mutate_at(if("survived" %in% names(.)) "survived" else integer(0), as.factor)
+  data %>% 
+    janitor::clean_names(case = "snake") %>% 
+    rename(sibsp = sib_sp) %>% # Keep this consistent with par_ch
+    mutate(
+      sex = factor(sex, levels = c("female", "male")),
+      pclass = factor(pclass, levels = c(1, 2, 3))
+    ) %>% 
+    mutate_at(if("survived" %in% names(.)) "survived" else integer(0), function(x) factor(x, c(0, 1)))
 }
 
 train <- readr::read_csv("data/titanic/train.csv") %>% data_clean
 test <- readr::read_csv("data/titanic/test.csv") %>% data_clean
 ```
 
+I never miss an opportunity to use the `visdat` package, and `skimr` is a handy tool as well. These will reveal some missing values in the `r knitr::combine_words(naniar::miss_var_which(train), before = '\x60')` columns. We'll deal with these missing values later.
+
 ```{r visdat_train}
 visdat::vis_dat(train)
 ```
 
-```{r skimr_train, width=999}
-skimr::skim_with(numeric = list(hist = NULL)) # sparklines don't work on Windows
-skimr::skim(train)
+```{r skimr_train, results = "asis"}
+skimr::skim(train) %>% skimr::kable()
 ```
-
-The above reveals some missing values in the following columns: `r train %>% naniar::miss_var_which()`. We'll deal with this later.
