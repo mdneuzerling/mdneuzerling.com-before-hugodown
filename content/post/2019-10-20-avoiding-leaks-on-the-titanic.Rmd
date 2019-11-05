@@ -92,3 +92,81 @@ visdat::vis_dat(train)
 ```{r skimr_train, results = "asis"}
 skimr::skim(train) %>% skimr::kable()
 ```
+
+# Feature engineering
+
+You might not think of feature engineering as an opportunity for data leakage, but certain operations can leak information. For example, if you're collapsing categorical variables such that any value appearing in fewer than 5% of the observations is considered "other", then the values your categories can take can be directly altered by the observations in your test set.
+
+## Titles
+
+The names here contain titles, and those titles may prove valuable to our modelling efforts:
+
+```{r random_names}
+train %>% sample_n(10) %>% select(name) %>% output_table
+```
+
+Let's extract the titles with a bit of regex and count them:
+
+```{r title_counts}
+train %>% 
+    mutate(title = stringr::str_extract(name, "([A-Za-z]+)(?=\\.)")) %>% 
+    count(title, sort = TRUE) %>% 
+    output_table
+```
+
+Most of the titles are "Mr", "Miss" or "Mrs". We also have a few people with a "Master" title, as well as some academic, military and noble titles. Since the last few categories are infrequently occurring, we'll collapse them all into an "other" category. We do this with the `step_other` recipe step, which sets all values that occur less frequently than a given threshold to be set to "other". We'll set our threshold at `r scales::percent(0.04)` so that we can include the "Master" title---this title is generally reserved for boys, so it may be relevant to survival.
+
+We'll keep track of our data manipulation---such as feature engineering and missing data imputation---with the `recipes` package. This package allows us to define methods of data transformation based on one data set and apply those methods to the another data set. This is similar to the `fit_transform` and `transform` methods common in python syntax.
+
+First we'll define a blank recipe based on the data set, predicting for `survived` as a function of all other variables:
+
+```{r recipe_initial_definition}
+recipe <- recipe(survived ~ ., data = train)
+```
+
+Now we can add *steps* to this recipe. Steps chain together various transformations of the data, including both feature engineering and missing value imputation.
+
+```{r title_step}
+recipe <- recipe %>% 
+    step_mutate(
+        title = stringr::str_extract(name, "([A-Za-z]+)(?=\\.)")
+    ) %>% 
+    step_other(title, threshold = 0.04)
+recipe
+```
+
+Let's see what would happen if we were to use this recipe as it is, with just the one step. The language is *adorable*---we `prep` the recipe on the training data and then `bake` it on new data. Normally our new data would be the test set, but for this example we'll use the training set to see what happens.
+
+```{r example_baking_titles}
+recipe %>% 
+    prep(training = train, strings_as_factors = FALSE) %>% 
+    bake(new_data = train) %>% 
+    count(title, sort = TRUE) %>% 
+    output_table
+```
+
+## Family size
+
+Two variables here have abbreviated names, and so require a bit of explaining: `sipsp` gives the number of siblings and spouses on board for each customer, and `parch` the number of parents and children. We add these together, along with `1` for the passenger themselves, to describe the size of the family on board. 
+
+This operation is a simple bit of arithmetic, and isn't likely to lead to data leakage. But it's an important piece of feature engineering, and a good way to show off the `step_mutate` function of the `recipes` package.
+
+```{r family_size_step}
+recipe <- recipe %>% 
+    step_mutate(
+        family_size = sibsp + parch + 1
+    )
+```
+
+Let's see how the big the families on board were. We'll overlay this information with the survival data to see if certain sizes of families are more likely to survive.
+
+```{r example_baking_family_size}
+recipe %>% 
+    prep(training = train, strings_as_factors = FALSE) %>% 
+    bake(new_data = train) %>% 
+    ggplot(aes(x = family_size, fill = survived, group = survived)) + 
+    geom_bar(position = "dodge") + 
+    ggtitle("Survival of families aboard the Titanic") 
+```
+
+We see here that people travelling by themselves are much less likely to survive. Those in families of size 2 or 3 are more likely to survive. This may tie into the notion of "women and children first", as children won't be travelling alone, and `r solo<-filter(train,sibsp==0&parch==0);scales::percent(nrow(filter(solo,sex=="male"))/nrow(solo))` of solo travellers are male.
