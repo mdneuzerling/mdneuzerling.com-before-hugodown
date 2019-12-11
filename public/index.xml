@@ -6,10 +6,20 @@
     <description>Recent content on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Model as a package</title>
+      <link>/post/model-as-a-package/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/model-as-a-package/</guid>
+      <description>There’s a concept in R of an analysis as a package, in which everything you need for your data analysis is contained within a custom package. When you install the package and build the vignettes, the data analysis is performed and results saved as a pretty HTML or PDF file, generated with R Markdown. I wanted to extend this concept to a machine learning model as a package.
+The idea here is that, using vignettes, we can make equivalent installing a package with training a model.</description>
+    </item>
     
     <item>
       <title>An update on copyright and licencing</title>

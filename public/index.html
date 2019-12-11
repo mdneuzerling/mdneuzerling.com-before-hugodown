@@ -21,8 +21,8 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2019",
-        "datePublished": "2019-09-11 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2019-09-11 00:00:00 &#43;0000 UTC",
+        "datePublished": "2019-12-11 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2019-12-11 00:00:00 &#43;0000 UTC",
         "url" : "/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -59,7 +59,7 @@
 
 
 
-<meta property="og:updated_time" content="2019-09-11T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2019-12-11T00:00:00&#43;00:00"/>
 
 
 
@@ -266,6 +266,42 @@
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/post/model-as-a-package/">Model as a package</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-12-11'>
+                                    December 11, 2019</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/model-as-a-package/" class="image featured">
+            <img src="/img/ModelAsAPackage.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a></h3>
                                 
                                 <time class="published" datetime=
@@ -408,42 +444,6 @@
 
                         </article>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/user-the-week-in-review/">useR: The Week in Review</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-07-13'>
-                                    July 13, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/user-the-week-in-review/" class="image featured">
-            <img src="/img/useR/week_in_review.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
 
                 
                     <a href=
@@ -466,7 +466,7 @@
   <header>
     <div class="title">
         
-            <h2><a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a></h2>
+            <h2><a href="/post/model-as-a-package/">Model as a package</a></h2>
         
         
     </div>
@@ -474,11 +474,11 @@
         
 
         <time class="published"
-            datetime='2019-09-11'>
-            September 11, 2019</time>
+            datetime='2019-12-11'>
+            December 11, 2019</time>
         <span class="author"></span>
         
-            <p>2 minute read</p>
+            <p>3 minute read</p>
         
         
     </div>
@@ -507,29 +507,33 @@
         
         
 
-        <a href="/post/an-update-on-copyright-and-licencing/" class="image featured">
-            <img src="/img/door-green-closed-lock.jpg" alt="">
+        <a href="/post/model-as-a-package/" class="image featured">
+            <img src="/img/ModelAsAPackage.png" alt="">
         </a>
     
 
 
   <div id="content">
-    <p>When I started this blog I wanted a way to share the quick little projects that distract me. I gave some thought to licencing, but I wanted to make sure that people could use my code if it had any value to them. This is just a little blog by a very unimportant guy—if someone got some use out of my code, I would be flattered!</p>
-<p>However, in the last few days I’ve seen some unwelcome behaviour. People have been copying my work into their own LinkedIn posts, changing my words but not adding value. It makes me uncomfortable to see my work used this way.</p>
-<p>All of the <strong>content</strong> on this site will now be licenced under a <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>, unless otherwise noted.</p>
-<p>This is a restrictive licence, and I don’t want to restrict anyone who is genuinely contributing to the R community, instead of just trying to boost their LinkedIn profile. If this restriction isn’t working for you, <a href="/about">contact me</a>, and I’ll help as best I can. I’ll be genuinely flattered—and surprised—that something I’ve made can be helpful to you.</p>
-<div id="third-party-components-tools-and-fonts" class="section level2">
-<h2>Third-party components, tools and fonts</h2>
+    <p>There’s a concept in R of an <a href="https://www.r-bloggers.com/creating-an-analysis-as-a-package-and-vignette">analysis as a package</a>, in which everything you need for your data analysis is contained within a custom package. When you install the package and build the vignettes, the data analysis is performed and results saved as a pretty HTML or PDF file, generated with R Markdown. I wanted to extend this concept to a machine learning <strong>model as a package</strong>.</p>
+<p>The idea here is that, using vignettes, we can make equivalent installing a package with training a model. The functions in the package can be used in model training or for scoring new data, probably with some overlap. To demonstrate this I’ve created a simple sentiment analysis model based on <a href="https://archive.ics.uci.edu/ml/datasets/Sentiment+Labelled+Sentences">review data from the UCI Machine Learning Repository</a>. I’ve copied <a href="/rmd/ModelAsAPackage.html">the output of the vignette</a> so you can see what’s knitted when the package is installed.</p>
+<p>You can install this package with <code>devtools::install_github(&quot;mdneuzerling/ModelAsAPackage&quot;, build_vignettes = TRUE)</code>. The package can be loaded and attached with <code>library(ModelAsAPackage)</code> and the training vignette opened with <code>vignette(&quot;model-training&quot;, package = &quot;ModelAsAPackage&quot;)</code>.</p>
+<p>Want to see the (not-so-great) model score some text? Try giving an argument to the <code>sentiment</code> function. I’m happy to report that <code>sentiment(&quot;love&quot;) == &quot;good&quot;</code>.</p>
+<p>I thought this might work because of a few things:</p>
 <ul>
-<li><a href="https://github.com/gohugoio/hugo">Hugo</a>: <a href="https://github.com/gohugoio/hugo/blob/master/LICENSE">Apache License 2.0</a></li>
-<li><a href="https://github.com/rstudio/blogdown">blogdown</a>: GPL-3 license</li>
-<li><a href="https://github.com/jpescador/hugo-future-imperfect">Future Imperfect Theme for Hugo</a>: <a href="https://github.com/jpescador/hugo-future-imperfect/blob/master/LICENSE.md">MIT License</a></li>
-<li>Fira Sans Condensed, Raleway: <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL_web">SIL Open Font License</a></li>
-<li><a href="https://github.com/tonsky/FiraCode">Fira Code</a>: <a href="https://github.com/tonsky/FiraCode/blob/master/LICENSE">SIL Open Font License</a></li>
+<li>Vignettes are created before the source code is bundled, so in theory we can train a model before the package has finished compiling.</li>
+<li>R uses lazy evaluation, so if a package function refers to an object that doesn’t yet exist (because it hasn’t been created by the vignette) that’s okay.</li>
+<li>I like using the same functions for model training as I do for model scoring, like the <code>map_to_dtm</code> function in this package.</li>
+<li>I wanted to take full advantage of <code>roxygen2</code> for documenting package functions, and <code>testthat</code> for unit tests. I especially like the ease with which you can test within RStudio.</li>
 </ul>
-<p>The header image at the top of this page is in the
-<a href="https://www.pexels.com/photo/door-green-closed-lock-4291/">public domain</a>.</p>
-</div>
+<p>However, I have my doubts:</p>
+<ul>
+<li>In order for tests to work, I have to run <code>devtools::build_vignettes</code> before running <code>devtools::install</code>. There’s something here with namespaces whereby the data objects suddenly become “unexported” after tests are attempted. I don’t know why!</li>
+<li>There are some relative paths in the code. I’m assuming that the working directory is <code>&lt;package_root&gt;/vignettes</code> when this vignette is knitted, so I can move up one level to obtain the root directory of the package. This should be okay if we’re following the standard package structure, but I’ve been hurt too many times by relative file paths to feel comfortable about this.</li>
+<li>I’m not sure how this would operate with the <code>plumber</code> package. I don’t know if we can integrate the expected <code>plumber.R</code> function in the package, except for sticking it in the <code>inst</code> directory and then finding it with <code>system.file</code>.</li>
+<li>This all seems like a lot of complexity for not too much benefit. Maybe doing this again would be easier now that I have a template.</li>
+</ul>
+<p>These sorts of projects should be shared, even if I don’t think that this is a major success!</p>
+<p>A quick shout out for <a href="http://r-pkgs.had.co.nz/">the excellent book on R packages by Hadley Wickham</a>. It’s well worth keeping bookmarked.</p>
 
   </div>
 
@@ -538,15 +542,18 @@
   <li class="categories">
     <ul>
         
-            
-            
-        
     </ul>
   </li>
   <li class="tags">
     <ul>
         
             
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
             
         
     </ul>
@@ -559,8 +566,8 @@
 
 <ul class="actions pagination">
     
-        <li><a href="/post/my-data-science-job-hunt/"
-                class="button big previous">My data science job hunt</a></li>
+        <li><a href="/post/an-update-on-copyright-and-licencing/"
+                class="button big previous">An update on copyright and licencing</a></li>
     
 
     
@@ -579,7 +586,7 @@
 
 
 <li>
-  <a href="//twitter.com/share?url=%2fpost%2fan-update-on-copyright-and-licencing%2f&amp;text=An%20update%20on%20copyright%20and%20licencing&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fpost%2fmodel-as-a-package%2f&amp;text=Model%20as%20a%20package&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -589,7 +596,7 @@
 
 
 <li>
-  <a href="//plus.google.com/share?url=%2fpost%2fan-update-on-copyright-and-licencing%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=%2fpost%2fmodel-as-a-package%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -600,7 +607,7 @@
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fan-update-on-copyright-and-licencing%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fmodel-as-a-package%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -610,7 +617,7 @@
 
 
 <li>
-  <a href="//reddit.com/submit?url=%2fpost%2fan-update-on-copyright-and-licencing%2f&amp;title=An%20update%20on%20copyright%20and%20licencing" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=%2fpost%2fmodel-as-a-package%2f&amp;title=Model%20as%20a%20package" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -620,7 +627,7 @@
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fan-update-on-copyright-and-licencing%2f&amp;title=An%20update%20on%20copyright%20and%20licencing" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fmodel-as-a-package%2f&amp;title=Model%20as%20a%20package" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -630,7 +637,7 @@
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fan-update-on-copyright-and-licencing%2f&amp;title=An%20update%20on%20copyright%20and%20licencing" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fmodel-as-a-package%2f&amp;title=Model%20as%20a%20package" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -640,7 +647,7 @@
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fan-update-on-copyright-and-licencing%2f&amp;description=An%20update%20on%20copyright%20and%20licencing" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fmodel-as-a-package%2f&amp;description=Model%20as%20a%20package" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -650,7 +657,7 @@
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fan-update-on-copyright-and-licencing%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fmodel-as-a-package%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -789,6 +796,44 @@
           
         
 
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/model-as-a-package/">Model as a package</a>
+              </h3>
+              
+              <time class="published" datetime='2019-12-11'>
+                December 11, 2019
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/model-as-a-package/" class="image featured">
+            <img src="/img/ModelAsAPackage.png" alt="">
+        </a>
+    
+
+
+          </article>
         
           <article class="mini-post">
             <header>
@@ -936,44 +981,6 @@
 
         <a href="/post/how-i-d-like-to-send-an-email-from-r/" class="image featured">
             <img src="/img/pipes.jpeg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/user-the-week-in-review/">useR: The Week in Review</a>
-              </h3>
-              
-              <time class="published" datetime='2018-07-13'>
-                July 13, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/user-the-week-in-review/" class="image featured">
-            <img src="/img/useR/week_in_review.png" alt="">
         </a>
     
 
