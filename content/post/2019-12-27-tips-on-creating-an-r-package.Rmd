@@ -1,0 +1,26 @@
+---
+title: Tips on creating an R package
+author: ''
+date: '2019-12-27'
+slug: tips-on-creating-an-r-package
+categories: []
+tags:
+    - R
+featured: "ModelAsAPackage.png"
+featuredalt: "Word cloud of review text"
+featuredpath: "img"
+---
+
+* [Know the difference between *attaching* and *loadng* a package](http://r-pkgs.had.co.nz/namespace.html). Attaching a package also loads it, and this is what happens when you run the `library` function.
+    * I've heard it claimed before that it's inefficient to use double colons like `readr::read_csv()` because R "loads the package every time". That's not true. R loads the package on the first use of a double colon function, but doesn't attach it. For every call afterwards, that package has _already been loaded_.
+* If your package uses another package, add it to your DESCRIPTION file with `usethis::use_package(package)`. By default, this will add the package to the "Imports" section, which attaches but does not load the dependent package. This is *probably* what you want, but you can put it in another section by changing the `type` argument in `use_package` to "Depends" or "Suggests".
+* Once you've added a package to your DESCRIPTION file, you can use it in your functions in one of three ways. They are, **in order of preference**:
+    1. Use a double colon like `dplyr::mutate`. This is the preferred option since it doesn't change the namespace of your package.
+    2. Add a Roxygen tag `ImportFrom`, such as `#' @ImportFrom dplyr mutate`. This adds the `mutate` function to the namespace available to your package functions without anything else from the `dplyr` package. This allows you to use `mutate` by itself in your package functions. Because this only adds a single function at a time, you're unlikely to encounter a namespace collision (two objects with the same name in the namespace).
+    3. Add a Roxygen tag `Import`, such as `#' Import dplyr`. This adds every function in the `dplyr` package to the namespace available to your package functions. This isn't recommended because it makes it very easy to run into a namespace collision.
+* Once you've added either an `ImportFrom` or `Import` tag, you need to `devtools::document()` for the change to take effect. This will add the relevant lines to your NAMESPACE file.
+* Use the `@keywords internal` Roxygen tag for documented internal functions, that is, functions without an `@export` tag. This [partially hides the documentation from regular users](http://r-pkgs.had.co.nz/man.html), while still allowing interested users and developers to access it.
+* If you want to skip the portion of a package check where R connects to CRAN (because you're behind a proxy or you don't have an internet connection) run `rcmdcheck::rcmdcheck(repos = FALSE)`.
+* When you use a function like `mutate(mtcars, kph = 0.425144 * mpg)`, the package check will complain because it's expecting to see `mpg` as a global variable. It's just a note so you can ignore it, but if you're like me and interpret notes in package checks as personal attacks, then this [StackExchange post](https://stackoverflow.com/questions/9439256/how-can-i-handle-r-cmd-check-no-visible-binding-for-global-variable-notes-when) post has some options.
+    * Personally, I just add `utils::globalVariables("mpg")` to a `globals.R` file in my `R` folder, with a comment explaining why.
+* If you're creating a custom package for a **specific** data set, I recommend creating a `download_data` function that creates the `inst/extdata` folder and downloads the external data only if it doesn't already exist. You can add `inst/extdata` to your `.gitignore`. This means that you can host your source code but not your data (which may be quite large) on git, without having to worry about doing multiple redundant downloads. This will also let you delete your R Markdown cache without deleting your local data.
