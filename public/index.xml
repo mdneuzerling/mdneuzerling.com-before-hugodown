@@ -6,10 +6,20 @@
     <description>Recent content on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What I&#39;ve learnt about making an R package</title>
+      <link>/post/what-ive-learnt-about-making-an-r-package/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/what-ive-learnt-about-making-an-r-package/</guid>
+      <description>The last few weeks have been all about R package development for me. First I was exploring GitHub actions with the lovely people at the rOpenSci OzUnconf, and then I was off to San Francisco to learn about Building Tidy Tools with the Wickham siblings. I’ve picked up a lot about package development, so I’m documenting some of trickier things that I’ve learnt.
+A great resource for package development is Hadley’s book.</description>
+    </item>
     
     <item>
       <title>Model as a package</title>
