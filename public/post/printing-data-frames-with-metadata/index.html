@@ -11,10 +11,9 @@
              "@id": "/"
         },
         "articleSection" : "post",
-        "name" : "What I&#39;ve learnt about making an R package",
-        "headline" : "What I&#39;ve learnt about making an R package",
-        "description" : "The last few weeks have been all about R package development for me. First I was exploring GitHub actions with the lovely people at the rOpenSci OzUnconf, and then I was off to San Francisco to learn about Building Tidy Tools with the Wickham siblings. I’ve picked up a lot about package development, so I’m documenting some of trickier things that I’ve learnt.
-A great resource for package development is Hadley’s book.",
+        "name" : "Printing data frames with metadata",
+        "headline" : "Printing data frames with metadata",
+        "description" : "I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the tibble::new_tibble() function to attach metadata to the tibble as attributes, and creating a custom print method to make the metadata visible.",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -22,16 +21,16 @@ A great resource for package development is Hadley’s book.",
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2020",
-        "datePublished": "2020-01-28 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2020-01-28 00:00:00 &#43;0000 UTC",
-        "url" : "/post/what-ive-learnt-about-making-an-r-package/",
-        "wordCount" : "1262",
+        "datePublished": "2020-05-19 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2020-05-19 00:00:00 &#43;0000 UTC",
+        "url" : "/post/printing-data-frames-with-metadata/",
+        "wordCount" : "421",
         "keywords" : [ "R","Blog" ]
     }
     </script>
         
             
-                <title>What I&#39;ve learnt about making an R package</title>
+                <title>Printing data frames with metadata</title>
             
         
 
@@ -49,22 +48,20 @@ A great resource for package development is Hadley’s book.",
         
 
         <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="What I&#39;ve learnt about making an R package"/>
-<meta name="twitter:description" content="The last few weeks have been all about R package development for me. First I was exploring GitHub actions with the lovely people at the rOpenSci OzUnconf, and then I was off to San Francisco to learn about Building Tidy Tools with the Wickham siblings. I’ve picked up a lot about package development, so I’m documenting some of trickier things that I’ve learnt.
-A great resource for package development is Hadley’s book."/>
+<meta name="twitter:title" content="Printing data frames with metadata"/>
+<meta name="twitter:description" content="I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the tibble::new_tibble() function to attach metadata to the tibble as attributes, and creating a custom print method to make the metadata visible."/>
 <meta name="twitter:site" content="@mdneuzerling"/>
 
-        <meta property="og:title" content="What I&#39;ve learnt about making an R package" />
-<meta property="og:description" content="The last few weeks have been all about R package development for me. First I was exploring GitHub actions with the lovely people at the rOpenSci OzUnconf, and then I was off to San Francisco to learn about Building Tidy Tools with the Wickham siblings. I’ve picked up a lot about package development, so I’m documenting some of trickier things that I’ve learnt.
-A great resource for package development is Hadley’s book." />
+        <meta property="og:title" content="Printing data frames with metadata" />
+<meta property="og:description" content="I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the tibble::new_tibble() function to attach metadata to the tibble as attributes, and creating a custom print method to make the metadata visible." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/post/what-ive-learnt-about-making-an-r-package/" />
+<meta property="og:url" content="/post/printing-data-frames-with-metadata/" />
 
 
 
-<meta property="article:published_time" content="2020-01-28T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2020-05-19T00:00:00&#43;00:00"/>
 
-<meta property="article:modified_time" content="2020-01-28T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2020-05-19T00:00:00&#43;00:00"/>
 
 
 
@@ -81,14 +78,13 @@ A great resource for package development is Hadley’s book." />
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
         
-<meta itemprop="name" content="What I&#39;ve learnt about making an R package">
-<meta itemprop="description" content="The last few weeks have been all about R package development for me. First I was exploring GitHub actions with the lovely people at the rOpenSci OzUnconf, and then I was off to San Francisco to learn about Building Tidy Tools with the Wickham siblings. I’ve picked up a lot about package development, so I’m documenting some of trickier things that I’ve learnt.
-A great resource for package development is Hadley’s book.">
+<meta itemprop="name" content="Printing data frames with metadata">
+<meta itemprop="description" content="I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the tibble::new_tibble() function to attach metadata to the tibble as attributes, and creating a custom print method to make the metadata visible.">
 
 
-<meta itemprop="datePublished" content="2020-01-28T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-28T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1262">
+<meta itemprop="datePublished" content="2020-05-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-19T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="421">
 
 
 
@@ -485,7 +481,7 @@ A great resource for package development is Hadley’s book.">
 
 
 <li>
-  <a href="//twitter.com/share?url=%2fpost%2fwhat-ive-learnt-about-making-an-r-package%2f&amp;text=What%20I%27ve%20learnt%20about%20making%20an%20R%20package&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fpost%2fprinting-data-frames-with-metadata%2f&amp;text=Printing%20data%20frames%20with%20metadata&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -495,7 +491,7 @@ A great resource for package development is Hadley’s book.">
 
 
 <li>
-  <a href="//plus.google.com/share?url=%2fpost%2fwhat-ive-learnt-about-making-an-r-package%2f" target="_blank" class="share-btn google-plus">
+  <a href="//plus.google.com/share?url=%2fpost%2fprinting-data-frames-with-metadata%2f" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
   </a>
@@ -506,7 +502,7 @@ A great resource for package development is Hadley’s book.">
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fwhat-ive-learnt-about-making-an-r-package%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fprinting-data-frames-with-metadata%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -516,7 +512,7 @@ A great resource for package development is Hadley’s book.">
 
 
 <li>
-  <a href="//reddit.com/submit?url=%2fpost%2fwhat-ive-learnt-about-making-an-r-package%2f&amp;title=What%20I%27ve%20learnt%20about%20making%20an%20R%20package" target="_blank" class="share-btn reddit">
+  <a href="//reddit.com/submit?url=%2fpost%2fprinting-data-frames-with-metadata%2f&amp;title=Printing%20data%20frames%20with%20metadata" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
   </a>
@@ -526,7 +522,7 @@ A great resource for package development is Hadley’s book.">
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fwhat-ive-learnt-about-making-an-r-package%2f&amp;title=What%20I%27ve%20learnt%20about%20making%20an%20R%20package" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fprinting-data-frames-with-metadata%2f&amp;title=Printing%20data%20frames%20with%20metadata" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -536,7 +532,7 @@ A great resource for package development is Hadley’s book.">
 
 
 <li>
-  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fwhat-ive-learnt-about-making-an-r-package%2f&amp;title=What%20I%27ve%20learnt%20about%20making%20an%20R%20package" target="_blank" class="share-btn stumbleupon">
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fprinting-data-frames-with-metadata%2f&amp;title=Printing%20data%20frames%20with%20metadata" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
   </a>
@@ -546,7 +542,7 @@ A great resource for package development is Hadley’s book.">
 
 
 <li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fwhat-ive-learnt-about-making-an-r-package%2f&amp;description=What%20I%27ve%20learnt%20about%20making%20an%20R%20package" target="_blank" class="share-btn pinterest">
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fprinting-data-frames-with-metadata%2f&amp;description=Printing%20data%20frames%20with%20metadata" target="_blank" class="share-btn pinterest">
     <i class="fa fa-pinterest-p"></i>
     <p>Pinterest</p>
   </a>
@@ -556,7 +552,7 @@ A great resource for package development is Hadley’s book.">
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fwhat-ive-learnt-about-making-an-r-package%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fprinting-data-frames-with-metadata%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -575,7 +571,7 @@ A great resource for package development is Hadley’s book.">
   <header>
     <div class="title">
         
-            <h1><a href="/post/what-ive-learnt-about-making-an-r-package/">What I&#39;ve learnt about making an R package</a></h1>
+            <h1><a href="/post/printing-data-frames-with-metadata/">Printing data frames with metadata</a></h1>
             
         
         
@@ -584,11 +580,11 @@ A great resource for package development is Hadley’s book.">
         
 
         <time class="published"
-            datetime='2020-01-28'>
-            January 28, 2020</time>
+            datetime='2020-05-19'>
+            May 19, 2020</time>
         <span class="author"></span>
         
-            <p>6 minute read</p>
+            <p>2 minute read</p>
         
         
     </div>
@@ -617,78 +613,54 @@ A great resource for package development is Hadley’s book.">
         
         
 
-        <a href="/post/what-ive-learnt-about-making-an-r-package/" class="image featured">
-            <img src="/img/boxes.jpg" alt="">
+        <a href="/post/printing-data-frames-with-metadata/" class="image featured">
+            <img src="/img/flinders-departures.png" alt="">
         </a>
     
 
 
   <div id="content">
-    <p>The last few weeks have been all about R package development for me. First I was exploring GitHub actions with the lovely people at the <a href="https://ozunconf19.ropensci.org/">rOpenSci OzUnconf</a>, and then I was off to San Francisco to learn about <a href="https://github.com/rstudio-conf-2020/build-tidy-tools">Building Tidy Tools with the Wickham siblings</a>. I’ve picked up a lot about package development, so I’m documenting some of trickier things that I’ve learnt.</p>
-<p>A great resource for package development is <a href="http://r-pkgs.had.co.nz/">Hadley’s book</a>. Check it out.</p>
-<div id="general-hints" class="section level2">
-<h2>General hints</h2>
-<ul>
-<li><a href="http://r-pkgs.had.co.nz/namespace.html">There’s a difference between <em>attaching</em> and <em>loading</em> a package</a>. Attaching a package also loads it, and this is what happens when you run the <code>library</code> function.
-<ul>
-<li>I’ve heard it claimed before that it’s inefficient to use double colons like <code>readr::read_csv()</code> because R “loads the package every time”. That’s not true. R loads the package on the first use of a double colon function, but doesn’t attach it. For every call afterwards, that package has <em>already been loaded</em>.</li>
-</ul></li>
-<li>Running <code>devtools::check()</code> (as opposed to <code>R CMD CHECK</code>) will automatically run <code>devtools::document()</code> before the package check <em>if devtools can see that you’re using Roxygen</em>. This isn’t always obvious for a brand new package, so I found that I had to run <code>devtools::document()</code> initially. After that first command, however, <code>devtools::check()</code> started documenting.</li>
-<li>Use the <code>@keywords internal</code> Roxygen tag for documented internal functions, that is, functions without an <code>@export</code> tag. This <a href="http://r-pkgs.had.co.nz/man.html">partially hides the documentation from regular users</a>, while still allowing interested users and developers to access it. <a href="https://twitter.com/mdneuzerling/status/1219402128722137089">Thank you to the #rstats Twitter for helping me out with this one!</a></li>
-<li>If you want to skip the portion of a package check where R connects to CRAN (because you’re behind a proxy or you don’t have an internet connection) run <code>rcmdcheck::rcmdcheck(repos = FALSE)</code>. This lets you continue package development on planes.</li>
-<li>When you use a function like <code>mutate(mtcars, kph = 0.425144 * mpg)</code>, the package check will complain because it’s expecting to see <code>mtcars</code> and <code>mpg</code> as global variables. It’s just a note so you can ignore it, but if you’re like me and interpret notes in package checks as personal attacks, then this <a href="https://stackoverflow.com/questions/9439256/how-can-i-handle-r-cmd-check-no-visible-binding-for-global-variable-notes-when">StackExchange post</a> post has some options.
-<ul>
-<li>Personally, I just add <code>utils::globalVariables(c("mtcars", "mpg"))</code> to a <code>globals.R</code> file in my <code>R</code> folder. If there’s a chance someone else will be looking at your source code, you should add a (non-Roxygen) comment explaining why so they don’t get confused.</li>
-</ul></li>
-<li>If you’re creating a custom package for a <strong>specific</strong> data set, I recommend creating a <code>download_data</code> function that creates the <code>inst/extdata</code> folder and downloads the external data only if it doesn’t already exist. You can add <code>inst/extdata</code> to your <code>.gitignore</code>. This means that you can host your source code but not your data (which may be quite large) on git, without having to worry about doing multiple redundant downloads. This will also let you delete your R Markdown cache without deleting your local data.</li>
-</ul>
-</div>
-<div id="managing-dependencies" class="section level2">
-<h2>Managing dependencies</h2>
-<ul>
-<li>If your package uses another package, add it to your DESCRIPTION file with <code>usethis::use_package(package)</code>. By default, this will add the package to the “Imports” section. This is <em>probably</em> what you want, but you can put it in another section by changing the <code>type</code> argument in <code>use_package</code> to “Depends” or “Suggests”.
-<ul>
-<li>“Imports” in the DESCRIPTION file is <strong>not</strong> the same as “Imports” in the NAMESPACE file. The DESCRIPTION file doesn’t really “import” anything in the namespace sense — it just tells R that those packages should be installed.</li>
-</ul></li>
-<li>Once you’ve added a package to your DESCRIPTION file, you can use it in your functions in one of three ways. They are, <strong>in order of preference</strong> (Thank you to Hadley for confirming this at the workshop):
-<ol style="list-style-type: decimal">
-<li>Use a double colon like <code>dplyr::mutate</code>. This is the preferred option since it doesn’t change the namespace of your package.</li>
-<li>Add a Roxygen tag <code>@ImportFrom</code>, such as <code>#' @ImportFrom dplyr mutate</code>. This adds the <code>mutate</code> function to the namespace available to your package functions without anything else from the <code>dplyr</code> package. This allows you to use <code>mutate</code> by itself in your package functions. Because this only adds a single function at a time, you’re unlikely to encounter a namespace collision (two objects with the same name in the namespace).</li>
-<li>Add a Roxygen tag <code>@Import</code>, such as <code>#' @Import dplyr</code>. This adds every function in the <code>dplyr</code> package to the namespace available to your package functions. This isn’t recommended because it makes it very easy to run into a namespace collision.
-<ul>
-<li>Something Hadley said: it’s okay to do this if you’re running a package that’s been <em>explicitly designed</em> to be imported in this manner. For example, tidyverse functions import the entire <code>rlang</code> namespace. It’s also more acceptable to do this if you’re only importing the entire namespace of a <em>single</em> package, since that’s unlikely to lead to conflicts.</li>
-</ul></li>
-</ol></li>
-<li>You can use the same <code>@Import</code> or <code>@ImportFrom</code> multiple times, and Roxygen will only add it once to the NAMESPACE. I like to keep my dependencies close to the functions that use them, so if I need a pipe in many functions I’ll put <code>@ImportFrom magrittr %&gt;%</code> in each file. That’s just my personal preference, though.</li>
-<li>Once you’ve added either an <code>@ImportFrom</code> or <code>@Import</code> tag, you need to <code>devtools::document()</code> for the change to take effect. This will add the relevant lines to your NAMESPACE file. <code>devtools::check()</code> will usually do this for you.
-<ul>
-<li>This often catches me out if I change the NAMESPACE through a Roxygen tag and then re-install the package without running <code>devtools::check()</code>. I get frustrated that my changes aren’t taking effect, until I realise my mistake!</li>
-</ul></li>
-<li>The <code>base</code> package never needs to be explicitly referred to or mentioned in your DESCRIPTION file.
-<ul>
-<li>You <em>do</em> need to explicitly refer to functions and objects from the <code>utils</code> and <code>stats</code> packages, eg. <code>stats::var(c(2, 3, 3, 3, 4))</code>, and put them in your DESCRIPTION file.</li>
-</ul></li>
-<li>Packages used in your vignettes that are not used in your package itself should go in the “Suggests” portion of your namespace, eg. <code>usethis::use_package("ggplot2", type = "Suggests")</code>.</li>
-</ul>
-</div>
-<div id="importing-s3-methods" class="section level2">
-<h2>Importing S3 methods</h2>
-<p>There’s something that still confuses me. Let me preface this by saying that I’m not going to pretend to understand S3.</p>
-<p>Suppose that one of your dependencies uses an S3 method for a generic. For example, the <code>randomForest</code> package has an (unexported) <code>predict.randomForest</code> S3 method that allows you to make predictions with new data using the <code>predict</code> generic. How do you deal with that dependency without importing the whole <code>randomForest</code> namespace?</p>
-<p>I created a quick package to test this out. <a href="https://github.com/mdneuzerling/ImportingRandomForest">You can find it on GitHub</a>.</p>
-<p>The option I went with here is to call on the internal function directly: <code>randomForest:::predict.randomForest()</code>. This works, but you’ll get a note because you’re generally not supposed to use <code>:::</code> in functions. If you’re submitting to CRAN, this could be an issue. Here are the results of <code>R CMD CHECK</code>:</p>
-<pre><code>── R CMD check results ─────────────────── ImportingRandomForest 0.0.0.9000 ────
-Duration: 11.3s
-
-❯ checking dependencies in R code ... NOTE
-  Unexported object imported by a &#39;:::&#39; call: ‘randomForest:::predict.randomForest’
-    See the note in ?`:::` about the use of this operator.
-
-0 errors ✔ | 0 warnings ✔ | 1 note ✖</code></pre>
-<p>Alternatively, the <code>stats::predict</code> generic seems to work with the Roxygen tag <code>@importFrom randomForest randomForest</code>. I feel like this is a fluke — the S3 method is imported as a consequence of importing the <code>randomForest</code> function, but it’s not clear that this is happening. Similarly, <code>@importMethodsFrom randomForest predict.randomForest</code> seems to work, even though R throws a warning that it couldn’t find the method.</p>
-<p>I’d welcome any thoughts on this!</p>
-<hr />
-<p><sub><sup>The featured image for this post is from <a href="https://pixabay.com/photos/boxes-cardboard-gift-box-3404606/">pixabay</a>, and is used under the <a href="https://pixabay.com/service/license/">Simplified Pixabay License</a>.</sup></sub></p>
+    <p>I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the <code>tibble::new_tibble()</code> function to attach metadata to the tibble as attributes, and creating a custom <code>print</code> method to make the metadata visible.</p>
+<p>First, the raw response from the API call is structured as a list:</p>
+<pre class="r"><code>response &lt;- list(
+    request = request_url_without_auth,
+    retrieved = format(
+      Sys.time(),
+      format = &quot;%Y-%m-%d %H:%M:%OS %Z&quot;,
+      tz = &quot;Australia/Melbourne&quot;
+    ),
+    status_code = status_code,
+    content = content
+)</code></pre>
+<p>Some other function will take the content in this list, process it, and create a <code>parsed</code> tibble. We hand this off to the <code>tibble::new_tibble()</code> function. Along with the new class name — “ptvapi” — we also attach the <code>response</code> metadata as attributes to the new tibble.</p>
+<pre class="r"><code>tibble::new_tibble(
+    parsed,
+    nrow = nrow(parsed),
+    class = &quot;ptvapi&quot;,
+    request = response$request,
+    retrieved = response$retrieved,
+    status_code = response$status_code,
+    content = response$content
+  )</code></pre>
+<p>Let’s say we have a tibble <code>flinders_departures</code> created through this process. <code>flinders_departures</code> will have the following classes, in order: “ptvapi”, “tbl_df”, “tbl”, and “data.frame”.</p>
+<p>For those who are unfamiliar to S3, some functions in R — like <code>print()</code>, <code>summary()</code> and <code>predict()</code> — are <em>generics</em>. When generics are called, R will look through the classes of the argument to find the right <em>method</em> to call. When we call <code>print(flinders_departures)</code> (or, equivalently, enter <code>flinders_departures</code> at the console) R will first look for the <code>print.ptvapi()</code> method. If it can’t find that, it will move on to <code>print.tbl_df()</code>, and so on, until it tries <code>print.default()</code>.</p>
+<p>If I were to let R go through this method I would print <code>flinders_departure</code> without printing the metadata. So I created a simple way of printing out those attributes:</p>
+<pre class="r"><code>print.ptvapi &lt;- function(x) {
+  if (!is.null(attr(x, &quot;request&quot;))) {
+    cat(&quot;Request:&quot;, attr(x, &quot;request&quot;), &quot;\n&quot;)
+  }
+  if (!is.null(attr(x, &quot;retrieved&quot;))) {
+    cat(&quot;Retrieved:&quot;, attr(x, &quot;retrieved&quot;), &quot;\n&quot;)
+  }
+  if (!is.null(attr(x, &quot;status_code&quot;))) {
+    cat(&quot;Status code:&quot;, attr(x, &quot;status_code&quot;), &quot;\n&quot;)
+  }
+  NextMethod()
+}</code></pre>
+<p>This method will print out the attributes if they exist. <code>NextMethod()</code> will then make R go down the class chain, until it prints like a regular tibble. This is great for debugging. The response of the API call is (more or less) determined by the three attributes I specially print. So it makes life much easier for me to be able relate the parsed tibble to the API response.</p>
+<div class="figure">
+<img src="img/flinders-departures.png" alt="" />
+<p class="caption">Departures from Flinders Street Station</p>
 </div>
 
   </div>
@@ -697,9 +669,6 @@ Duration: 11.3s
     <ul class="stats">
   <li class="categories">
     <ul>
-        
-            
-            
         
     </ul>
   </li>
@@ -725,13 +694,10 @@ Duration: 11.3s
 
 <ul class="actions pagination">
     
-        <li><a href="/post/model-as-a-package/"
-                class="button big previous">Model as a package</a></li>
+        <li><a href="/post/what-ive-learnt-about-making-an-r-package/"
+                class="button big previous">What I&#39;ve learnt about making an R package</a></li>
     
 
-    
-        <li><a href="/post/printing-data-frames-with-metadata/"
-                class="button big next">Printing data frames with metadata</a></li>
     
 </ul>
 

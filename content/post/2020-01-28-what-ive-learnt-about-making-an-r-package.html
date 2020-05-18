@@ -27,7 +27,7 @@ featuredpath: "img"
 <li>If you want to skip the portion of a package check where R connects to CRAN (because you’re behind a proxy or you don’t have an internet connection) run <code>rcmdcheck::rcmdcheck(repos = FALSE)</code>. This lets you continue package development on planes.</li>
 <li>When you use a function like <code>mutate(mtcars, kph = 0.425144 * mpg)</code>, the package check will complain because it’s expecting to see <code>mtcars</code> and <code>mpg</code> as global variables. It’s just a note so you can ignore it, but if you’re like me and interpret notes in package checks as personal attacks, then this <a href="https://stackoverflow.com/questions/9439256/how-can-i-handle-r-cmd-check-no-visible-binding-for-global-variable-notes-when">StackExchange post</a> post has some options.
 <ul>
-<li>Personally, I just add <code>utils::globalVariables(c(&quot;mtcars&quot;, &quot;mpg&quot;))</code> to a <code>globals.R</code> file in my <code>R</code> folder. If there’s a chance someone else will be looking at your source code, you should add a (non-Roxygen) comment explaining why so they don’t get confused.</li>
+<li>Personally, I just add <code>utils::globalVariables(c("mtcars", "mpg"))</code> to a <code>globals.R</code> file in my <code>R</code> folder. If there’s a chance someone else will be looking at your source code, you should add a (non-Roxygen) comment explaining why so they don’t get confused.</li>
 </ul></li>
 <li>If you’re creating a custom package for a <strong>specific</strong> data set, I recommend creating a <code>download_data</code> function that creates the <code>inst/extdata</code> folder and downloads the external data only if it doesn’t already exist. You can add <code>inst/extdata</code> to your <code>.gitignore</code>. This means that you can host your source code but not your data (which may be quite large) on git, without having to worry about doing multiple redundant downloads. This will also let you delete your R Markdown cache without deleting your local data.</li>
 </ul>
@@ -57,7 +57,7 @@ featuredpath: "img"
 <ul>
 <li>You <em>do</em> need to explicitly refer to functions and objects from the <code>utils</code> and <code>stats</code> packages, eg. <code>stats::var(c(2, 3, 3, 3, 4))</code>, and put them in your DESCRIPTION file.</li>
 </ul></li>
-<li>Packages used in your vignettes that are not used in your package itself should go in the “Suggests” portion of your namespace, eg. <code>usethis::use_package(&quot;ggplot2&quot;, type = &quot;Suggests&quot;)</code>.</li>
+<li>Packages used in your vignettes that are not used in your package itself should go in the “Suggests” portion of your namespace, eg. <code>usethis::use_package("ggplot2", type = "Suggests")</code>.</li>
 </ul>
 </div>
 <div id="importing-s3-methods" class="section level2">

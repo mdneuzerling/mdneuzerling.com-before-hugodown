@@ -1,0 +1,67 @@
+---
+title: Printing data frames with metadata
+author: ~
+date: '2020-05-19'
+slug: printing-data-frames-with-metadata
+tags:
+    - R
+featured: "flinders-departures.png"
+featuredalt: "A tibble of train departures from Flinders Street station"
+featuredpath: "img"
+---
+
+I'm creating an R API wrapper around my state's public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the `tibble::new_tibble()` function to attach metadata to the tibble as attributes, and creating a custom `print` method to make the metadata visible.
+
+First, the raw response from the API call is structured as a list:
+
+```{r response, eval = FALSE}
+response <- list(
+    request = request_url_without_auth,
+    retrieved = format(
+      Sys.time(),
+      format = "%Y-%m-%d %H:%M:%OS %Z",
+      tz = "Australia/Melbourne"
+    ),
+    status_code = status_code,
+    content = content
+)
+```
+
+Some other function will take the content in this list, process it, and create a `parsed` tibble. We hand this off to the `tibble::new_tibble()` function. Along with the new class name --- "ptvapi" --- we also attach the `response` metadata as attributes to the new tibble.
+
+```{r parsed, eval = FALSE}
+tibble::new_tibble(
+    parsed,
+    nrow = nrow(parsed),
+    class = "ptvapi",
+    request = response$request,
+    retrieved = response$retrieved,
+    status_code = response$status_code,
+    content = response$content
+  )
+```
+
+Let's say we have a tibble `flinders_departures` created through this process. `flinders_departures` will have the following classes, in order: "ptvapi", "tbl_df", "tbl", and "data.frame".
+
+For those who are unfamiliar to S3, some functions in R --- like `print()`, `summary()` and `predict()` --- are _generics_. When generics are called, R will look through the classes of the argument to find the right _method_ to call. When we call `print(flinders_departures)` (or, equivalently, enter `flinders_departures` at the console) R will first look for the `print.ptvapi()` method. If it can't find that, it will move on to `print.tbl_df()`, and so on, until it tries `print.default()`.
+
+If I were to let R go through this method I would print `flinders_departure` without printing the metadata. So I created a simple way of printing out those attributes:
+
+```{r print, eval = FALSE}
+print.ptvapi <- function(x) {
+  if (!is.null(attr(x, "request"))) {
+    cat("Request:", attr(x, "request"), "\n")
+  }
+  if (!is.null(attr(x, "retrieved"))) {
+    cat("Retrieved:", attr(x, "retrieved"), "\n")
+  }
+  if (!is.null(attr(x, "status_code"))) {
+    cat("Status code:", attr(x, "status_code"), "\n")
+  }
+  NextMethod()
+}
+```
+
+This method will print out the attributes if they exist. `NextMethod()` will then make R go down the class chain, until it prints like a regular tibble. This is great for debugging. The response of the API call is (more or less) determined by the three attributes I specially print. So it makes life much easier for me to be able relate the parsed tibble to the API response.
+
+![Departures from Flinders Street Station](img/flinders-departures.png)

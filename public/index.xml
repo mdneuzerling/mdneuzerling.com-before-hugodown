@@ -6,10 +6,19 @@
     <description>Recent content on mdneuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Printing data frames with metadata</title>
+      <link>/post/printing-data-frames-with-metadata/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/printing-data-frames-with-metadata/</guid>
+      <description>I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the tibble::new_tibble() function to attach metadata to the tibble as attributes, and creating a custom print method to make the metadata visible.</description>
+    </item>
     
     <item>
       <title>What I&#39;ve learnt about making an R package</title>

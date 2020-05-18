@@ -1,11 +1,3 @@
-
-
-
-    
-
-
-
-
 <!DOCTYPE HTML>
 
 <html>
@@ -18,26 +10,28 @@
              "@type": "WebPage",
              "@id": "/"
         },
-        "articleSection" : "itemized",
-        "name" : "Itemized",
-        "headline" : "Itemized",
-        "description" : "",
+        "articleSection" : "post",
+        "name" : "Printing data frames with metadata",
+        "headline" : "Printing data frames with metadata",
+        "description" : "I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the tibble::new_tibble() function to attach metadata to the tibble as attributes, and creating a custom print method to make the metadata visible.",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
         "publisher": "",
         "accountablePerson" : "",
         "copyrightHolder" : "",
-        "copyrightYear" : "2017",
-        "datePublished": "2017-06-22 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2017-06-22 00:00:00 &#43;0000 UTC",
-        "url" : "/itemized/",
-        "wordCount" : "0",
-        "keywords" : [ "Blog" ]
+        "copyrightYear" : "2020",
+        "datePublished": "2020-05-19 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2020-05-19 00:00:00 &#43;0000 UTC",
+        "url" : "/post/using-new-tibble-to-create-a-data-frame-with-metadata/",
+        "wordCount" : "421",
+        "keywords" : [ "R","Blog" ]
     }
     </script>
         
-            <title>Itemized - mdneuzerling</title>
+            
+                <title>Printing data frames with metadata</title>
+            
         
 
         <meta charset="utf-8" />
@@ -54,18 +48,21 @@
         
 
         <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Itemized"/>
-<meta name="twitter:description" content="data, maths, R."/>
+<meta name="twitter:title" content="Printing data frames with metadata"/>
+<meta name="twitter:description" content="I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the tibble::new_tibble() function to attach metadata to the tibble as attributes, and creating a custom print method to make the metadata visible."/>
 <meta name="twitter:site" content="@mdneuzerling"/>
 
-        <meta property="og:title" content="Itemized" />
-<meta property="og:description" content="data, maths, R." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/itemized/" />
+        <meta property="og:title" content="Printing data frames with metadata" />
+<meta property="og:description" content="I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the tibble::new_tibble() function to attach metadata to the tibble as attributes, and creating a custom print method to make the metadata visible." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/using-new-tibble-to-create-a-data-frame-with-metadata/" />
 
 
 
-<meta property="og:updated_time" content="2017-06-22T00:00:00&#43;00:00"/>
+<meta property="article:published_time" content="2020-05-19T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2020-05-19T00:00:00&#43;00:00"/>
+
 
 
 
@@ -81,9 +78,17 @@
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
         
-<meta itemprop="name" content="Itemized">
-<meta itemprop="description" content="data, maths, R.">
+<meta itemprop="name" content="Printing data frames with metadata">
+<meta itemprop="description" content="I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the tibble::new_tibble() function to attach metadata to the tibble as attributes, and creating a custom print method to make the metadata visible.">
 
+
+<meta itemprop="datePublished" content="2020-05-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-19T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="421">
+
+
+
+<meta itemprop="keywords" content="R," />
 
         
 
@@ -123,9 +128,10 @@
       <div id="wrapper">
 
     
+    
 <header id="header">
     
-      <h1><a href="/">itemized</a></h1>
+      <h1><a href="/">post</a></h1>
     
 
     <nav class="links">
@@ -171,6 +177,10 @@
     </nav>
     <nav class="main">
         <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
             
             <li class="search">
                 <a class="fa-search" href="#search">Search</a>
@@ -303,6 +313,78 @@
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/post/using-new-tibble-to-create-a-data-frame-with-metadata/">Printing data frames with metadata</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-05-19'>
+                                    May 19, 2020</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/using-new-tibble-to-create-a-data-frame-with-metadata/" class="image featured">
+            <img src="/img/flinders-departures.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/post/printing-data-frames-with-metadata/">Printing data frames with metadata</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-05-19'>
+                                    May 19, 2020</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/printing-data-frames-with-metadata/" class="image featured">
+            <img src="/img/flinders-departures.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/post/what-ive-learnt-about-making-an-r-package/">What I&#39;ve learnt about making an R package</a></h3>
                                 
                                 <time class="published" datetime=
@@ -373,78 +455,6 @@
 
                         </article>
                 
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-09-11'>
-                                    September 11, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/an-update-on-copyright-and-licencing/" class="image featured">
-            <img src="/img/door-green-closed-lock.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/my-data-science-job-hunt/">My data science job hunt</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-09-08'>
-                                    September 8, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/my-data-science-job-hunt/" class="image featured">
-            <img src="/img/job_outcomes.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
 
                 
                     <a href=
@@ -460,21 +470,242 @@
         
 </section>
 
-<div id="main">
-  <article class="post">
-    <header>
-        <div class="title">
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
             
-                <h2><a href="/itemized/">Itemized</a></h2>
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fpost%2fusing-new-tibble-to-create-a-data-frame-with-metadata%2f&amp;text=Printing%20data%20frames%20with%20metadata&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//plus.google.com/share?url=%2fpost%2fusing-new-tibble-to-create-a-data-frame-with-metadata%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+  </a>
+</li>
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fusing-new-tibble-to-create-a-data-frame-with-metadata%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//reddit.com/submit?url=%2fpost%2fusing-new-tibble-to-create-a-data-frame-with-metadata%2f&amp;title=Printing%20data%20frames%20with%20metadata" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fusing-new-tibble-to-create-a-data-frame-with-metadata%2f&amp;title=Printing%20data%20frames%20with%20metadata" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fusing-new-tibble-to-create-a-data-frame-with-metadata%2f&amp;title=Printing%20data%20frames%20with%20metadata" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fusing-new-tibble-to-create-a-data-frame-with-metadata%2f&amp;description=Printing%20data%20frames%20with%20metadata" target="_blank" class="share-btn pinterest">
+    <i class="fa fa-pinterest-p"></i>
+    <p>Pinterest</p>
+  </a>
+</li>
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fusing-new-tibble-to-create-a-data-frame-with-metadata%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/post/using-new-tibble-to-create-a-data-frame-with-metadata/">Printing data frames with metadata</a></h1>
             
-            
-        </div>
-    </header>
-    <div id="content">
-      
+        
+        
     </div>
-  </article>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2020-05-19'>
+            May 19, 2020</time>
+        <span class="author"></span>
+        
+            <p>2 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/using-new-tibble-to-create-a-data-frame-with-metadata/" class="image featured">
+            <img src="/img/flinders-departures.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    <p>I’m creating an R API wrapper around my state’s public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the <code>tibble::new_tibble()</code> function to attach metadata to the tibble as attributes, and creating a custom <code>print</code> method to make the metadata visible.</p>
+<p>First, the raw response from the API call is structured as a list:</p>
+<pre class="r"><code>response &lt;- list(
+    request = request_url_without_auth,
+    retrieved = format(
+      Sys.time(),
+      format = &quot;%Y-%m-%d %H:%M:%OS %Z&quot;,
+      tz = &quot;Australia/Melbourne&quot;
+    ),
+    status_code = status_code,
+    content = content
+)</code></pre>
+<p>Some other function will take the content in this list, process it, and create a <code>parsed</code> tibble. We hand this off to the <code>tibble::new_tibble()</code> function. Along with the new class name — “ptvapi” — we also attach the <code>response</code> metadata as attributes to the new tibble.</p>
+<pre class="r"><code>tibble::new_tibble(
+    parsed,
+    nrow = nrow(parsed),
+    class = &quot;ptvapi&quot;,
+    request = response$request,
+    retrieved = response$retrieved,
+    status_code = response$status_code,
+    content = response$content
+  )</code></pre>
+<p>Let’s say we have a tibble <code>flinders_departures</code> created through this process. <code>flinders_departures</code> will have the following classes, in order: “ptvapi”, “tbl_df”, “tbl”, and “data.frame”.</p>
+<p>For those who are unfamiliar to S3, some functions in R — like <code>print()</code>, <code>summary()</code> and <code>predict()</code> — are <em>generics</em>. When generics are called, R will look through the classes of the argument to find the right <em>method</em> to call. When we call <code>print(flinders_departures)</code> (or, equivalently, enter <code>flinders_departures</code> at the console) R will first look for the <code>print.ptvapi()</code> method. If it can’t find that, it will move on to <code>print.tbl_df()</code>, and so on, until it tries <code>print.default()</code>.</p>
+<p>If I were to let R go through this method I would print <code>flinders_departure</code> without printing the metadata. So I created a simple way of printing out those attributes:</p>
+<pre class="r"><code>print.ptvapi &lt;- function(x) {
+  if (!is.null(attr(x, &quot;request&quot;))) {
+    cat(&quot;Request:&quot;, attr(x, &quot;request&quot;), &quot;\n&quot;)
+  }
+  if (!is.null(attr(x, &quot;retrieved&quot;))) {
+    cat(&quot;Retrieved:&quot;, attr(x, &quot;retrieved&quot;), &quot;\n&quot;)
+  }
+  if (!is.null(attr(x, &quot;status_code&quot;))) {
+    cat(&quot;Status code:&quot;, attr(x, &quot;status_code&quot;), &quot;\n&quot;)
+  }
+  NextMethod()
+}</code></pre>
+<p>This method will print out the attributes if they exist. <code>NextMethod()</code> will then make R go down the class chain, until it prints like a regular tibble. This is great for debugging. The response of the API call is (more or less) determined by the three attributes I specially print. So it makes life much easier for me to be able relate the parsed tibble to the API response.</p>
+<div class="figure">
+<img src="img/flinders-departures.png" alt="" />
+<p class="caption">Departures from Flinders Street Station</p>
 </div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/r">R</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+<ul class="actions pagination">
+    
+        <li><a href="/post/printing-data-frames-with-metadata/"
+                class="button big previous">Printing data frames with metadata</a></li>
+    
+
+    
+        <li><a href="/post/printing-data-frames-with-metadata/"
+                class="button big next">Printing data frames with metadata</a></li>
+    
+</ul>
+
+
+    </div>
     
 <section id="sidebar">
 
@@ -496,7 +727,7 @@
       <ul class="icons">
         
           
-    <li><a href="/itemized/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
 
 
         
@@ -643,6 +874,82 @@
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/post/using-new-tibble-to-create-a-data-frame-with-metadata/">Printing data frames with metadata</a>
+              </h3>
+              
+              <time class="published" datetime='2020-05-19'>
+                May 19, 2020
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/using-new-tibble-to-create-a-data-frame-with-metadata/" class="image featured">
+            <img src="/img/flinders-departures.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/post/printing-data-frames-with-metadata/">Printing data frames with metadata</a>
+              </h3>
+              
+              <time class="published" datetime='2020-05-19'>
+                May 19, 2020
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+
+
+        
+        
+        
+
+        <a href="/post/printing-data-frames-with-metadata/" class="image featured">
+            <img src="/img/flinders-departures.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/post/what-ive-learnt-about-making-an-r-package/">What I&#39;ve learnt about making an R package</a>
               </h3>
               
@@ -710,82 +1017,6 @@
 
         <a href="/post/model-as-a-package/" class="image featured">
             <img src="/img/ModelAsAPackage.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a>
-              </h3>
-              
-              <time class="published" datetime='2019-09-11'>
-                September 11, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/an-update-on-copyright-and-licencing/" class="image featured">
-            <img src="/img/door-green-closed-lock.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/my-data-science-job-hunt/">My data science job hunt</a>
-              </h3>
-              
-              <time class="published" datetime='2019-09-08'>
-                September 8, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/my-data-science-job-hunt/" class="image featured">
-            <img src="/img/job_outcomes.png" alt="">
         </a>
     
 
