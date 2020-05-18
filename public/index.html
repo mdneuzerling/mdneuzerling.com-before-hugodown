@@ -478,7 +478,7 @@
             May 19, 2020</time>
         <span class="author"></span>
         
-            <p>2 minute read</p>
+            <p>3 minute read</p>
         
         
     </div>
@@ -537,8 +537,8 @@
     content = response$content
   )</code></pre>
 <p>Let’s say we have a tibble <code>flinders_departures</code> created through this process. <code>flinders_departures</code> will have the following classes, in order: “ptvapi”, “tbl_df”, “tbl”, and “data.frame”.</p>
-<p>For those who are unfamiliar to S3, some functions in R — like <code>print()</code>, <code>summary()</code> and <code>predict()</code> — are <em>generics</em>. When generics are called, R will look through the classes of the argument to find the right <em>method</em> to call. When we call <code>print(flinders_departures)</code> (or, equivalently, enter <code>flinders_departures</code> at the console) R will first look for the <code>print.ptvapi()</code> method. If it can’t find that, it will move on to <code>print.tbl_df()</code>, and so on, until it tries <code>print.default()</code>.</p>
-<p>If I were to let R go through this method I would print <code>flinders_departure</code> without printing the metadata. So I created a simple way of printing out those attributes:</p>
+<p>For those who are unfamiliar to S3, some functions in R — like <code>print()</code>, <code>summary()</code> and <code>predict()</code> — are <em>generics</em>. When we call a generic, R will look through the classes of the argument to find the right <em>method</em> to call. When we call <code>print(flinders_departures)</code> (or, equivalently, enter <code>flinders_departures</code> at the console) R will first look for the <code>print.ptvapi()</code> method. If it can’t find that, it will move on to <code>print.tbl_df()</code>, and so on, until it tries <code>print.default()</code>.</p>
+<p>If I were to let R go through this method I would print <code>flinders_departures</code> without printing the metadata. So I created a simple way of printing out those attributes:</p>
 <pre class="r"><code>print.ptvapi &lt;- function(x) {
   if (!is.null(attr(x, &quot;request&quot;))) {
     cat(&quot;Request:&quot;, attr(x, &quot;request&quot;), &quot;\n&quot;)
@@ -552,10 +552,27 @@
   NextMethod()
 }</code></pre>
 <p>This method will print out the attributes if they exist. <code>NextMethod()</code> will then make R go down the class chain, until it prints like a regular tibble. This is great for debugging. The response of the API call is (more or less) determined by the three attributes I specially print. So it makes life much easier for me to be able relate the parsed tibble to the API response.</p>
-<div class="figure">
-<img src="img/flinders-departures.png" alt="" />
-<p class="caption">Departures from Flinders Street Station</p>
-</div>
+<pre><code>&gt; flinders_departures
+Request: http://timetableapi.ptv.vic.gov.au/v3/departures/route_type/0/stop/1071?max_results=5&amp;date_utc=2020-05-18T12:14:10&amp;include_cancelled=false 
+Retrieved: 2020-05-18 22:14:11 AEST 
+Status code: 200 
+# A tibble: 75 x 11
+   direction_id stop_id route_id run_id platform_number at_platform departure_seque…
+          &lt;int&gt;   &lt;int&gt;    &lt;int&gt;  &lt;int&gt; &lt;chr&gt;           &lt;lgl&gt;                  &lt;int&gt;
+ 1            5    1071        6 952531 9               FALSE                      0
+ 2            2    1071        3 953881 5               FALSE                      0
+ 3           13    1071       14 954655 4               FALSE                      0
+ 4            6    1071        7 950675 2               FALSE                      0
+ 5            9    1071        5 949763 1               FALSE                      0
+ 6           16    1071       17 954539 9               FALSE                      0
+ 7           11    1071       12 988175 13              FALSE                      0
+ 8           10    1071       11 952689 6               FALSE                      0
+ 9            8    1071        9 951849 3               FALSE                      0
+10           14    1071       15 953653 4               FALSE                      0
+# … with 65 more rows, and 4 more variables: scheduled_departure &lt;dttm&gt;,
+#   estimated_departure &lt;dttm&gt;, flags &lt;chr&gt;, disruption_ids &lt;list&gt;</code></pre>
+<p>Most importantly, because I haven’t defined any methods like <code>mutate.ptvapi()</code>, every generic other than <code>print()</code> will treat this tibble as a tibble. So all of my data manipulation functions will ignore the metadata I’ve attached to this tibble.</p>
+<p>A quick heads up: it’s not guaranteed that every function will preserve attributes. So after manipulation, the “ptvapi” class may be lost, along with the metadata. That’s fine for my purpose, but maybe not for yours.</p>
 
   </div>
 
