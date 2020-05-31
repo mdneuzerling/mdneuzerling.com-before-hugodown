@@ -86,7 +86,7 @@ useR: Missing values imputation
       <header style="margin-top: 0 !important;">
         <h2 class="ui header">
           useR: Missing values imputation
-          <div class="sub header">@  · Wednesday, Jul 11, 2018 · 10 minute read · Update at Jul 11, 2018</div>
+          <div class="sub header">@ David Neuzerling · Wednesday, Jul 11, 2018 · 10 minute read · Update at Jul 11, 2018</div>
         </h2>
       </header>
       <article style="margin-top: 2rem;">
@@ -130,18 +130,18 @@ variables here, so we will drop the <code>WindDirection</code> variable.</p>
     select(-X1, -WindDirection) # unnecessary row index</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   X1 = col_integer(),
-##   maxO3 = col_integer(),
+##   X1 = col_double(),
+##   maxO3 = col_double(),
 ##   T9 = col_double(),
 ##   T12 = col_double(),
 ##   T15 = col_double(),
-##   Ne9 = col_integer(),
-##   Ne12 = col_integer(),
-##   Ne15 = col_integer(),
+##   Ne9 = col_double(),
+##   Ne12 = col_double(),
+##   Ne15 = col_double(),
 ##   Vx9 = col_double(),
 ##   Vx12 = col_double(),
 ##   Vx15 = col_double(),
-##   maxO3v = col_integer(),
+##   maxO3v = col_double(),
 ##   WindDirection = col_character()
 ## )</code></pre>
 </div>
@@ -329,19 +329,19 @@ function returns a list, which we convert to a tibble. There are also some
 new columns containing fitted values, which we’ll set aside for an easier
 comparison.</p>
 <p>We’ll also remove the <code>completedObs.</code> prefix of the variable
-names. The regex pattern used here, <code>&quot;.*(?&lt;=\\.)&quot;</code>, matches everything up to
+names. The regex pattern used here, <code>".*(?&lt;=\\.)"</code>, matches everything up to
 and including the last dot in the column names. I use this pattern * a lot*.
 Note that you’ll need <code>perl = TRUE</code> to use the lookahead.</p>
 <pre class="r"><code>ozone %&gt;% head</code></pre>
 <pre><code>## # A tibble: 6 x 11
-##   maxO3    T9   T12   T15   Ne9  Ne12  Ne15     Vx9    Vx12   Vx15 maxO3v
-##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt;
-## 1    87  15.6  18.5  NA       4     4     8   0.695  -1.71  -0.695     84
-## 2    82  NA    NA    NA       5     5     7  -4.33   -4     -3         87
-## 3    92  15.3  17.6  19.5     2    NA    NA   2.95   NA      0.521     82
-## 4   114  16.2  19.7  NA       1     1     0  NA       0.347 -0.174     92
-## 5    94  NA    20.5  20.4    NA    NA    NA  -0.5    -2.95  -4.33     114
-## 6    80  17.7  19.8  18.3     6    NA     7  -5.64   -5     -6         94</code></pre>
+##   maxO3    T9   T12   T15   Ne9  Ne12  Ne15    Vx9   Vx12   Vx15 maxO3v
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1    87  15.6  18.5  NA       4     4     8  0.695 -1.71  -0.695     84
+## 2    82  NA    NA    NA       5     5     7 -4.33  -4     -3         87
+## 3    92  15.3  17.6  19.5     2    NA    NA  2.95  NA      0.521     82
+## 4   114  16.2  19.7  NA       1     1     0 NA      0.347 -0.174     92
+## 5    94  NA    20.5  20.4    NA    NA    NA -0.5   -2.95  -4.33     114
+## 6    80  17.7  19.8  18.3     6    NA     7 -5.64  -5     -6         94</code></pre>
 <pre class="r"><code>ozone_comp %&gt;% 
     as.data.frame %&gt;% # seems to need this intermediate step?
     as_tibble %&gt;% 
@@ -483,10 +483,11 @@ to Julie and Nick for the tutorial.</p>
 
   <section class="ui bottom attached center aligned segment">
     
-      <p>© 2020 Hugo Theme Dream</p>
+      <p>© 2020 David Neuzerling</p>
     
 
-    <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+    <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</br></br>
+      Except where otherwise stated, the content of this blog is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a>.</p>
   </section>
 </article>
 

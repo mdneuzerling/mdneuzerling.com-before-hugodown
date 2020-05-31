@@ -1,13 +1,11 @@
 ---
 title: Scraping wine colours with R
-author: ~
 date: '2018-07-01'
 slug: scraping-wine-colours-with-r
 summary: "Classifying 708 wine varieties as red, white or rosé"
 tags: [R, R Markdown, wine, scraping]
 featured: "grapes.jpeg"
 featuredalt: "grapes"
-featuredpath: "img"  
 ---
 
 My knowledge of wine covers three facts:

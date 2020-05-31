@@ -1,6 +1,5 @@
 ---
 title: "useR2018"
-author: "@mdneuzerling"
 date: "2018-08-17"
 output:
   xaringan::moon_reader:

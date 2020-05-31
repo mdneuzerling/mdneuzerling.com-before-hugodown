@@ -2,7 +2,7 @@ baseurl = "https://mdneuzerling.com"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 languageCode = "en"
 defaultContentLanguage = "en"
-title = "Hugo Theme Dream"
+title = "David Neuzerling"
 theme = "hugo-theme-dream"
 
 # copyright = ""

@@ -23,7 +23,8 @@ useR: Getting started with R and Docker
 
 
 <meta property="og:title" content="useR: Getting started with R and Docker" />
-<meta property="og:description" content="Docker glossary Running docker images Rocker R hello world Playing with the hello-world image A note on security Managing Docker without leaving R  Docker on AWS And that’s it!   These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!" />
+<meta property="og:description" content="These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!).
+ Elizabeth’s slides Elizabeth’s exercises and examples  This tutorial took me through setting up an RStudio Server container. I’m on a Linux machine, but I’m particularly interested by the idea that you could run these traditionally Linux-only servers on a Windows machine through Docker." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/user-getting-started-with-r-and-docker/" />
 <meta property="article:published_time" content="2018-07-10T00:00:00+00:00" />
@@ -33,7 +34,8 @@ useR: Getting started with R and Docker
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="useR: Getting started with R and Docker"/>
-<meta name="twitter:description" content="Docker glossary Running docker images Rocker R hello world Playing with the hello-world image A note on security Managing Docker without leaving R  Docker on AWS And that’s it!   These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!"/>
+<meta name="twitter:description" content="These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!).
+ Elizabeth’s slides Elizabeth’s exercises and examples  This tutorial took me through setting up an RStudio Server container. I’m on a Linux machine, but I’m particularly interested by the idea that you could run these traditionally Linux-only servers on a Windows machine through Docker."/>
 
 
 <link rel="stylesheet" href="/css/github-markdown.css" />
@@ -86,25 +88,11 @@ useR: Getting started with R and Docker
       <header style="margin-top: 0 !important;">
         <h2 class="ui header">
           useR: Getting started with R and Docker
-          <div class="sub header">@  · Tuesday, Jul 10, 2018 · 10 minute read · Update at Jul 10, 2018</div>
+          <div class="sub header">@ David Neuzerling · Tuesday, Jul 10, 2018 · 10 minute read · Update at Jul 10, 2018</div>
         </h2>
       </header>
       <article style="margin-top: 2rem;">
 
-<div id="TOC">
-<ul>
-<li><a href="#docker-glossary">Docker glossary</a></li>
-<li><a href="#running-docker-images">Running docker images</a></li>
-<li><a href="#rocker">Rocker</a></li>
-<li><a href="#r-hello-world">R hello world</a><ul>
-<li><a href="#playing-with-the-hello-world-image">Playing with the <code>hello-world</code> image</a></li>
-<li><a href="#a-note-on-security">A note on security</a></li>
-<li><a href="#managing-docker-without-leaving-r">Managing Docker without leaving R</a></li>
-</ul></li>
-<li><a href="#docker-on-aws">Docker on AWS</a></li>
-<li><a href="#and-thats-it">And that’s it!</a></li>
-</ul>
-</div>
 
 <hr />
 <p>These are my notes for the super helpful tutorial given by
@@ -176,7 +164,7 @@ never run it before, Docker will download it from <a href="https://hub.docker.co
 ##  https://hub.docker.com/
 ## 
 ## For more examples and ideas, visit:
-##  https://docs.docker.com/engine/userguide/</code></pre>
+##  https://docs.docker.com/get-started/</code></pre>
 <p>Quick aside: yes, this is me running a Docker image in an R Markdown file.
 Remember that R Markdown can handle languages other than R, including bash!
 This code chunk is <code>{bash docker_hello_world}</code>, which tells <code>knitr</code> to run this
@@ -255,12 +243,8 @@ run. This keeps the server clean. The <code>-t rstudio/hello-world</code> option
 resulting image. We can see our installed Docker images, including the
 <code>hello-world</code> image we just built, by running the following command:</p>
 <pre class="bash"><code>docker image list</code></pre>
-<pre><code>## REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
-## rstudio/hello-world   latest              167d3183d252        5 weeks ago         1.27GB
-## &lt;none&gt;                &lt;none&gt;              6bfb299cec5f        5 weeks ago         1.09GB
-## rocker/rstudio        latest              36ed6c844cb3        6 weeks ago         1.09GB
-## rocker/geospatial     latest              e15468cb4018        6 weeks ago         3.45GB
-## hello-world           latest              e38bc07ac18e        4 months ago        1.85kB</code></pre>
+<pre><code>## REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+## hello-world         latest              bf756fb1ae65        4 months ago        13.3kB</code></pre>
 <p>Now we can <code>run</code> the image. We <code>--name</code> the container <code>hello-world</code>. You may be
 aware that RStudio server runs on port 8787 by default, but here we <code>run</code> the
 container on port 28787.</p>
@@ -497,10 +481,11 @@ a great start to useR 2018!</p>
 
   <section class="ui bottom attached center aligned segment">
     
-      <p>© 2020 Hugo Theme Dream</p>
+      <p>© 2020 David Neuzerling</p>
     
 
-    <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+    <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</br></br>
+      Except where otherwise stated, the content of this blog is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a>.</p>
   </section>
 </article>
 

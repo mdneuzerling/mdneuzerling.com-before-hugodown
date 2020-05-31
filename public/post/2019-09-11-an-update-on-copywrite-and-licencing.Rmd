@@ -1,6 +1,5 @@
 ---
 title: An update on copyright and licencing
-author: ''
 date: '2019-09-11'
 slug: an-update-on-copyright-and-licencing
 categories: []
@@ -8,7 +7,6 @@ tags: []
 description: ''
 featured: 'door-green-closed-lock.jpg'
 featuredalt: 'a padlock chained across a green door'
-featuredpath: 'img'
 linktitle: ''
 ---
 

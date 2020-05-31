@@ -1,13 +1,11 @@
 ---
 title: Printing data frames with metadata
-author: ~
 date: '2020-05-19'
 slug: printing-data-frames-with-metadata
 tags:
     - R
 featured: "flinders-departures.png"
 featuredalt: "A tibble of train departures from Flinders Street station"
-featuredpath: "img"
 ---
 
 I'm creating an R API wrapper around my state's public transport service. To make life easier for the users, the responses from the API calls are parsed and returned as tibbles/data frames. To make life easier for me, I need to keep track of the API call behind each tibble. I do this by using the `tibble::new_tibble()` function to attach metadata to the tibble as attributes, and creating a custom `print` method to make the metadata visible.

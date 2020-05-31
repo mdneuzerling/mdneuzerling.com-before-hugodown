@@ -1,6 +1,5 @@
 ---
 title: Markdown monsters
-author: ''
 date: '2018-09-02'
 slug: markdown-monsters
 categories: []
@@ -10,7 +9,6 @@ tags:
 description: ''
 featured: "dice.jpg"
 featuredalt: "dice"
-featuredpath: "img"  
 linktitle: ''
 ---
 

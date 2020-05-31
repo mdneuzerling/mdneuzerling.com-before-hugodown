@@ -1,6 +1,5 @@
 ---
 title: My data science job hunt
-author: ''
 date: '2019-09-08'
 slug: my-data-science-job-hunt
 tags:
@@ -8,7 +7,6 @@ tags:
   - industry
 featured: "job_outcomes.png"
 featuredalt: "job_outcomes"
-featuredpath: "img"  
 ---
 
 If you listen to university advertisements for data science masters degrees, you'd believe that data scientists are so in-demand that they can walk into any company, state their salary, and start work straight away.
