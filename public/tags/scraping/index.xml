@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scraping on mdneuzerling</title>
+    <title>scraping on Hugo Theme Dream</title>
     <link>/tags/scraping/</link>
-    <description>Recent content in Scraping on mdneuzerling</description>
+    <description>Recent content in scraping on Hugo Theme Dream</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sun, 02 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/scraping/index.xml" rel="self" type="application/rss+xml" />
@@ -28,8 +28,7 @@ So how would I combine D&amp;amp;D with R? A good start would be to have a nice 
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/scraping-wine-colours-with-r/</guid>
-      <description>My knowledge of wine covers three facts:
-I like red wine. I do not like white wine. I love wine data.  I came across a great collection of around 130,000 wine reviews, each a paragraph long, on Kaggle. This is juicy stuff, and I can’t wait to dig into it with some text analysis, or maybe build some sort of markov chain or neural network that generates new wine reviews.</description>
+      <description>Classifying 708 wine varieties as red, white or rosé</description>
     </item>
     
   </channel>

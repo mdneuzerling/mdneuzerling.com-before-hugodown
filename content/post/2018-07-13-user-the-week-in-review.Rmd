@@ -6,8 +6,8 @@ slug: user-the-week-in-review
 categories: []
 tags: [R, R Markdown, useR2018]
 description: ''
-featured: "week_in_review.png"
-featuredalt: "useR2018 Week in Review"
+cover: "week_in_review.png"
+coveralt: "useR2018 Week in Review"
 featuredpath: "img/useR"  
 linktitle: ''
 draft: true

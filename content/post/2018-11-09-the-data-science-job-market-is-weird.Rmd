@@ -6,8 +6,8 @@ slug: my-data-science-job-hunt
 tags:
   - R
   - industry
-featured: "job_outcomes.png"
-featuredalt: "job_outcomes"
+cover: "job_outcomes.png"
+coveralt: "job_outcomes"
 featuredpath: "img"  
 ---
 

@@ -10,8 +10,8 @@ tags:
   - email
   - dcom
 description: ''
-featured: "pipes.jpeg"
-featuredalt: "pipes"
+cover: "pipes.jpeg"
+coveralt: "pipes"
 featuredpath: "img"  
 linktitle: ''
 ---

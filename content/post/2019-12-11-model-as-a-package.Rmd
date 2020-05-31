@@ -5,8 +5,8 @@ date: '2019-12-11'
 slug: model-as-a-package
 tags:
     - R
-featured: "ModelAsAPackage.png"
-featuredalt: "Word cloud of review text"
+cover: "ModelAsAPackage.png"
+coveralt: "Word cloud of review text"
 featuredpath: "img"  
 ---
 

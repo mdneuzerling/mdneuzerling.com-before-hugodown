@@ -6,8 +6,8 @@ slug: user-missing-values-imputation
 categories: []
 tags: [R, R Markdown, useR2018]
 description: ''
-featured: "tutorial_three.png"
-featuredalt: "useR2018 Tutorial Three"
+cover: "tutorial_three.png"
+coveralt: "useR2018 Tutorial Three"
 featuredpath: "img/useR"  
 linktitle: ''
 output:

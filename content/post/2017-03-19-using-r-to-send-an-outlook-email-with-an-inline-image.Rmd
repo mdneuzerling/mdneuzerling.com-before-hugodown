@@ -6,8 +6,8 @@ slug: using-r-to-send-an-outlook-email-with-an-inline-image
 categories: []
 tags: [R, email, dcom, from_the_archive]
 description: ''
-featured: 'sending_an_email_with_rdcomclient.png'
-featuredalt: ''
+cover: 'sending_an_email_with_rdcomclient.png'
+coveralt: ''
 featuredpath: 'img' 
 linktitle: ''
 ---

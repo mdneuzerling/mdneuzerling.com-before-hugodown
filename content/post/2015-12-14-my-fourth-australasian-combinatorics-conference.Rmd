@@ -9,8 +9,8 @@ tags:
   - uni
   - from_the_archive
 description: ''
-featured: 'ACCMCC_UQ.jpg'
-featuredalt: 'The University of Queensland'
+cover: 'ACCMCC_UQ.jpg'
+coveralt: 'The University of Queensland'
 featuredpath: 'img'
 linktitle: ''
 ---

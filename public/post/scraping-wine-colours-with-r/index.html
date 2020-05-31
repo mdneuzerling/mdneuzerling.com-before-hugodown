@@ -1,630 +1,96 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+Scraping wine colours with R
+</title>
 
-<html>
-    <head>
-        <script type="application/ld+json">
-    {
-        "@context" : "http://schema.org",
-        "@type" : "BlogPosting",
-        "mainEntityOfPage": {
-             "@type": "WebPage",
-             "@id": "/"
-        },
-        "articleSection" : "post",
-        "name" : "Scraping wine colours with R",
-        "headline" : "Scraping wine colours with R",
-        "description" : "My knowledge of wine covers three facts:
-I like red wine. I do not like white wine. I love wine data.  I came across a great collection of around 130,000 wine reviews, each a paragraph long, on Kaggle. This is juicy stuff, and I can’t wait to dig into it with some text analysis, or maybe build some sort of markov chain or neural network that generates new wine reviews.",
-        "inLanguage" : "en",
-        "author" : "",
-        "creator" : "",
-        "publisher": "",
-        "accountablePerson" : "",
-        "copyrightHolder" : "",
-        "copyrightYear" : "2018",
-        "datePublished": "2018-07-01 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-07-01 00:00:00 &#43;0000 UTC",
-        "url" : "/post/scraping-wine-colours-with-r/",
-        "wordCount" : "2153",
-        "keywords" : [ "R","R Markdown","wine","scraping","Blog" ]
-    }
-    </script>
-        
-            
-                <title>Scraping wine colours with R</title>
-            
-        
-
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.42.2" />
-        
+    
 
 
-        
-        
-            
-                <meta name="description" content="data, maths, R.">
-            
-        
+  
+  <meta name="author" content="David Neuzerling" />
+  <meta name="description" content="" />
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Scraping wine colours with R"/>
-<meta name="twitter:description" content="My knowledge of wine covers three facts:
-I like red wine. I do not like white wine. I love wine data.  I came across a great collection of around 130,000 wine reviews, each a paragraph long, on Kaggle. This is juicy stuff, and I can’t wait to dig into it with some text analysis, or maybe build some sort of markov chain or neural network that generates new wine reviews."/>
-<meta name="twitter:site" content="@mdneuzerling"/>
 
-        <meta property="og:title" content="Scraping wine colours with R" />
-<meta property="og:description" content="My knowledge of wine covers three facts:
-I like red wine. I do not like white wine. I love wine data.  I came across a great collection of around 130,000 wine reviews, each a paragraph long, on Kaggle. This is juicy stuff, and I can’t wait to dig into it with some text analysis, or maybe build some sort of markov chain or neural network that generates new wine reviews." />
+
+<meta name="generator" content="Hugo 0.71.1" />
+
+<link rel="canonical" href="/post/scraping-wine-colours-with-r/" />
+
+
+<meta property="og:title" content="Scraping wine colours with R" />
+<meta property="og:description" content="Classifying 708 wine varieties as red, white or rosé" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/scraping-wine-colours-with-r/" />
+<meta property="article:published_time" content="2018-07-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-01T00:00:00+00:00" />
 
 
 
-<meta property="article:published_time" content="2018-07-01T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-07-01T00:00:00&#43;00:00"/>
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Scraping wine colours with R"/>
+<meta name="twitter:description" content="Classifying 708 wine varieties as red, white or rosé"/>
 
 
+<link rel="stylesheet" href="/css/github-markdown.css" />
+<link rel="stylesheet" href="/css/semantic.min.css" />
+<link rel="stylesheet" href="/css/site.css" />
 
 
-
-
-
-
-
-        <meta property="og:image" content="//images/logo.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="512">
-        <meta property="og:image:height" content="512">
-        
-<meta itemprop="name" content="Scraping wine colours with R">
-<meta itemprop="description" content="My knowledge of wine covers three facts:
-I like red wine. I do not like white wine. I love wine data.  I came across a great collection of around 130,000 wine reviews, each a paragraph long, on Kaggle. This is juicy stuff, and I can’t wait to dig into it with some text analysis, or maybe build some sort of markov chain or neural network that generates new wine reviews.">
-
-
-<meta itemprop="datePublished" content="2018-07-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-07-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2153">
+<style>
+  a {
+    color: seagreen !important;
+  }
+</style>
 
 
 
-<meta itemprop="keywords" content="R,R Markdown,wine,scraping," />
+<style>
+  .inverted a {
+     color: darkseagreen !important;
+  }
+</style>
 
-        
 
-        
-            
-        
-
-        
-        
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="/css/main.css">
-            <link rel="stylesheet" href="/css/add-on.css">
-            <link rel="stylesheet" href="/css/academicons.min.css">
-        
-
-        
-            
-                
-            
-        
-
+  </head>
 
   
-    
-    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  <body style="background: black;">
   
-
-
-      
-    </head>
-    <body>
-
-      
-      <div id="wrapper">
-
-    
-    
-<header id="header">
-    
-      <h1><a href="/">post</a></h1>
-    
-
-    <nav class="links">
-        <ul>
-            
-                <li>
-                    <a href="/">
-                            <i class="fa fa-home">&nbsp;</i>Home
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/post/">
-                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/rmd/">
-                            <i class="fa fa-file-text-o">&nbsp;</i>R Markdown
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/shiny/">
-                            <i class="fa fa-bar-chart">&nbsp;</i>Shiny
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://github.com/mdneuzerling">
-                            <i class="fa fa-github">&nbsp;</i>GitHub
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/about/">
-                            <i class="fa fa-id-card-o">&nbsp;</i>About
-                    </a>
-                </li>
-            
-        </ul>
-    </nav>
-    <nav class="main">
-        <ul>
-            
-            <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
-            </li>
-            
-            <li class="search">
-                <a class="fa-search" href="#search">Search</a>
-                <form id="search" method="get" action="//google.com/search">
-                    <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="/">
-                </form>
-            </li>
-            <li class="menu">
-                <a class="fa-bars" href="#menu">Menu</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-
-<section id="menu">
-
-    
-        <section>
-            <form class="search" method="get" action="//google.com/search">
-                <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="/">
-            </form>
-        </section>
-
-    
-        <section>
-            <ul class="links">
-                
-                    <li>
-                        <a href="/">
-                            <h3>
-                                <i class="fa fa-home">&nbsp;</i>Home
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/post/">
-                            <h3>
-                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/rmd/">
-                            <h3>
-                                <i class="fa fa-file-text-o">&nbsp;</i>R Markdown
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/shiny/">
-                            <h3>
-                                <i class="fa fa-bar-chart">&nbsp;</i>Shiny
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/mdneuzerling">
-                            <h3>
-                                <i class="fa fa-github">&nbsp;</i>GitHub
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/about/">
-                            <h3>
-                                <i class="fa fa-id-card-o">&nbsp;</i>About
-                            </h3>
-                        </a>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-        <section class="recent-posts">
-            <div class="mini-posts">
-                <header>
-                    <h3>Recent Posts</h3>
-                </header>
-                
-
-                
-                    
-                
-
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/printing-data-frames-with-metadata/">Printing data frames with metadata</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2020-05-19'>
-                                    May 19, 2020</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/printing-data-frames-with-metadata/" class="image featured">
-            <img src="/img/flinders-departures.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/what-ive-learnt-about-making-an-r-package/">What I&#39;ve learnt about making an R package</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2020-01-28'>
-                                    January 28, 2020</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/what-ive-learnt-about-making-an-r-package/" class="image featured">
-            <img src="/img/boxes.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/model-as-a-package/">Model as a package</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-12-11'>
-                                    December 11, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/model-as-a-package/" class="image featured">
-            <img src="/img/ModelAsAPackage.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-09-11'>
-                                    September 11, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/an-update-on-copyright-and-licencing/" class="image featured">
-            <img src="/img/door-green-closed-lock.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/my-data-science-job-hunt/">My data science job hunt</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-09-08'>
-                                    September 8, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/my-data-science-job-hunt/" class="image featured">
-            <img src="/img/job_outcomes.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-
-                
-                    <a href=
-                        
-                            "/post/"
-                        
-                        class="button">View more posts</a>
-                
-            </div>
-        </section>
-
-    
-        
-</section>
-
-    <section id="share-menu">
-    <section id="social-share-nav">
-        <ul class="links">
-            <header>
-                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
-            </header>
-            
-
-
-
-<li>
-  <a href="//twitter.com/share?url=%2fpost%2fscraping-wine-colours-with-r%2f&amp;text=Scraping%20wine%20colours%20with%20R&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//plus.google.com/share?url=%2fpost%2fscraping-wine-colours-with-r%2f" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-  </a>
-</li>
-
-
-
-
-
-<li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fscraping-wine-colours-with-r%2f" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//reddit.com/submit?url=%2fpost%2fscraping-wine-colours-with-r%2f&amp;title=Scraping%20wine%20colours%20with%20R" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fscraping-wine-colours-with-r%2f&amp;title=Scraping%20wine%20colours%20with%20R" target="_blank" class="share-btn linkedin">
-      <i class="fa fa-linkedin"></i>
-      <p>LinkedIn</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fscraping-wine-colours-with-r%2f&amp;title=Scraping%20wine%20colours%20with%20R" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fscraping-wine-colours-with-r%2f&amp;description=Scraping%20wine%20colours%20with%20R" target="_blank" class="share-btn pinterest">
-    <i class="fa fa-pinterest-p"></i>
-    <p>Pinterest</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fscraping-wine-colours-with-r%2f" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-  </a>
-</li>
-
-
-        </ul>
-    </section>
-</section>
-
-    
-    <div id="main">
-        
-        
-        <article class="post">
-  <header>
-    <div class="title">
-        
-            <h1><a href="/post/scraping-wine-colours-with-r/">Scraping wine colours with R</a></h1>
-            
-        
-        
-    </div>
-    <div class="meta">
-        
-
-        <time class="published"
-            datetime='2018-07-01'>
-            July 1, 2018</time>
-        <span class="author"></span>
-        
-            <p>11 minute read</p>
-        
-        
-    </div>
-</header>
-
-
-  
-
-  
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/scraping-wine-colours-with-r/" class="image featured">
-            <img src="/img/grapes.jpeg" alt="">
-        </a>
-    
-
-
-  <div id="content">
-    <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          
+<nav class="ui secondary inverted menu dream-menu">
+
+  <div class="item">
+    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = '\/'"></i>
+  </div>
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+</nav>
+
+          
+<div class="ui centered relaxed grid dream-grid">
+  <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column markdown-body dream-single">
+
+    <section class="ui top attached segment" id="dream-save-post-as-img">
+      <header style="margin-top: 0 !important;">
+        <h2 class="ui header">
+          Scraping wine colours with R
+          <div class="sub header">@  · Sunday, Jul 1, 2018 · 11 minute read · Update at Jul 1, 2018</div>
+        </h2>
+      </header>
+      <article style="margin-top: 2rem;">
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
 <p>My knowledge of wine covers three facts:</p>
@@ -1177,458 +643,215 @@ but otherwise the data is unchanged before it is read. Other data used here:</p>
 <p>The header image at the top of this page is in the
 <a href="https://www.pexels.com/photo/abundance-alcohol-berries-berry-357742/">public domain</a>.</p>
 </div>
+</article>
+    </section>
+
+    <footer class="ui attached segment dream-tags">
+      
+        
+          <a class="ui label" href="/tags/r" title="R">R</a>
+        
+          <a class="ui label" href="/tags/r-markdown" title="R Markdown">R Markdown</a>
+        
+          <a class="ui label" href="/tags/wine" title="wine">wine</a>
+        
+          <a class="ui label" href="/tags/scraping" title="scraping">scraping</a>
+        
+      
+      <div
+        class="ui label"
+        style="float: right; background: #1b1c1d !important; cursor: pointer;"
+        onclick="savePostAsImg()">
+        <i class="save icon"></i> Save as image
+      </div>
+    </footer>
+
+    
+
+    
 
   </div>
+  <div class="sixteen wide mobile sixteen wide tablet four wide computer column">
+    <article class="dream-header">
+  <section class="ui top attached center aligned segment">
+    <div class="ui small circular image">
+      
+        <img src="/img/profile/profile_1_small.png">
+      
+    </div>
 
-  <footer>
-    <ul class="stats">
-  <li class="categories">
-    <ul>
-        
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-        
-            
-            
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="/tags/r">R</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/r-markdown">R Markdown</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/wine">wine</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/scraping">scraping</a></li>
-                
-            
-        
-    </ul>
-  </li>
-</ul>
+    <h1 class="ui medium header">David Neuzerling&#39;s blog<div class="sub header" style="margin-top: 0.5rem;">Data, maths, R</div>
+    </h1>
 
-  </footer>
+    <div class="ui horizontal list">
+      
+      <a class="item" href="/tags">
+        <i class="tags icon" title="All Tags"></i>
+      </a>
+      <a class="item" href="/categories">
+        <i class="th list icon" title="All Categories"></i>
+      </a>
+    </div>
+  </section>
 
+  
+  <section class="ui attached center aligned segment dream-tags">
+    
+      <a class="ui label" href="/tags/dcom" title="dcom">dcom</a>
+    
+      <a class="ui label" href="/tags/email" title="email">email</a>
+    
+      <a class="ui label" href="/tags/from_the_archive" title="from_the_archive">from_the_archive</a>
+    
+      <a class="ui label" href="/tags/industry" title="industry">industry</a>
+    
+      <a class="ui label" href="/tags/maths" title="maths">maths</a>
+    
+      <a class="ui label" href="/tags/r" title="r">r</a>
+    
+      <a class="ui label" href="/tags/r-markdown" title="r-markdown">r-markdown</a>
+    
+      <a class="ui label" href="/tags/scraping" title="scraping">scraping</a>
+    
+      <a class="ui label" href="/tags/uni" title="uni">uni</a>
+    
+      <a class="ui label" href="/tags/user2018" title="user2018">user2018</a>
+    
+      <a class="ui label" href="/tags/wine" title="wine">wine</a>
+    
+  </section>
+  
+
+  
+
+  <section class="ui attached segment header-socials">
+    <nav class="ui secondary menu dream-menu dream-socials">
+  
+
+  
+    <div class="item">
+      <a href="https://twitter.com/mdneuzerling" target="_blank">
+        <i class=" twitter icon" title="twitter"></i>
+      </a>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="item">
+      <a href="https://github.com/mdneuzerling" target="_blank">
+        <i class=" github icon" title="github"></i>
+      </a>
+    </div>
+  
+
+  
+
+  
+</nav>
+
+  </section>
+
+  <section class="ui bottom attached center aligned segment">
+    
+      <p>© 2020 Hugo Theme Dream</p>
+    
+
+    <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+  </section>
 </article>
 
-<ul class="actions pagination">
-    
-        <li><a href="/post/using-r-to-send-an-outlook-email-with-an-inline-image/"
-                class="button big previous">Using R to send an Outlook email with an inline image</a></li>
-    
+  </div>
+</div>
 
-    
-        <li><a href="/post/user-recipes-for-data-processing/"
-                class="button big next">useR: Recipes for data processing</a></li>
-    
-</ul>
-
-
-    </div>
-    
-<section id="sidebar">
-
-  
-  <section id="intro">
-    
-    
-      
-        <a href='/'><img src="/img/profile/profile_1_small.png" class="intro-circle" width="250px" alt="mdneuzerling" /></a>
-      
-    
-    
-      <header>
-        <h2>David Neuzerling</h2>
-        <p>Data, maths, R</p>
-      </header>
-    
-    
-      <ul class="icons">
-        
+        </section>
+        <section class="back">
           
-    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-
-
-        
-        
-  <li><a href="//github.com/mdneuzerling" target="_blank" title="GitHub" class="fa fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//instagram.com/mdneuzerling" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
-
-
-
-
-
-  <li><a href="//twitter.com/mdneuzerling" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    
-  </section>
-
-  
-  <section class="recent-posts">
-    <div class="mini-posts">
-      <header>
-        <h3>Recent Posts</h3>
-      </header>
-      <div class="posts-container">
-        
-
-        
-          
-        
-
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/printing-data-frames-with-metadata/">Printing data frames with metadata</a>
-              </h3>
-              
-              <time class="published" datetime='2020-05-19'>
-                May 19, 2020
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
+<nav class="ui secondary inverted menu dream-menu">
+
+  <div class="item">
+    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = '\/'"></i>
+  </div>
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+</nav>
+
+          <div class="ui centered relaxed grid dream-grid dream-back">
   
 
-
-        
-        
-        
-
-        <a href="/post/printing-data-frames-with-metadata/" class="image featured">
-            <img src="/img/flinders-departures.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/what-ive-learnt-about-making-an-r-package/">What I&#39;ve learnt about making an R package</a>
-              </h3>
-              
-              <time class="published" datetime='2020-01-28'>
-                January 28, 2020
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/what-ive-learnt-about-making-an-r-package/" class="image featured">
-            <img src="/img/boxes.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/model-as-a-package/">Model as a package</a>
-              </h3>
-              
-              <time class="published" datetime='2019-12-11'>
-                December 11, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/model-as-a-package/" class="image featured">
-            <img src="/img/ModelAsAPackage.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a>
-              </h3>
-              
-              <time class="published" datetime='2019-09-11'>
-                September 11, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/an-update-on-copyright-and-licencing/" class="image featured">
-            <img src="/img/door-green-closed-lock.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/my-data-science-job-hunt/">My data science job hunt</a>
-              </h3>
-              
-              <time class="published" datetime='2019-09-08'>
-                September 8, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/my-data-science-job-hunt/" class="image featured">
-            <img src="/img/job_outcomes.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
+  <section class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article>
+      <div class="ui top attached segment">
+        <h3 class="ui header">Social Links</h3>
       </div>
+      <div class="ui attached segment">
+        <nav class="ui secondary menu dream-menu dream-socials">
+  
 
-      
-        <a href=
-          
-            "/post/"
-          
-        class="button">View more posts</a>
-      
+  
+    <div class="item">
+      <a href="https://twitter.com/mdneuzerling" target="_blank">
+        <i class="large twitter icon" title="twitter"></i>
+      </a>
     </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="item">
+      <a href="https://github.com/mdneuzerling" target="_blank">
+        <i class="large github icon" title="github"></i>
+      </a>
+    </div>
+  
+
+  
+
+  
+</nav>
+
+      </div>
+    </article>
+  </section>
+
+  <section class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
   </section>
 
   
   
-  
 
-  
-  
+</div>
 
-  
-  <section id="footer">
-    
-    <p class="copyright">
-      
-        &copy; 2020
-        
-          mdneuzerling
-        
-      . <br />
-      <a href = "https://github.com/mdneuzerling/mdneuzerling.com">Repository available on GitHub</a> <br />
-      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>. <br /><br />
-      This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a> except where stated otherwise.
-    </p>
-  </section>
-</section>
-
+        </section>
+      </div>
     </div>
-    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
-    
 
-    
-      
-    
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/semantic.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/html2canvas.min.js"></script>
 
-    
-      
-      
-      
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
-        
-        
-        
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
-        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-      
-    
-    
-    
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="/js/util.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="/js/backToTop.js"></script>
-    
-
-    
-      
-        
-      
-    
-
-    
-    <script>hljs.initHighlightingOnLoad();</script>
-      <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 
   </body>
 </html>
-
