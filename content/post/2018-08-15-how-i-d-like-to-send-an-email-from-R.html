@@ -5,9 +5,6 @@ slug: how-i-d-like-to-send-an-email-from-R
 categories: []
 tags:
   - R
-  - R Markdown
-  - email
-  - dcom
 description: ''
 cover: "/img/pipes.jpeg"
 coveralt: "pipes"
@@ -212,11 +209,11 @@ for emails and download attachments. The results are displayed in a nice,
 pretty tibble:</p>
 <pre class="r"><code>RDCOMOutlook::search_emails(&quot;test&quot;) %&gt;% select(subject, received, attachments)</code></pre>
 <pre><code>## # A tibble: 3 x 3
-##   subject                         received            attachments 
-##   &lt;chr&gt;                           &lt;dttm&gt;              &lt;chr&gt;       
-## 1 This is a test email            2018-06-12 16:42:42 &quot;&quot;          
-## 2 Another test                    2018-06-12 17:36:08 &quot;&quot;          
-## 3 A test email with an attachment 2018-06-12 17:36:36 shiborgi.jpg</code></pre>
+##   subject                         received            attachments   
+##   &lt;chr&gt;                           &lt;dttm&gt;              &lt;chr&gt;         
+## 1 This is a test email            2018-06-12 16:42:42 &quot;&quot;            
+## 2 Another test                    2018-06-12 17:36:08 &quot;&quot;            
+## 3 A test email with an attachment 2018-06-12 17:36:36 &quot;shiborgi.jpg&quot;</code></pre>
 <p>The problem here is that the <code>AdvancedSearch</code> method of DCOM is
 <em>asynchronous</em>; that is, the search will continue to run in the background
 while R continues with the next statement. There is an <code>AdvancedSearchComplete</code>

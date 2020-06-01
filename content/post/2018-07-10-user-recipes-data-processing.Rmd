@@ -3,7 +3,7 @@ title: 'useR: Recipes for data processing'
 date: '2018-07-10'
 slug: user-recipes-for-data-processing
 categories: []
-tags: [R, R Markdown, useR2018]
+tags: [R, conference]
 description: ''
 cover: "/img/useR/tutorial_two.png"
 coveralt: "useR2018 Tutorial Two"

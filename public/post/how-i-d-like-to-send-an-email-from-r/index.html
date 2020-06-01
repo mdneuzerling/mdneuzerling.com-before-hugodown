@@ -72,9 +72,6 @@ I want to set down how I think a send_email function should work in R."/>
 <nav class="ui secondary inverted menu dream-menu">
 
   <div class="item">
-    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
-  </div>
-  <div class="item">
     <i class="large link home icon" title="Home" onclick="window.location.href = '\/'"></i>
   </div>
   <div class="item">
@@ -292,11 +289,11 @@ for emails and download attachments. The results are displayed in a nice,
 pretty tibble:</p>
 <pre class="r"><code>RDCOMOutlook::search_emails(&quot;test&quot;) %&gt;% select(subject, received, attachments)</code></pre>
 <pre><code>## # A tibble: 3 x 3
-##   subject                         received            attachments 
-##   &lt;chr&gt;                           &lt;dttm&gt;              &lt;chr&gt;       
-## 1 This is a test email            2018-06-12 16:42:42 &quot;&quot;          
-## 2 Another test                    2018-06-12 17:36:08 &quot;&quot;          
-## 3 A test email with an attachment 2018-06-12 17:36:36 shiborgi.jpg</code></pre>
+##   subject                         received            attachments   
+##   &lt;chr&gt;                           &lt;dttm&gt;              &lt;chr&gt;         
+## 1 This is a test email            2018-06-12 16:42:42 &quot;&quot;            
+## 2 Another test                    2018-06-12 17:36:08 &quot;&quot;            
+## 3 A test email with an attachment 2018-06-12 17:36:36 &quot;shiborgi.jpg&quot;</code></pre>
 <p>The problem here is that the <code>AdvancedSearch</code> method of DCOM is
 <em>asynchronous</em>; that is, the search will continue to run in the background
 while R continues with the next statement. There is an <code>AdvancedSearchComplete</code>
@@ -319,12 +316,6 @@ distraction, but it does seem like nice functionality to have.</p>
       
         
           <a class="ui label" href="/tags/r" title="R">R</a>
-        
-          <a class="ui label" href="/tags/r-markdown" title="R Markdown">R Markdown</a>
-        
-          <a class="ui label" href="/tags/email" title="email">email</a>
-        
-          <a class="ui label" href="/tags/dcom" title="dcom">dcom</a>
         
       
       <div
@@ -366,11 +357,7 @@ distraction, but it does seem like nice functionality to have.</p>
   
   <section class="ui attached center aligned segment dream-tags">
     
-      <a class="ui label" href="/tags/dcom" title="dcom">dcom</a>
-    
-      <a class="ui label" href="/tags/email" title="email">email</a>
-    
-      <a class="ui label" href="/tags/from_the_archive" title="from_the_archive">from_the_archive</a>
+      <a class="ui label" href="/tags/conference" title="conference">conference</a>
     
       <a class="ui label" href="/tags/industry" title="industry">industry</a>
     
@@ -378,15 +365,7 @@ distraction, but it does seem like nice functionality to have.</p>
     
       <a class="ui label" href="/tags/r" title="r">r</a>
     
-      <a class="ui label" href="/tags/r-markdown" title="r-markdown">r-markdown</a>
-    
       <a class="ui label" href="/tags/scraping" title="scraping">scraping</a>
-    
-      <a class="ui label" href="/tags/uni" title="uni">uni</a>
-    
-      <a class="ui label" href="/tags/user2018" title="user2018">user2018</a>
-    
-      <a class="ui label" href="/tags/wine" title="wine">wine</a>
     
   </section>
   
@@ -444,9 +423,6 @@ distraction, but it does seem like nice functionality to have.</p>
           
 <nav class="ui secondary inverted menu dream-menu">
 
-  <div class="item">
-    <i class="large link bullseye icon dream-flip-toggle" title="Flip it!"></i>
-  </div>
   <div class="item">
     <i class="large link home icon" title="Home" onclick="window.location.href = '\/'"></i>
   </div>

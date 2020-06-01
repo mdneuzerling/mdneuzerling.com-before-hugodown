@@ -5,9 +5,6 @@ slug: how-i-d-like-to-send-an-email-from-R
 categories: []
 tags:
   - R
-  - R Markdown
-  - email
-  - dcom
 description: ''
 cover: "/img/pipes.jpeg"
 coveralt: "pipes"

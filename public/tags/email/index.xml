@@ -22,14 +22,5 @@ Connect to databases Do stuff to data Email results  Yes, there exist options fo
 I want to set down how I think a send_email function should work in R.</description>
     </item>
     
-    <item>
-      <title>Using R to send an Outlook email with an inline image</title>
-      <link>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</link>
-      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</guid>
-      <description>If you work in a corporate environment, there’s a good chance you’re using Microsoft Office. I wanted to set up a way to email tables and plots from R using Outlook. Sending an email is simple enough with the RDCOMClient library, but inserting a plot inline—rather than as an attachment—took a little bit of working out. I’m sharing my code here in case anyone else wants to do something similar.</description>
-    </item>
-    
   </channel>
 </rss>

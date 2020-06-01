@@ -5,10 +5,9 @@ slug: my-fourth-australasian-combinatorics-conference
 categories: []
 tags:
   - maths
-  - uni
-  - from_the_archive
+  - conference
 description: ''
-cover: 'ACCMCC_UQ.jpg'
+cover: '/img/ACCMCC_UQ.jpg'
 coveralt: 'The University of Queensland'
 linktitle: ''
 ---

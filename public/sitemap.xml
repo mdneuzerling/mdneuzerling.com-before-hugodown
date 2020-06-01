@@ -28,6 +28,11 @@
   </url>
   
   <url>
+    <loc>/tags/conference/</loc>
+    <lastmod>2020-01-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/what-ive-learnt-about-making-an-r-package/</loc>
     <lastmod>2020-01-28T00:00:00+00:00</lastmod>
   </url>
@@ -63,28 +68,8 @@
   </url>
   
   <url>
-    <loc>/tags/dcom/</loc>
-    <lastmod>2018-08-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/email/</loc>
-    <lastmod>2018-08-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/how-i-d-like-to-send-an-email-from-r/</loc>
     <lastmod>2018-08-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2018-08-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/user2018/</loc>
-    <lastmod>2018-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -113,52 +98,12 @@
   </url>
   
   <url>
-    <loc>/tags/wine/</loc>
-    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/itemized/item1/</loc>
-    <lastmod>2017-06-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/itemized/item2/</loc>
-    <lastmod>2017-06-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/itemized/item3/</loc>
-    <lastmod>2017-06-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/itemized/item4/</loc>
-    <lastmod>2017-06-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/itemized/</loc>
-    <lastmod>2017-06-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/from_the_archive/</loc>
-    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</loc>
     <lastmod>2017-03-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/maths/</loc>
-    <lastmod>2016-03-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/uni/</loc>
     <lastmod>2016-03-16T00:00:00+00:00</lastmod>
   </url>
   

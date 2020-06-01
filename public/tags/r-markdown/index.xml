@@ -6,61 +6,10 @@
     <description>Recent content in R Markdown on David Neuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>How I&#39;d like to send an email from R</title>
-      <link>/post/how-i-d-like-to-send-an-email-from-r/</link>
-      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/how-i-d-like-to-send-an-email-from-r/</guid>
-      <description>When I found myself using R in a corporate environment, my workflow went like this:
-Connect to databases Do stuff to data Email results  Yes, there exist options for presenting results that are a bit more modern than the old-fashioned email—R Markdown, Shiny, or even Slack, for example. But email is embedded in corporate culture and will be around for a long time to come.
-I want to set down how I think a send_email function should work in R.</description>
-    </item>
-    
-    <item>
-      <title>useR: The Week in Review</title>
-      <link>/post/user-the-week-in-review/</link>
-      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/user-the-week-in-review/</guid>
-      <description>That’s it for #useR2018. After 6 keynotes, 132 parallel sessions, many more lightning talks and posters, and an all-important conference dinner, we’ve reached the end of the week.
-This was my first proper conference since 2015. I had almost forgotten how it felt to be surrounded by hundreds of people who are just as passionate (if not more) about your tiny area of specialised knowledge than you are.
-I took notes for the three tutorials I went to, but I wanted to take a moment to review the week as a whole, including the talks that stood out to me.</description>
-    </item>
-    
-    <item>
-      <title>useR: Missing values imputation</title>
-      <link>/post/user-missing-values-imputation/</link>
-      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/user-missing-values-imputation/</guid>
-      <description>Ozone data set Patterns of missing data Visualising missing data Dealing with missing values A refresher on PCA PCA imputation I missed a lot   These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do.</description>
-    </item>
-    
-    <item>
-      <title>useR: Getting started with R and Docker</title>
-      <link>/post/user-getting-started-with-r-and-docker/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/user-getting-started-with-r-and-docker/</guid>
-      <description>These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!).
- Elizabeth’s slides Elizabeth’s exercises and examples  This tutorial took me through setting up an RStudio Server container. I’m on a Linux machine, but I’m particularly interested by the idea that you could run these traditionally Linux-only servers on a Windows machine through Docker.</description>
-    </item>
-    
-    <item>
-      <title>useR: Recipes for data processing</title>
-      <link>/post/user-recipes-for-data-processing/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/user-recipes-for-data-processing/</guid>
-      <description>These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
-Full confession here: I was having trouble deciding between this tutorial and another one, and eventually decided on the other one. But then I accidentally came to the wrong room and I took it as a sign that it was time to learn more about preprocessing.</description>
-    </item>
     
     <item>
       <title>Scraping wine colours with R</title>
