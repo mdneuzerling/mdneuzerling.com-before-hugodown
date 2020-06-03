@@ -19,6 +19,7 @@ h1,h2 {
     font-size: 2.5em;
 }
 
+/* Affects the distance between larger headings and he horizontal line that follows */
 .markdown-body h1, .markdown-body h2 {
 	padding-bottom: 0em;
 }
@@ -26,3 +27,24 @@ h1,h2 {
 /* h3{
     color: rgba(141,77,101,1);
 } */
+
+/* Background colour of code snippets */
+.markdown-body .highlight pre, .markdown-body pre {
+    background-color: #002b36;
+}
+
+.markdown-body pre > code {
+	font-size: 18px;
+}
+
+.markdown-body code, .markdown-body pre {
+	font-family: 'Fira Code',SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+}
+
+.markdown-body table th {
+    color: #000000;
+}
+
+.markdown-body table {
+	color: #000000;
+}
