@@ -48,3 +48,7 @@ h1,h2 {
 .markdown-body table {
 	color: #000000;
 }
+
+/* .ui.column.grid > [class*="sixteen wide mobile"].column, .ui.grid > .column.row > [class*="sixteen wide mobile"].column, .ui.grid > .row > [class*="sixteen wide mobile"].column, .ui.grid > [class*="sixteen wide mobile"].column {
+	width: 100% !important;
+} */
