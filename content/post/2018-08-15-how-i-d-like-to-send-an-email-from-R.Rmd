@@ -1,18 +1,13 @@
 ---
 title: How I'd like to send an email from R
-author: ''
 date: '2018-08-15'
 slug: how-i-d-like-to-send-an-email-from-R
 categories: []
 tags:
   - R
-  - R Markdown
-  - email
-  - dcom
 description: ''
-featured: "pipes.jpeg"
-featuredalt: "pipes"
-featuredpath: "img"  
+cover: "/img/pipes.jpeg"
+coveralt: "pipes"
 linktitle: ''
 ---
 

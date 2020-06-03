@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mdneuzerling</title>
+    <title>David Neuzerling</title>
     <link>/</link>
-    <description>Recent content on mdneuzerling</description>
+    <description>Recent content on David Neuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Tue, 19 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -58,7 +58,7 @@ However, in the last few days I’ve seen some unwelcome behaviour.</description
       <guid>/post/my-data-science-job-hunt/</guid>
       <description>If you listen to university advertisements for data science masters degrees, you’d believe that data scientists are so in-demand that they can walk into any company, state their salary, and start work straight away.
 Not quite.
-Interviewing for data science positions is tough, and job-seekers face some bad behaviour from recruiters and hiring managers. Many companies understand that they need to do something with data, but they don’t know what. They’ll say they want machine learning when they really want a few dashboards.</description>
+Interviewing for data science positions is tough, and job-seekers face some bad behaviour from recruiters and hiring managers. Many companies understand that they need to do something with data, but they don’t know what.</description>
     </item>
     
     <item>
@@ -100,7 +100,8 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
       <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/user-missing-values-imputation/</guid>
-      <description>Ozone data set Patterns of missing data Visualising missing data Dealing with missing values A refresher on PCA PCA imputation I missed a lot   These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do.</description>
+      <description>These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do. So I was keen to hear Julie Joss and Nick Tierney talk about their techniques and associated R packages.
+Your dataset with missing values after mean imputation.</description>
     </item>
     
     <item>
@@ -109,7 +110,8 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/user-getting-started-with-r-and-docker/</guid>
-      <description>Docker glossary Running docker images Rocker R hello world Playing with the hello-world image A note on security Managing Docker without leaving R  Docker on AWS And that’s it!   These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!</description>
+      <description>These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!).
+ Elizabeth’s slides Elizabeth’s exercises and examples  This tutorial took me through setting up an RStudio Server container. I’m on a Linux machine, but I’m particularly interested by the idea that you could run these traditionally Linux-only servers on a Windows machine through Docker.</description>
     </item>
     
     <item>
@@ -118,7 +120,7 @@ I took notes for the three tutorials I went to, but I wanted to take a moment to
       <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/user-recipes-for-data-processing/</guid>
-      <description>Reasons for modifying the data The ames data A simple log-transform Infrequently occurring levels The recipes process Other uses   These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
+      <description>These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
 Full confession here: I was having trouble deciding between this tutorial and another one, and eventually decided on the other one. But then I accidentally came to the wrong room and I took it as a sign that it was time to learn more about preprocessing.</description>
     </item>
     
@@ -128,44 +130,7 @@ Full confession here: I was having trouble deciding between this tutorial and an
       <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/scraping-wine-colours-with-r/</guid>
-      <description>My knowledge of wine covers three facts:
-I like red wine. I do not like white wine. I love wine data.  I came across a great collection of around 130,000 wine reviews, each a paragraph long, on Kaggle. This is juicy stuff, and I can’t wait to dig into it with some text analysis, or maybe build some sort of markov chain or neural network that generates new wine reviews.</description>
-    </item>
-    
-    <item>
-      <title>Fancy App 1</title>
-      <link>/itemized/item1/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item1/</guid>
-      <description> App 1 </description>
-    </item>
-    
-    <item>
-      <title>Fancy App 2</title>
-      <link>/itemized/item2/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item2/</guid>
-      <description> App 2 </description>
-    </item>
-    
-    <item>
-      <title>Fancy App 3</title>
-      <link>/itemized/item3/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item3/</guid>
-      <description> App 3 </description>
-    </item>
-    
-    <item>
-      <title>Fancy App 4</title>
-      <link>/itemized/item4/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item4/</guid>
-      <description> App 4 </description>
+      <description>Classifying 708 wine varieties as red, white or rosé</description>
     </item>
     
     <item>
@@ -174,7 +139,7 @@ I like red wine. I do not like white wine. I love wine data.  I came across a gr
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>/post/using-r-to-send-an-outlook-email-with-an-inline-image/</guid>
-      <description>If you work in a corporate environment, there’s a good chance you’re using Microsoft Office. I wanted to set up a way to email tables and plots from R using Outlook. Sending an email is simple enough with the RDCOMClient library, but inserting a plot inline—rather than as an attachment—took a little bit of working out. I’m sharing my code here in case anyone else wants to do something similar. The trick is to save your plot as an image with a temporary file, attach it to the email, and then insert it inline using a cid (Content-ID).</description>
+      <description>If you work in a corporate environment, there’s a good chance you’re using Microsoft Office. I wanted to set up a way to email tables and plots from R using Outlook. Sending an email is simple enough with the RDCOMClient library, but inserting a plot inline—rather than as an attachment—took a little bit of working out. I’m sharing my code here in case anyone else wants to do something similar.</description>
     </item>
     
     <item>
@@ -183,7 +148,7 @@ I like red wine. I do not like white wine. I love wine data.  I came across a gr
       <pubDate>Wed, 16 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>/post/we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it/</guid>
-      <description>Last year an honours student noticed something missing in mathematics and statistics at La Trobe University. She saw that there was no society at the university to cultivate an interest in mathematics. There were no social events to help the undergraduate students get to know one another. And there was very little in the way of extracurricular lectures for students without several years of mathematical study already under their belt. So she started the Mathematics and Statistics Society at La Trobe University.</description>
+      <description>Last year an honours student noticed something missing in mathematics and statistics at La Trobe University. She saw that there was no society at the university to cultivate an interest in mathematics. There were no social events to help the undergraduate students get to know one another. And there was very little in the way of extracurricular lectures for students without several years of mathematical study already under their belt.</description>
     </item>
     
     <item>

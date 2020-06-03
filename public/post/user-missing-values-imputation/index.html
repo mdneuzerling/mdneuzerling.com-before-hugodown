@@ -1,636 +1,101 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+useR: Missing values imputation
+</title>
 
-<html>
-    <head>
-        <script type="application/ld+json">
-    {
-        "@context" : "http://schema.org",
-        "@type" : "BlogPosting",
-        "mainEntityOfPage": {
-             "@type": "WebPage",
-             "@id": "/"
-        },
-        "articleSection" : "post",
-        "name" : "useR: Missing values imputation",
-        "headline" : "useR: Missing values imputation",
-        "description" : "Ozone data set Patterns of missing data Visualising missing data Dealing with missing values A refresher on PCA PCA imputation I missed a lot   These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do.",
-        "inLanguage" : "en",
-        "author" : "",
-        "creator" : "",
-        "publisher": "",
-        "accountablePerson" : "",
-        "copyrightHolder" : "",
-        "copyrightYear" : "2018",
-        "datePublished": "2018-07-11 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-07-11 00:00:00 &#43;0000 UTC",
-        "url" : "/post/user-missing-values-imputation/",
-        "wordCount" : "2059",
-        "keywords" : [ "R","R Markdown","useR2018","Blog" ]
-    }
-    </script>
-        
-            
-                <title>useR: Missing values imputation</title>
-            
-        
-
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.42.2" />
-        
+    
 
 
-        
-        
-            
-                <meta name="description" content="data, maths, R.">
-            
-        
+  
+  <meta name="author" content="David Neuzerling" />
+  <meta name="description" content="" />
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="useR: Missing values imputation"/>
-<meta name="twitter:description" content="Ozone data set Patterns of missing data Visualising missing data Dealing with missing values A refresher on PCA PCA imputation I missed a lot   These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do."/>
-<meta name="twitter:site" content="@mdneuzerling"/>
 
-        <meta property="og:title" content="useR: Missing values imputation" />
-<meta property="og:description" content="Ozone data set Patterns of missing data Visualising missing data Dealing with missing values A refresher on PCA PCA imputation I missed a lot   These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do." />
+
+<meta name="generator" content="Hugo 0.71.1" />
+
+<link rel="canonical" href="/post/user-missing-values-imputation/" />
+
+
+<meta property="og:title" content="useR: Missing values imputation" />
+<meta property="og:description" content="These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do. So I was keen to hear Julie Joss and Nick Tierney talk about their techniques and associated R packages.
+Your dataset with missing values after mean imputation." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/user-missing-values-imputation/" />
+<meta property="article:published_time" content="2018-07-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-11T00:00:00+00:00" />
 
 
 
-<meta property="article:published_time" content="2018-07-11T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-07-11T00:00:00&#43;00:00"/>
-
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="useR: Missing values imputation"/>
+<meta name="twitter:description" content="These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do. So I was keen to hear Julie Joss and Nick Tierney talk about their techniques and associated R packages.
+Your dataset with missing values after mean imputation."/>
 
 
+<link rel="stylesheet" href="/css/github-markdown.css" />
+<link rel="stylesheet" href="/css/semantic.min.css" />
+<link rel="stylesheet" href="/css/site.css" />
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="/css/customisation.css" />
+<link rel="stylesheet" href="/css/solarized-dark.css" rel="stylesheet" id="theme-stylesheet">
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 
-
-
-
-
-        <meta property="og:image" content="//images/logo.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="512">
-        <meta property="og:image:height" content="512">
-        
-<meta itemprop="name" content="useR: Missing values imputation">
-<meta itemprop="description" content="Ozone data set Patterns of missing data Visualising missing data Dealing with missing values A refresher on PCA PCA imputation I missed a lot   These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do.">
-
-
-<meta itemprop="datePublished" content="2018-07-11T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-07-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2059">
+<style>
+  a {
+    color: seagreen !important;
+  }
+</style>
 
 
 
-<meta itemprop="keywords" content="R,R Markdown,useR2018," />
+<style>
+  .inverted a {
+     color: darkseagreen !important;
+  }
+</style>
 
-        
 
-        
-            
-        
-
-        
-        
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="/css/main.css">
-            <link rel="stylesheet" href="/css/add-on.css">
-            <link rel="stylesheet" href="/css/academicons.min.css">
-        
-
-        
-            
-                
-            
-        
-
+  </head>
 
   
-    
-    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  <body style="background: black;">
   
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          
+<nav class="ui secondary inverted menu dream-menu">
+
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = '\/'"></i>
+  </div>
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+</nav>
+
+          
+<div class="ui centered relaxed grid dream-grid">
+  <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column markdown-body dream-single">
+
+    <section class="ui top attached segment" id="dream-save-post-as-img">
+      <header style="margin-top: 0 !important;">
+        <h2 class="ui header">
+          useR: Missing values imputation
+          <div class="sub header">@ David Neuzerling · Wednesday, Jul 11, 2018 · 10 minute read · Update at Jul 11, 2018</div>
+        </h2>
+      </header>
+      <br><a href="#" class="image featured"><img src="/img/useR/tutorial_three.png"></a>
+      <article style="margin-top: 2rem;">
 
-
-      
-    </head>
-    <body>
-
-      
-      <div id="wrapper">
-
-    
-    
-<header id="header">
-    
-      <h1><a href="/">post</a></h1>
-    
-
-    <nav class="links">
-        <ul>
-            
-                <li>
-                    <a href="/">
-                            <i class="fa fa-home">&nbsp;</i>Home
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/post/">
-                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/rmd/">
-                            <i class="fa fa-file-text-o">&nbsp;</i>R Markdown
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/shiny/">
-                            <i class="fa fa-bar-chart">&nbsp;</i>Shiny
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://github.com/mdneuzerling">
-                            <i class="fa fa-github">&nbsp;</i>GitHub
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/about/">
-                            <i class="fa fa-id-card-o">&nbsp;</i>About
-                    </a>
-                </li>
-            
-        </ul>
-    </nav>
-    <nav class="main">
-        <ul>
-            
-            <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
-            </li>
-            
-            <li class="search">
-                <a class="fa-search" href="#search">Search</a>
-                <form id="search" method="get" action="//google.com/search">
-                    <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="/">
-                </form>
-            </li>
-            <li class="menu">
-                <a class="fa-bars" href="#menu">Menu</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-
-<section id="menu">
-
-    
-        <section>
-            <form class="search" method="get" action="//google.com/search">
-                <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="/">
-            </form>
-        </section>
-
-    
-        <section>
-            <ul class="links">
-                
-                    <li>
-                        <a href="/">
-                            <h3>
-                                <i class="fa fa-home">&nbsp;</i>Home
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/post/">
-                            <h3>
-                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/rmd/">
-                            <h3>
-                                <i class="fa fa-file-text-o">&nbsp;</i>R Markdown
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/shiny/">
-                            <h3>
-                                <i class="fa fa-bar-chart">&nbsp;</i>Shiny
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/mdneuzerling">
-                            <h3>
-                                <i class="fa fa-github">&nbsp;</i>GitHub
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/about/">
-                            <h3>
-                                <i class="fa fa-id-card-o">&nbsp;</i>About
-                            </h3>
-                        </a>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-        <section class="recent-posts">
-            <div class="mini-posts">
-                <header>
-                    <h3>Recent Posts</h3>
-                </header>
-                
-
-                
-                    
-                
-
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/printing-data-frames-with-metadata/">Printing data frames with metadata</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2020-05-19'>
-                                    May 19, 2020</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/printing-data-frames-with-metadata/" class="image featured">
-            <img src="/img/flinders-departures.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/what-ive-learnt-about-making-an-r-package/">What I&#39;ve learnt about making an R package</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2020-01-28'>
-                                    January 28, 2020</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/what-ive-learnt-about-making-an-r-package/" class="image featured">
-            <img src="/img/boxes.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/model-as-a-package/">Model as a package</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-12-11'>
-                                    December 11, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/model-as-a-package/" class="image featured">
-            <img src="/img/ModelAsAPackage.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-09-11'>
-                                    September 11, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/an-update-on-copyright-and-licencing/" class="image featured">
-            <img src="/img/door-green-closed-lock.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/my-data-science-job-hunt/">My data science job hunt</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-09-08'>
-                                    September 8, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/my-data-science-job-hunt/" class="image featured">
-            <img src="/img/job_outcomes.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-
-                
-                    <a href=
-                        
-                            "/post/"
-                        
-                        class="button">View more posts</a>
-                
-            </div>
-        </section>
-
-    
-        
-</section>
-
-    <section id="share-menu">
-    <section id="social-share-nav">
-        <ul class="links">
-            <header>
-                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
-            </header>
-            
-
-
-
-<li>
-  <a href="//twitter.com/share?url=%2fpost%2fuser-missing-values-imputation%2f&amp;text=useR%3a%20Missing%20values%20imputation&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//plus.google.com/share?url=%2fpost%2fuser-missing-values-imputation%2f" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-  </a>
-</li>
-
-
-
-
-
-<li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fuser-missing-values-imputation%2f" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//reddit.com/submit?url=%2fpost%2fuser-missing-values-imputation%2f&amp;title=useR%3a%20Missing%20values%20imputation" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fuser-missing-values-imputation%2f&amp;title=useR%3a%20Missing%20values%20imputation" target="_blank" class="share-btn linkedin">
-      <i class="fa fa-linkedin"></i>
-      <p>LinkedIn</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fuser-missing-values-imputation%2f&amp;title=useR%3a%20Missing%20values%20imputation" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fuser-missing-values-imputation%2f&amp;description=useR%3a%20Missing%20values%20imputation" target="_blank" class="share-btn pinterest">
-    <i class="fa fa-pinterest-p"></i>
-    <p>Pinterest</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fuser-missing-values-imputation%2f" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-  </a>
-</li>
-
-
-        </ul>
-    </section>
-</section>
-
-    
-    <div id="main">
-        
-        
-        <article class="post">
-  <header>
-    <div class="title">
-        
-            <h1><a href="/post/user-missing-values-imputation/">useR: Missing values imputation</a></h1>
-            
-        
-        
-    </div>
-    <div class="meta">
-        
-
-        <time class="published"
-            datetime='2018-07-11'>
-            July 11, 2018</time>
-        <span class="author"></span>
-        
-            <p>10 minute read</p>
-        
-        
-    </div>
-</header>
-
-
-  
-
-  
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/user-missing-values-imputation/" class="image featured">
-            <img src="/img/useR/tutorial_three.png" alt="">
-        </a>
-    
-
-
-  <div id="content">
-    <div id="TOC">
-<ul>
-<li><a href="#ozone-data-set"><code>Ozone</code> data set</a></li>
-<li><a href="#patterns-of-missing-data">Patterns of missing data</a></li>
-<li><a href="#visualising-missing-data">Visualising missing data</a></li>
-<li><a href="#dealing-with-missing-values">Dealing with missing values</a></li>
-<li><a href="#a-refresher-on-pca">A refresher on PCA</a></li>
-<li><a href="#pca-imputation">PCA imputation</a></li>
-<li><a href="#i-missed-a-lot">I missed a lot</a></li>
-</ul>
-</div>
 
 <hr />
 <p>These are my notes for the third and final tutorial of useR2018, and the
@@ -659,18 +124,18 @@ variables here, so we will drop the <code>WindDirection</code> variable.</p>
     select(-X1, -WindDirection) # unnecessary row index</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   X1 = col_integer(),
-##   maxO3 = col_integer(),
+##   X1 = col_double(),
+##   maxO3 = col_double(),
 ##   T9 = col_double(),
 ##   T12 = col_double(),
 ##   T15 = col_double(),
-##   Ne9 = col_integer(),
-##   Ne12 = col_integer(),
-##   Ne15 = col_integer(),
+##   Ne9 = col_double(),
+##   Ne12 = col_double(),
+##   Ne15 = col_double(),
 ##   Vx9 = col_double(),
 ##   Vx12 = col_double(),
 ##   Vx15 = col_double(),
-##   maxO3v = col_integer(),
+##   maxO3v = col_double(),
 ##   WindDirection = col_character()
 ## )</code></pre>
 </div>
@@ -858,19 +323,19 @@ function returns a list, which we convert to a tibble. There are also some
 new columns containing fitted values, which we’ll set aside for an easier
 comparison.</p>
 <p>We’ll also remove the <code>completedObs.</code> prefix of the variable
-names. The regex pattern used here, <code>&quot;.*(?&lt;=\\.)&quot;</code>, matches everything up to
+names. The regex pattern used here, <code>".*(?&lt;=\\.)"</code>, matches everything up to
 and including the last dot in the column names. I use this pattern * a lot*.
 Note that you’ll need <code>perl = TRUE</code> to use the lookahead.</p>
 <pre class="r"><code>ozone %&gt;% head</code></pre>
 <pre><code>## # A tibble: 6 x 11
-##   maxO3    T9   T12   T15   Ne9  Ne12  Ne15     Vx9    Vx12   Vx15 maxO3v
-##   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt;
-## 1    87  15.6  18.5  NA       4     4     8   0.695  -1.71  -0.695     84
-## 2    82  NA    NA    NA       5     5     7  -4.33   -4     -3         87
-## 3    92  15.3  17.6  19.5     2    NA    NA   2.95   NA      0.521     82
-## 4   114  16.2  19.7  NA       1     1     0  NA       0.347 -0.174     92
-## 5    94  NA    20.5  20.4    NA    NA    NA  -0.5    -2.95  -4.33     114
-## 6    80  17.7  19.8  18.3     6    NA     7  -5.64   -5     -6         94</code></pre>
+##   maxO3    T9   T12   T15   Ne9  Ne12  Ne15    Vx9   Vx12   Vx15 maxO3v
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1    87  15.6  18.5  NA       4     4     8  0.695 -1.71  -0.695     84
+## 2    82  NA    NA    NA       5     5     7 -4.33  -4     -3         87
+## 3    92  15.3  17.6  19.5     2    NA    NA  2.95  NA      0.521     82
+## 4   114  16.2  19.7  NA       1     1     0 NA      0.347 -0.174     92
+## 5    94  NA    20.5  20.4    NA    NA    NA -0.5   -2.95  -4.33     114
+## 6    80  17.7  19.8  18.3     6    NA     7 -5.64  -5     -6         94</code></pre>
 <pre class="r"><code>ozone_comp %&gt;% 
     as.data.frame %&gt;% # seems to need this intermediate step?
     as_tibble %&gt;% 
@@ -898,458 +363,189 @@ topics I usually struggle with: PCA and missing value imputation. Thank you
 to Julie and Nick for the tutorial.</p>
 <p>Now, onward to the official launch of the #useR2018!</p>
 </div>
+</article>
+    </section>
+
+    <footer class="ui attached segment dream-tags">
+      
+        
+          <a class="ui label" href="/tags/r" title="R">R</a>
+        
+          <a class="ui label" href="/tags/conference" title="conference">conference</a>
+        
+      
+      <div
+        class="ui label"
+        style="float: right; background: #1b1c1d !important; cursor: pointer;"
+        onclick="savePostAsImg()">
+        <i class="save icon"></i> Save as image
+      </div>
+    </footer>
+
+    
+
+    
 
   </div>
+  <div class="sixteen wide mobile sixteen wide tablet four wide computer column">
+    <article class="dream-header">
+  <section class="ui top attached center aligned segment">
+    <div class="ui small circular image">
+      
+        <img src="/img/profile/profile_1_small.png">
+      
+    </div>
 
-  <footer>
-    <ul class="stats">
-  <li class="categories">
-    <ul>
-        
-            
-            
-        
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-        
-            
-            
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="/tags/r">R</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/r-markdown">R Markdown</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/user2018">useR2018</a></li>
-                
-            
-        
-    </ul>
-  </li>
-</ul>
+    <h1 class="ui medium header">David Neuzerling&#39;s blog<div class="sub header" style="margin-top: 0.5rem;">Data, maths, R</div>
+    </h1>
 
-  </footer>
+    
+  </section>
 
+  
+  <section class="ui attached center aligned segment dream-tags">
+    
+      <a class="ui label" href="/tags/conference" title="conference">conference</a>
+    
+      <a class="ui label" href="/tags/industry" title="industry">industry</a>
+    
+      <a class="ui label" href="/tags/maths" title="maths">maths</a>
+    
+      <a class="ui label" href="/tags/r" title="r">r</a>
+    
+      <a class="ui label" href="/tags/scraping" title="scraping">scraping</a>
+    
+  </section>
+  
+
+  
+
+  <section class="ui attached segment header-socials">
+    <nav class="ui secondary menu dream-menu dream-socials">
+  
+
+  
+    <div class="item">
+      <a href="https://twitter.com/mdneuzerling" target="_blank">
+        <i class=" twitter icon" title="twitter"></i>
+      </a>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="item">
+      <a href="https://github.com/mdneuzerling" target="_blank">
+        <i class=" github icon" title="github"></i>
+      </a>
+    </div>
+  
+
+  
+
+  
+</nav>
+
+  </section>
+
+  <section class="ui bottom attached center aligned segment">
+    
+      <p>© 2020 David Neuzerling</p>
+    
+
+    <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</br></br>
+      Except where otherwise stated, the content of this blog is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a>.</p>
+  </section>
 </article>
 
-<ul class="actions pagination">
-    
-        <li><a href="/post/user-getting-started-with-r-and-docker/"
-                class="button big previous">useR: Getting started with R and Docker</a></li>
-    
+  </div>
+</div>
 
-    
-        <li><a href="/post/user-the-week-in-review/"
-                class="button big next">useR: The Week in Review</a></li>
-    
-</ul>
-
-
-    </div>
-    
-<section id="sidebar">
-
-  
-  <section id="intro">
-    
-    
-      
-        <a href='/'><img src="/img/profile/profile_1_small.png" class="intro-circle" width="250px" alt="mdneuzerling" /></a>
-      
-    
-    
-      <header>
-        <h2>David Neuzerling</h2>
-        <p>Data, maths, R</p>
-      </header>
-    
-    
-      <ul class="icons">
-        
+        </section>
+        <section class="back">
           
-    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-
-
-        
-        
-  <li><a href="//github.com/mdneuzerling" target="_blank" title="GitHub" class="fa fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//instagram.com/mdneuzerling" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
-
-
-
-
-
-  <li><a href="//twitter.com/mdneuzerling" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    
-  </section>
-
-  
-  <section class="recent-posts">
-    <div class="mini-posts">
-      <header>
-        <h3>Recent Posts</h3>
-      </header>
-      <div class="posts-container">
-        
-
-        
-          
-        
-
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/printing-data-frames-with-metadata/">Printing data frames with metadata</a>
-              </h3>
-              
-              <time class="published" datetime='2020-05-19'>
-                May 19, 2020
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
+<nav class="ui secondary inverted menu dream-menu">
+
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = '\/'"></i>
+  </div>
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+</nav>
+
+          <div class="ui centered relaxed grid dream-grid dream-back">
   
 
-
-        
-        
-        
-
-        <a href="/post/printing-data-frames-with-metadata/" class="image featured">
-            <img src="/img/flinders-departures.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/what-ive-learnt-about-making-an-r-package/">What I&#39;ve learnt about making an R package</a>
-              </h3>
-              
-              <time class="published" datetime='2020-01-28'>
-                January 28, 2020
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/what-ive-learnt-about-making-an-r-package/" class="image featured">
-            <img src="/img/boxes.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/model-as-a-package/">Model as a package</a>
-              </h3>
-              
-              <time class="published" datetime='2019-12-11'>
-                December 11, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/model-as-a-package/" class="image featured">
-            <img src="/img/ModelAsAPackage.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a>
-              </h3>
-              
-              <time class="published" datetime='2019-09-11'>
-                September 11, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/an-update-on-copyright-and-licencing/" class="image featured">
-            <img src="/img/door-green-closed-lock.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/my-data-science-job-hunt/">My data science job hunt</a>
-              </h3>
-              
-              <time class="published" datetime='2019-09-08'>
-                September 8, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/my-data-science-job-hunt/" class="image featured">
-            <img src="/img/job_outcomes.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
+  <section class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article>
+      <div class="ui top attached segment">
+        <h3 class="ui header">Social Links</h3>
       </div>
+      <div class="ui attached segment">
+        <nav class="ui secondary menu dream-menu dream-socials">
+  
 
-      
-        <a href=
-          
-            "/post/"
-          
-        class="button">View more posts</a>
-      
+  
+    <div class="item">
+      <a href="https://twitter.com/mdneuzerling" target="_blank">
+        <i class="large twitter icon" title="twitter"></i>
+      </a>
     </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="item">
+      <a href="https://github.com/mdneuzerling" target="_blank">
+        <i class="large github icon" title="github"></i>
+      </a>
+    </div>
+  
+
+  
+
+  
+</nav>
+
+      </div>
+    </article>
+  </section>
+
+  <section class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
   </section>
 
   
   
-  
 
-  
-  
+</div>
 
-  
-  <section id="footer">
-    
-    <p class="copyright">
-      
-        &copy; 2020
-        
-          mdneuzerling
-        
-      . <br />
-      <a href = "https://github.com/mdneuzerling/mdneuzerling.com">Repository available on GitHub</a> <br />
-      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>. <br /><br />
-      This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a> except where stated otherwise.
-    </p>
-  </section>
-</section>
-
+        </section>
+      </div>
     </div>
-    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
-    
 
-    
-      
-    
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/semantic.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/html2canvas.min.js"></script>
 
-    
-      
-      
-      
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
-        
-        
-        
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
-        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-      
-    
-    
-    
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="/js/util.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="/js/backToTop.js"></script>
-    
-
-    
-      
-        
-      
-    
-
-    
-    <script>hljs.initHighlightingOnLoad();</script>
-      <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 
   </body>
 </html>
-

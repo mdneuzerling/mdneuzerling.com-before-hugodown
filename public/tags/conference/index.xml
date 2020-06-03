@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>conference on David Neuzerling</title>
+    <link>/tags/conference/</link>
+    <description>Recent content in conference on David Neuzerling</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 28 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/conference/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What I&#39;ve learnt about making an R package</title>
+      <link>/post/what-ive-learnt-about-making-an-r-package/</link>
+      <pubDate>Tue, 28 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/what-ive-learnt-about-making-an-r-package/</guid>
+      <description>The last few weeks have been all about R package development for me. First I was exploring GitHub actions with the lovely people at the rOpenSci OzUnconf, and then I was off to San Francisco to learn about Building Tidy Tools with the Wickham siblings. I’ve picked up a lot about package development, so I’m documenting some of trickier things that I’ve learnt.
+A great resource for package development is Hadley’s book.</description>
+    </item>
+    
+    <item>
+      <title>useR: The Week in Review</title>
+      <link>/post/user-the-week-in-review/</link>
+      <pubDate>Fri, 13 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/user-the-week-in-review/</guid>
+      <description>That’s it for #useR2018. After 6 keynotes, 132 parallel sessions, many more lightning talks and posters, and an all-important conference dinner, we’ve reached the end of the week.
+This was my first proper conference since 2015. I had almost forgotten how it felt to be surrounded by hundreds of people who are just as passionate (if not more) about your tiny area of specialised knowledge than you are.
+I took notes for the three tutorials I went to, but I wanted to take a moment to review the week as a whole, including the talks that stood out to me.</description>
+    </item>
+    
+    <item>
+      <title>useR: Missing values imputation</title>
+      <link>/post/user-missing-values-imputation/</link>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/user-missing-values-imputation/</guid>
+      <description>These are my notes for the third and final tutorial of useR2018, and the tutorial I was looking forward to the most. I struggle with missing value imputation. It’s one of those things which I kind of get the theory of, but fall over when trying to do. So I was keen to hear Julie Joss and Nick Tierney talk about their techniques and associated R packages.
+Your dataset with missing values after mean imputation.</description>
+    </item>
+    
+    <item>
+      <title>useR: Getting started with R and Docker</title>
+      <link>/post/user-getting-started-with-r-and-docker/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/user-getting-started-with-r-and-docker/</guid>
+      <description>These are my notes for the super helpful tutorial given by Elizabeth Stark on the first day of the UseR 2018 conference. This was an introduction to Docker for R users who have no prior experience with Docker (which was me!).
+ Elizabeth’s slides Elizabeth’s exercises and examples  This tutorial took me through setting up an RStudio Server container. I’m on a Linux machine, but I’m particularly interested by the idea that you could run these traditionally Linux-only servers on a Windows machine through Docker.</description>
+    </item>
+    
+    <item>
+      <title>useR: Recipes for data processing</title>
+      <link>/post/user-recipes-for-data-processing/</link>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/user-recipes-for-data-processing/</guid>
+      <description>These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
+Full confession here: I was having trouble deciding between this tutorial and another one, and eventually decided on the other one. But then I accidentally came to the wrong room and I took it as a sign that it was time to learn more about preprocessing.</description>
+    </item>
+    
+    <item>
+      <title>My fourth Australasian Combinatorics Conference</title>
+      <link>/post/my-fourth-australasian-combinatorics-conference/</link>
+      <pubDate>Mon, 14 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/post/my-fourth-australasian-combinatorics-conference/</guid>
+      <description>My first maths conference was The 36th Australasian Conference on Combinatorial Mathematics and Combinatorial Computing. I had just finished my honours thesis, Generalising the Clique-Coclique Bound, and I had travelled to Sydney to present my results to a room full of people much smarter than me.
+I’m no longer working in graph theory or finite geometry, but every year since 2012 I have attended the ACCMCC. I keep up to date with the research, and I maintain contact with some of the best mathematicians I’ve ever met.</description>
+    </item>
+    
+  </channel>
+</rss>

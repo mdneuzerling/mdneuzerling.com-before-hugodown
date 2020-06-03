@@ -1,17 +1,14 @@
 ---
 title: My fourth Australasian Combinatorics Conference
-author: ''
 date: '2015-12-14'
 slug: my-fourth-australasian-combinatorics-conference
 categories: []
 tags:
   - maths
-  - uni
-  - from_the_archive
+  - conference
 description: ''
-featured: 'ACCMCC_UQ.jpg'
-featuredalt: 'The University of Queensland'
-featuredpath: 'img'
+cover: '/img/ACCMCC_UQ.jpg'
+coveralt: 'The University of Queensland'
 linktitle: ''
 ---
 

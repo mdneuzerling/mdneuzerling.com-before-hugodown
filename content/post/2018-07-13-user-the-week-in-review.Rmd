@@ -1,16 +1,12 @@
 ---
 title: 'useR: The Week in Review'
-author: ''
 date: '2018-07-13'
 slug: user-the-week-in-review
 categories: []
-tags: [R, R Markdown, useR2018]
+tags: [R, conference]
 description: ''
-featured: "week_in_review.png"
-featuredalt: "useR2018 Week in Review"
-featuredpath: "img/useR"  
-linktitle: ''
-draft: true
+cover: "/img/useR/week_in_review.png"
+coveralt: "useR2018 Week in Review"
 ---
 
 That's it for #useR2018. After 6 keynotes, 132 parallel sessions, many more 

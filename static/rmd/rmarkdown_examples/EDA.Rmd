@@ -1,6 +1,5 @@
 ---
 title: "Exploration of feed data"
-author: "mdneuzerling"
 date: "June 6, 2018"
 output: html_document
 ---

@@ -1,639 +1,101 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+useR: Recipes for data processing
+</title>
 
-<html>
-    <head>
-        <script type="application/ld+json">
-    {
-        "@context" : "http://schema.org",
-        "@type" : "BlogPosting",
-        "mainEntityOfPage": {
-             "@type": "WebPage",
-             "@id": "/"
-        },
-        "articleSection" : "post",
-        "name" : "useR: Recipes for data processing",
-        "headline" : "useR: Recipes for data processing",
-        "description" : "Reasons for modifying the data The ames data A simple log-transform Infrequently occurring levels The recipes process Other uses   These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
-Full confession here: I was having trouble deciding between this tutorial and another one, and eventually decided on the other one. But then I accidentally came to the wrong room and I took it as a sign that it was time to learn more about preprocessing.",
-        "inLanguage" : "en",
-        "author" : "",
-        "creator" : "",
-        "publisher": "",
-        "accountablePerson" : "",
-        "copyrightHolder" : "",
-        "copyrightYear" : "2018",
-        "datePublished": "2018-07-10 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-07-10 00:00:00 &#43;0000 UTC",
-        "url" : "/post/user-recipes-for-data-processing/",
-        "wordCount" : "2649",
-        "keywords" : [ "R","R Markdown","useR2018","Blog" ]
-    }
-    </script>
-        
-            
-                <title>useR: Recipes for data processing</title>
-            
-        
-
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.42.2" />
-        
+    
 
 
-        
-        
-            
-                <meta name="description" content="data, maths, R.">
-            
-        
+  
+  <meta name="author" content="David Neuzerling" />
+  <meta name="description" content="" />
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="useR: Recipes for data processing"/>
-<meta name="twitter:description" content="Reasons for modifying the data The ames data A simple log-transform Infrequently occurring levels The recipes process Other uses   These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
-Full confession here: I was having trouble deciding between this tutorial and another one, and eventually decided on the other one. But then I accidentally came to the wrong room and I took it as a sign that it was time to learn more about preprocessing."/>
-<meta name="twitter:site" content="@mdneuzerling"/>
 
-        <meta property="og:title" content="useR: Recipes for data processing" />
-<meta property="og:description" content="Reasons for modifying the data The ames data A simple log-transform Infrequently occurring levels The recipes process Other uses   These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
+
+<meta name="generator" content="Hugo 0.71.1" />
+
+<link rel="canonical" href="/post/user-recipes-for-data-processing/" />
+
+
+<meta property="og:title" content="useR: Recipes for data processing" />
+<meta property="og:description" content="These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
 Full confession here: I was having trouble deciding between this tutorial and another one, and eventually decided on the other one. But then I accidentally came to the wrong room and I took it as a sign that it was time to learn more about preprocessing." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/user-recipes-for-data-processing/" />
+<meta property="article:published_time" content="2018-07-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-10T00:00:00+00:00" />
 
 
 
-<meta property="article:published_time" content="2018-07-10T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-07-10T00:00:00&#43;00:00"/>
-
-
-
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="useR: Recipes for data processing"/>
+<meta name="twitter:description" content="These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
+Full confession here: I was having trouble deciding between this tutorial and another one, and eventually decided on the other one. But then I accidentally came to the wrong room and I took it as a sign that it was time to learn more about preprocessing."/>
 
 
+<link rel="stylesheet" href="/css/github-markdown.css" />
+<link rel="stylesheet" href="/css/semantic.min.css" />
+<link rel="stylesheet" href="/css/site.css" />
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="/css/customisation.css" />
+<link rel="stylesheet" href="/css/solarized-dark.css" rel="stylesheet" id="theme-stylesheet">
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 
-
-
-
-
-        <meta property="og:image" content="//images/logo.png">
-        <meta property="og:image:type" content="image/png">
-        <meta property="og:image:width" content="512">
-        <meta property="og:image:height" content="512">
-        
-<meta itemprop="name" content="useR: Recipes for data processing">
-<meta itemprop="description" content="Reasons for modifying the data The ames data A simple log-transform Infrequently occurring levels The recipes process Other uses   These are my notes for the tutorial given by Max Kuhn on the afternoon of the first day of the UseR 2018 conference.
-Full confession here: I was having trouble deciding between this tutorial and another one, and eventually decided on the other one. But then I accidentally came to the wrong room and I took it as a sign that it was time to learn more about preprocessing.">
-
-
-<meta itemprop="datePublished" content="2018-07-10T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-07-10T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2649">
+<style>
+  a {
+    color: seagreen !important;
+  }
+</style>
 
 
 
-<meta itemprop="keywords" content="R,R Markdown,useR2018," />
+<style>
+  .inverted a {
+     color: darkseagreen !important;
+  }
+</style>
 
-        
 
-        
-            
-        
-
-        
-        
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
-            <link rel="stylesheet" href="/css/main.css">
-            <link rel="stylesheet" href="/css/add-on.css">
-            <link rel="stylesheet" href="/css/academicons.min.css">
-        
-
-        
-            
-                
-            
-        
-
+  </head>
 
   
-    
-    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  <body style="background: black;">
   
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          
+<nav class="ui secondary inverted menu dream-menu">
+
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = '\/'"></i>
+  </div>
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+</nav>
+
+          
+<div class="ui centered relaxed grid dream-grid">
+  <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column markdown-body dream-single">
+
+    <section class="ui top attached segment" id="dream-save-post-as-img">
+      <header style="margin-top: 0 !important;">
+        <h2 class="ui header">
+          useR: Recipes for data processing
+          <div class="sub header">@ David Neuzerling · Tuesday, Jul 10, 2018 · 13 minute read · Update at Jul 10, 2018</div>
+        </h2>
+      </header>
+      <br><a href="#" class="image featured"><img src="/img/useR/tutorial_two.png"></a>
+      <article style="margin-top: 2rem;">
 
-
-      
-    </head>
-    <body>
-
-      
-      <div id="wrapper">
-
-    
-    
-<header id="header">
-    
-      <h1><a href="/">post</a></h1>
-    
-
-    <nav class="links">
-        <ul>
-            
-                <li>
-                    <a href="/">
-                            <i class="fa fa-home">&nbsp;</i>Home
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/post/">
-                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/rmd/">
-                            <i class="fa fa-file-text-o">&nbsp;</i>R Markdown
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/shiny/">
-                            <i class="fa fa-bar-chart">&nbsp;</i>Shiny
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="https://github.com/mdneuzerling">
-                            <i class="fa fa-github">&nbsp;</i>GitHub
-                    </a>
-                </li>
-            
-                <li>
-                    <a href="/about/">
-                            <i class="fa fa-id-card-o">&nbsp;</i>About
-                    </a>
-                </li>
-            
-        </ul>
-    </nav>
-    <nav class="main">
-        <ul>
-            
-            <li id="share-nav" class="share-menu" style="display:none;">
-                <a class="fa-share-alt" href="#share-menu">Share</a>
-            </li>
-            
-            <li class="search">
-                <a class="fa-search" href="#search">Search</a>
-                <form id="search" method="get" action="//google.com/search">
-                    <input type="text" name="q" placeholder="Search" />
-                    <input type="hidden" name="as_sitesearch" value="/">
-                </form>
-            </li>
-            <li class="menu">
-                <a class="fa-bars" href="#menu">Menu</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-
-<section id="menu">
-
-    
-        <section>
-            <form class="search" method="get" action="//google.com/search">
-                <input type="text" name="q" placeholder="Search" />
-                <input type="hidden" name="as_sitesearch" value="/">
-            </form>
-        </section>
-
-    
-        <section>
-            <ul class="links">
-                
-                    <li>
-                        <a href="/">
-                            <h3>
-                                <i class="fa fa-home">&nbsp;</i>Home
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/post/">
-                            <h3>
-                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/rmd/">
-                            <h3>
-                                <i class="fa fa-file-text-o">&nbsp;</i>R Markdown
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/shiny/">
-                            <h3>
-                                <i class="fa fa-bar-chart">&nbsp;</i>Shiny
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="https://github.com/mdneuzerling">
-                            <h3>
-                                <i class="fa fa-github">&nbsp;</i>GitHub
-                            </h3>
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/about/">
-                            <h3>
-                                <i class="fa fa-id-card-o">&nbsp;</i>About
-                            </h3>
-                        </a>
-                    </li>
-                
-            </ul>
-        </section>
-
-    
-        <section class="recent-posts">
-            <div class="mini-posts">
-                <header>
-                    <h3>Recent Posts</h3>
-                </header>
-                
-
-                
-                    
-                
-
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/printing-data-frames-with-metadata/">Printing data frames with metadata</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2020-05-19'>
-                                    May 19, 2020</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/printing-data-frames-with-metadata/" class="image featured">
-            <img src="/img/flinders-departures.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/what-ive-learnt-about-making-an-r-package/">What I&#39;ve learnt about making an R package</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2020-01-28'>
-                                    January 28, 2020</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/what-ive-learnt-about-making-an-r-package/" class="image featured">
-            <img src="/img/boxes.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/model-as-a-package/">Model as a package</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-12-11'>
-                                    December 11, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/model-as-a-package/" class="image featured">
-            <img src="/img/ModelAsAPackage.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-09-11'>
-                                    September 11, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/an-update-on-copyright-and-licencing/" class="image featured">
-            <img src="/img/door-green-closed-lock.jpg" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/post/my-data-science-job-hunt/">My data science job hunt</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2019-09-08'>
-                                    September 8, 2019</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/my-data-science-job-hunt/" class="image featured">
-            <img src="/img/job_outcomes.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-
-                
-                    <a href=
-                        
-                            "/post/"
-                        
-                        class="button">View more posts</a>
-                
-            </div>
-        </section>
-
-    
-        
-</section>
-
-    <section id="share-menu">
-    <section id="social-share-nav">
-        <ul class="links">
-            <header>
-                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
-            </header>
-            
-
-
-
-<li>
-  <a href="//twitter.com/share?url=%2fpost%2fuser-recipes-for-data-processing%2f&amp;text=useR%3a%20Recipes%20for%20data%20processing&amp;via=mdneuzerling" target="_blank" class="share-btn twitter">
-    <i class="fa fa-twitter"></i>
-    <p>Twitter</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//plus.google.com/share?url=%2fpost%2fuser-recipes-for-data-processing%2f" target="_blank" class="share-btn google-plus">
-    <i class="fa fa-google-plus"></i>
-    <p>Google+</p>
-  </a>
-</li>
-
-
-
-
-
-<li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fpost%2fuser-recipes-for-data-processing%2f" target="_blank" class="share-btn facebook">
-    <i class="fa fa-facebook"></i>
-    <p>Facebook</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//reddit.com/submit?url=%2fpost%2fuser-recipes-for-data-processing%2f&amp;title=useR%3a%20Recipes%20for%20data%20processing" target="_blank" class="share-btn reddit">
-    <i class="fa fa-reddit-alien"></i>
-    <p>Reddit</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fpost%2fuser-recipes-for-data-processing%2f&amp;title=useR%3a%20Recipes%20for%20data%20processing" target="_blank" class="share-btn linkedin">
-      <i class="fa fa-linkedin"></i>
-      <p>LinkedIn</p>
-    </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.stumbleupon.com/submit?url=%2fpost%2fuser-recipes-for-data-processing%2f&amp;title=useR%3a%20Recipes%20for%20data%20processing" target="_blank" class="share-btn stumbleupon">
-    <i class="fa fa-stumbleupon"></i>
-    <p>StumbleUpon</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="//www.pinterest.com/pin/create/button/?url=%2fpost%2fuser-recipes-for-data-processing%2f&amp;description=useR%3a%20Recipes%20for%20data%20processing" target="_blank" class="share-btn pinterest">
-    <i class="fa fa-pinterest-p"></i>
-    <p>Pinterest</p>
-  </a>
-</li>
-
-
-
-
-<li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fpost%2fuser-recipes-for-data-processing%2f" target="_blank" class="share-btn email">
-    <i class="fa fa-envelope"></i>
-    <p>Email</p>
-  </a>
-</li>
-
-
-        </ul>
-    </section>
-</section>
-
-    
-    <div id="main">
-        
-        
-        <article class="post">
-  <header>
-    <div class="title">
-        
-            <h1><a href="/post/user-recipes-for-data-processing/">useR: Recipes for data processing</a></h1>
-            
-        
-        
-    </div>
-    <div class="meta">
-        
-
-        <time class="published"
-            datetime='2018-07-10'>
-            July 10, 2018</time>
-        <span class="author"></span>
-        
-            <p>13 minute read</p>
-        
-        
-    </div>
-</header>
-
-
-  
-
-  
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/user-recipes-for-data-processing/" class="image featured">
-            <img src="/img/useR/tutorial_two.png" alt="">
-        </a>
-    
-
-
-  <div id="content">
-    <div id="TOC">
-<ul>
-<li><a href="#reasons-for-modifying-the-data">Reasons for modifying the data</a></li>
-<li><a href="#the-ames-data">The <code>ames</code> data</a></li>
-<li><a href="#a-simple-log-transform">A simple log-transform</a></li>
-<li><a href="#infrequently-occurring-levels">Infrequently occurring levels</a></li>
-<li><a href="#the-recipes-process">The <code>recipes</code> process</a></li>
-<li><a href="#other-uses">Other uses</a></li>
-</ul>
-</div>
 
 <hr />
 <p>These are my notes for the tutorial given by
@@ -656,7 +118,7 @@ the way.</p>
 <p>The data set we’ll use is the AMES IA housing data. This includes sale
 price (our target) along with 81 predictors, such as location, house
 components (eg. swimming pool), number of bedrooms, and so on. The raw data can
-be found at <a href="https://ww2.amstat.org/publications/jse/v19n3/decock/AmesHousing.txt" class="uri">https://ww2.amstat.org/publications/jse/v19n3/decock/AmesHousing.txt</a>
+be found at <a href="https://ww2.amstat.org/publications/jse/v19n3/decock/AmesHousing.txt">https://ww2.amstat.org/publications/jse/v19n3/decock/AmesHousing.txt</a>
 but we will be using the processed version found in the <code>AmesHousing</code> package.</p>
 <div id="reasons-for-modifying-the-data" class="section level2">
 <h2>Reasons for modifying the data</h2>
@@ -699,11 +161,11 @@ turning dates into days of the week.</li>
 <p>We load the data with the <code>make_ames</code> function from the <code>AmesHousing</code> package.</p>
 <pre class="r"><code>ames &lt;- AmesHousing::make_ames()
 ames %&gt;% str</code></pre>
-<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    2930 obs. of  81 variables:
+<pre><code>## tibble [2,930 × 81] (S3: tbl_df/tbl/data.frame)
 ##  $ MS_SubClass       : Factor w/ 16 levels &quot;One_Story_1946_and_Newer_All_Styles&quot;,..: 1 1 1 1 6 6 12 12 12 6 ...
 ##  $ MS_Zoning         : Factor w/ 7 levels &quot;Floating_Village_Residential&quot;,..: 3 2 3 3 3 3 3 3 3 3 ...
-##  $ Lot_Frontage      : num  141 80 81 93 74 78 41 43 39 60 ...
-##  $ Lot_Area          : int  31770 11622 14267 11160 13830 9978 4920 5005 5389 7500 ...
+##  $ Lot_Frontage      : num [1:2930] 141 80 81 93 74 78 41 43 39 60 ...
+##  $ Lot_Area          : int [1:2930] 31770 11622 14267 11160 13830 9978 4920 5005 5389 7500 ...
 ##  $ Street            : Factor w/ 2 levels &quot;Grvl&quot;,&quot;Pave&quot;: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Alley             : Factor w/ 3 levels &quot;Gravel&quot;,&quot;No_Alley_Access&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Lot_Shape         : Factor w/ 4 levels &quot;Regular&quot;,&quot;Slightly_Irregular&quot;,..: 2 1 2 1 2 2 1 2 2 1 ...
@@ -718,14 +180,14 @@ ames %&gt;% str</code></pre>
 ##  $ House_Style       : Factor w/ 8 levels &quot;One_and_Half_Fin&quot;,..: 3 3 3 3 8 8 3 3 3 8 ...
 ##  $ Overall_Qual      : Factor w/ 10 levels &quot;Very_Poor&quot;,&quot;Poor&quot;,..: 6 5 6 7 5 6 8 8 8 7 ...
 ##  $ Overall_Cond      : Factor w/ 10 levels &quot;Very_Poor&quot;,&quot;Poor&quot;,..: 5 6 6 5 5 6 5 5 5 5 ...
-##  $ Year_Built        : int  1960 1961 1958 1968 1997 1998 2001 1992 1995 1999 ...
-##  $ Year_Remod_Add    : int  1960 1961 1958 1968 1998 1998 2001 1992 1996 1999 ...
+##  $ Year_Built        : int [1:2930] 1960 1961 1958 1968 1997 1998 2001 1992 1995 1999 ...
+##  $ Year_Remod_Add    : int [1:2930] 1960 1961 1958 1968 1998 1998 2001 1992 1996 1999 ...
 ##  $ Roof_Style        : Factor w/ 6 levels &quot;Flat&quot;,&quot;Gable&quot;,..: 4 2 4 4 2 2 2 2 2 2 ...
 ##  $ Roof_Matl         : Factor w/ 8 levels &quot;ClyTile&quot;,&quot;CompShg&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Exterior_1st      : Factor w/ 16 levels &quot;AsbShng&quot;,&quot;AsphShn&quot;,..: 4 14 15 4 14 14 6 7 6 14 ...
 ##  $ Exterior_2nd      : Factor w/ 17 levels &quot;AsbShng&quot;,&quot;AsphShn&quot;,..: 11 15 16 4 15 15 6 7 6 15 ...
 ##  $ Mas_Vnr_Type      : Factor w/ 5 levels &quot;BrkCmn&quot;,&quot;BrkFace&quot;,..: 5 4 2 4 4 2 4 4 4 4 ...
-##  $ Mas_Vnr_Area      : num  112 0 108 0 0 20 0 0 0 0 ...
+##  $ Mas_Vnr_Area      : num [1:2930] 112 0 108 0 0 20 0 0 0 0 ...
 ##  $ Exter_Qual        : Factor w/ 4 levels &quot;Excellent&quot;,&quot;Fair&quot;,..: 4 4 4 3 4 4 3 3 3 4 ...
 ##  $ Exter_Cond        : Factor w/ 5 levels &quot;Excellent&quot;,&quot;Fair&quot;,..: 5 5 5 5 5 5 5 5 5 5 ...
 ##  $ Foundation        : Factor w/ 6 levels &quot;BrkTil&quot;,&quot;CBlock&quot;,..: 2 2 2 2 3 3 3 3 3 3 ...
@@ -733,54 +195,54 @@ ames %&gt;% str</code></pre>
 ##  $ Bsmt_Cond         : Factor w/ 6 levels &quot;Excellent&quot;,&quot;Fair&quot;,..: 3 6 6 6 6 6 6 6 6 6 ...
 ##  $ Bsmt_Exposure     : Factor w/ 5 levels &quot;Av&quot;,&quot;Gd&quot;,&quot;Mn&quot;,..: 2 4 4 4 4 4 3 4 4 4 ...
 ##  $ BsmtFin_Type_1    : Factor w/ 7 levels &quot;ALQ&quot;,&quot;BLQ&quot;,&quot;GLQ&quot;,..: 2 6 1 1 3 3 3 1 3 7 ...
-##  $ BsmtFin_SF_1      : num  2 6 1 1 3 3 3 1 3 7 ...
+##  $ BsmtFin_SF_1      : num [1:2930] 2 6 1 1 3 3 3 1 3 7 ...
 ##  $ BsmtFin_Type_2    : Factor w/ 7 levels &quot;ALQ&quot;,&quot;BLQ&quot;,&quot;GLQ&quot;,..: 7 4 7 7 7 7 7 7 7 7 ...
-##  $ BsmtFin_SF_2      : num  0 144 0 0 0 0 0 0 0 0 ...
-##  $ Bsmt_Unf_SF       : num  441 270 406 1045 137 ...
-##  $ Total_Bsmt_SF     : num  1080 882 1329 2110 928 ...
+##  $ BsmtFin_SF_2      : num [1:2930] 0 144 0 0 0 0 0 0 0 0 ...
+##  $ Bsmt_Unf_SF       : num [1:2930] 441 270 406 1045 137 ...
+##  $ Total_Bsmt_SF     : num [1:2930] 1080 882 1329 2110 928 ...
 ##  $ Heating           : Factor w/ 6 levels &quot;Floor&quot;,&quot;GasA&quot;,..: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Heating_QC        : Factor w/ 5 levels &quot;Excellent&quot;,&quot;Fair&quot;,..: 2 5 5 1 3 1 1 1 1 3 ...
 ##  $ Central_Air       : Factor w/ 2 levels &quot;N&quot;,&quot;Y&quot;: 2 2 2 2 2 2 2 2 2 2 ...
 ##  $ Electrical        : Factor w/ 6 levels &quot;FuseA&quot;,&quot;FuseF&quot;,..: 5 5 5 5 5 5 5 5 5 5 ...
-##  $ First_Flr_SF      : int  1656 896 1329 2110 928 926 1338 1280 1616 1028 ...
-##  $ Second_Flr_SF     : int  0 0 0 0 701 678 0 0 0 776 ...
-##  $ Low_Qual_Fin_SF   : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ Gr_Liv_Area       : int  1656 896 1329 2110 1629 1604 1338 1280 1616 1804 ...
-##  $ Bsmt_Full_Bath    : num  1 0 0 1 0 0 1 0 1 0 ...
-##  $ Bsmt_Half_Bath    : num  0 0 0 0 0 0 0 0 0 0 ...
-##  $ Full_Bath         : int  1 1 1 2 2 2 2 2 2 2 ...
-##  $ Half_Bath         : int  0 0 1 1 1 1 0 0 0 1 ...
-##  $ Bedroom_AbvGr     : int  3 2 3 3 3 3 2 2 2 3 ...
-##  $ Kitchen_AbvGr     : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ First_Flr_SF      : int [1:2930] 1656 896 1329 2110 928 926 1338 1280 1616 1028 ...
+##  $ Second_Flr_SF     : int [1:2930] 0 0 0 0 701 678 0 0 0 776 ...
+##  $ Low_Qual_Fin_SF   : int [1:2930] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Gr_Liv_Area       : int [1:2930] 1656 896 1329 2110 1629 1604 1338 1280 1616 1804 ...
+##  $ Bsmt_Full_Bath    : num [1:2930] 1 0 0 1 0 0 1 0 1 0 ...
+##  $ Bsmt_Half_Bath    : num [1:2930] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Full_Bath         : int [1:2930] 1 1 1 2 2 2 2 2 2 2 ...
+##  $ Half_Bath         : int [1:2930] 0 0 1 1 1 1 0 0 0 1 ...
+##  $ Bedroom_AbvGr     : int [1:2930] 3 2 3 3 3 3 2 2 2 3 ...
+##  $ Kitchen_AbvGr     : int [1:2930] 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Kitchen_Qual      : Factor w/ 5 levels &quot;Excellent&quot;,&quot;Fair&quot;,..: 5 5 3 1 5 3 3 3 3 3 ...
-##  $ TotRms_AbvGrd     : int  7 5 6 8 6 7 6 5 5 7 ...
+##  $ TotRms_AbvGrd     : int [1:2930] 7 5 6 8 6 7 6 5 5 7 ...
 ##  $ Functional        : Factor w/ 8 levels &quot;Maj1&quot;,&quot;Maj2&quot;,..: 8 8 8 8 8 8 8 8 8 8 ...
-##  $ Fireplaces        : int  2 0 0 2 1 1 0 0 1 1 ...
+##  $ Fireplaces        : int [1:2930] 2 0 0 2 1 1 0 0 1 1 ...
 ##  $ Fireplace_Qu      : Factor w/ 6 levels &quot;Excellent&quot;,&quot;Fair&quot;,..: 3 4 4 6 6 3 4 4 6 6 ...
 ##  $ Garage_Type       : Factor w/ 7 levels &quot;Attchd&quot;,&quot;Basment&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Garage_Finish     : Factor w/ 4 levels &quot;Fin&quot;,&quot;No_Garage&quot;,..: 1 4 4 1 1 1 1 3 3 1 ...
-##  $ Garage_Cars       : num  2 1 1 2 2 2 2 2 2 2 ...
-##  $ Garage_Area       : num  528 730 312 522 482 470 582 506 608 442 ...
+##  $ Garage_Cars       : num [1:2930] 2 1 1 2 2 2 2 2 2 2 ...
+##  $ Garage_Area       : num [1:2930] 528 730 312 522 482 470 582 506 608 442 ...
 ##  $ Garage_Qual       : Factor w/ 6 levels &quot;Excellent&quot;,&quot;Fair&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
 ##  $ Garage_Cond       : Factor w/ 6 levels &quot;Excellent&quot;,&quot;Fair&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
 ##  $ Paved_Drive       : Factor w/ 3 levels &quot;Dirt_Gravel&quot;,..: 2 3 3 3 3 3 3 3 3 3 ...
-##  $ Wood_Deck_SF      : int  210 140 393 0 212 360 0 0 237 140 ...
-##  $ Open_Porch_SF     : int  62 0 36 0 34 36 0 82 152 60 ...
-##  $ Enclosed_Porch    : int  0 0 0 0 0 0 170 0 0 0 ...
-##  $ Three_season_porch: int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ Screen_Porch      : int  0 120 0 0 0 0 0 144 0 0 ...
-##  $ Pool_Area         : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Wood_Deck_SF      : int [1:2930] 210 140 393 0 212 360 0 0 237 140 ...
+##  $ Open_Porch_SF     : int [1:2930] 62 0 36 0 34 36 0 82 152 60 ...
+##  $ Enclosed_Porch    : int [1:2930] 0 0 0 0 0 0 170 0 0 0 ...
+##  $ Three_season_porch: int [1:2930] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ Screen_Porch      : int [1:2930] 0 120 0 0 0 0 0 144 0 0 ...
+##  $ Pool_Area         : int [1:2930] 0 0 0 0 0 0 0 0 0 0 ...
 ##  $ Pool_QC           : Factor w/ 5 levels &quot;Excellent&quot;,&quot;Fair&quot;,..: 4 4 4 4 4 4 4 4 4 4 ...
 ##  $ Fence             : Factor w/ 5 levels &quot;Good_Privacy&quot;,..: 5 3 5 5 3 5 5 5 5 5 ...
 ##  $ Misc_Feature      : Factor w/ 6 levels &quot;Elev&quot;,&quot;Gar2&quot;,..: 3 3 2 3 3 3 3 3 3 3 ...
-##  $ Misc_Val          : int  0 0 12500 0 0 0 0 0 0 0 ...
-##  $ Mo_Sold           : int  5 6 6 4 3 6 4 1 3 6 ...
-##  $ Year_Sold         : int  2010 2010 2010 2010 2010 2010 2010 2010 2010 2010 ...
+##  $ Misc_Val          : int [1:2930] 0 0 12500 0 0 0 0 0 0 0 ...
+##  $ Mo_Sold           : int [1:2930] 5 6 6 4 3 6 4 1 3 6 ...
+##  $ Year_Sold         : int [1:2930] 2010 2010 2010 2010 2010 2010 2010 2010 2010 2010 ...
 ##  $ Sale_Type         : Factor w/ 10 levels &quot;COD&quot;,&quot;Con&quot;,&quot;ConLD&quot;,..: 10 10 10 10 10 10 10 10 10 10 ...
 ##  $ Sale_Condition    : Factor w/ 6 levels &quot;Abnorml&quot;,&quot;AdjLand&quot;,..: 5 5 5 5 5 5 5 5 5 5 ...
-##  $ Sale_Price        : int  215000 105000 172000 244000 189900 195500 213500 191500 236500 189000 ...
-##  $ Longitude         : num  -93.6 -93.6 -93.6 -93.6 -93.6 ...
-##  $ Latitude          : num  42.1 42.1 42.1 42.1 42.1 ...</code></pre>
+##  $ Sale_Price        : int [1:2930] 215000 105000 172000 244000 189900 195500 213500 191500 236500 189000 ...
+##  $ Longitude         : num [1:2930] -93.6 -93.6 -93.6 -93.6 -93.6 ...
+##  $ Latitude          : num [1:2930] 42.1 42.1 42.1 42.1 42.1 ...</code></pre>
 <p>Now we will split the data into test and train. We’ll reserve 25% of of the
 data for testing.</p>
 <pre class="r"><code>library(rsample)
@@ -857,10 +319,10 @@ mod_rec_trained</code></pre>
 ## Collapsing factor levels for Neighborhood [trained]
 ## Dummy variables from Neighborhood [trained]</code></pre>
 <p>We can now <code>bake</code> the recipe, applying it to the test set we defined earlier:</p>
-<pre class="r"><code>ames_test_dummies &lt;- mod_rec_trained %&gt;% bake(newdata = ames_test)
+<pre class="r"><code>ames_test_dummies &lt;- mod_rec_trained %&gt;% bake(new_data = ames_test)
 names(ames_test_dummies)</code></pre>
-<pre><code>##  [1] &quot;Sale_Price&quot;                      &quot;Longitude&quot;                      
-##  [3] &quot;Latitude&quot;                        &quot;Neighborhood_College_Creek&quot;     
+<pre><code>##  [1] &quot;Longitude&quot;                       &quot;Latitude&quot;                       
+##  [3] &quot;Sale_Price&quot;                      &quot;Neighborhood_College_Creek&quot;     
 ##  [5] &quot;Neighborhood_Old_Town&quot;           &quot;Neighborhood_Edwards&quot;           
 ##  [7] &quot;Neighborhood_Somerset&quot;           &quot;Neighborhood_Northridge_Heights&quot;
 ##  [9] &quot;Neighborhood_Gilbert&quot;            &quot;Neighborhood_Sawyer&quot;            
@@ -882,458 +344,189 @@ to later, I’m sure. Max used <code>recipes</code> and <code>rsample</code> to:
 </ul>
 <p>I know I’ll be using this <code>recipes</code> package <em>a lot</em>.</p>
 </div>
+</article>
+    </section>
+
+    <footer class="ui attached segment dream-tags">
+      
+        
+          <a class="ui label" href="/tags/r" title="R">R</a>
+        
+          <a class="ui label" href="/tags/conference" title="conference">conference</a>
+        
+      
+      <div
+        class="ui label"
+        style="float: right; background: #1b1c1d !important; cursor: pointer;"
+        onclick="savePostAsImg()">
+        <i class="save icon"></i> Save as image
+      </div>
+    </footer>
+
+    
+
+    
 
   </div>
+  <div class="sixteen wide mobile sixteen wide tablet four wide computer column">
+    <article class="dream-header">
+  <section class="ui top attached center aligned segment">
+    <div class="ui small circular image">
+      
+        <img src="/img/profile/profile_1_small.png">
+      
+    </div>
 
-  <footer>
-    <ul class="stats">
-  <li class="categories">
-    <ul>
-        
-            
-            
-        
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-        
-            
-            
-                <i class="fa fa-tags"></i>
-                
-                
-                <li><a class="article-category-link" href="/tags/r">R</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/r-markdown">R Markdown</a></li>
-                
-                
-                <li><a class="article-category-link" href="/tags/user2018">useR2018</a></li>
-                
-            
-        
-    </ul>
-  </li>
-</ul>
+    <h1 class="ui medium header">David Neuzerling&#39;s blog<div class="sub header" style="margin-top: 0.5rem;">Data, maths, R</div>
+    </h1>
 
-  </footer>
+    
+  </section>
 
+  
+  <section class="ui attached center aligned segment dream-tags">
+    
+      <a class="ui label" href="/tags/conference" title="conference">conference</a>
+    
+      <a class="ui label" href="/tags/industry" title="industry">industry</a>
+    
+      <a class="ui label" href="/tags/maths" title="maths">maths</a>
+    
+      <a class="ui label" href="/tags/r" title="r">r</a>
+    
+      <a class="ui label" href="/tags/scraping" title="scraping">scraping</a>
+    
+  </section>
+  
+
+  
+
+  <section class="ui attached segment header-socials">
+    <nav class="ui secondary menu dream-menu dream-socials">
+  
+
+  
+    <div class="item">
+      <a href="https://twitter.com/mdneuzerling" target="_blank">
+        <i class=" twitter icon" title="twitter"></i>
+      </a>
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="item">
+      <a href="https://github.com/mdneuzerling" target="_blank">
+        <i class=" github icon" title="github"></i>
+      </a>
+    </div>
+  
+
+  
+
+  
+</nav>
+
+  </section>
+
+  <section class="ui bottom attached center aligned segment">
+    
+      <p>© 2020 David Neuzerling</p>
+    
+
+    <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</br></br>
+      Except where otherwise stated, the content of this blog is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0 License</a>.</p>
+  </section>
 </article>
 
-<ul class="actions pagination">
-    
-        <li><a href="/post/scraping-wine-colours-with-r/"
-                class="button big previous">Scraping wine colours with R</a></li>
-    
+  </div>
+</div>
 
-    
-        <li><a href="/post/user-getting-started-with-r-and-docker/"
-                class="button big next">useR: Getting started with R and Docker</a></li>
-    
-</ul>
-
-
-    </div>
-    
-<section id="sidebar">
-
-  
-  <section id="intro">
-    
-    
-      
-        <a href='/'><img src="/img/profile/profile_1_small.png" class="intro-circle" width="250px" alt="mdneuzerling" /></a>
-      
-    
-    
-      <header>
-        <h2>David Neuzerling</h2>
-        <p>Data, maths, R</p>
-      </header>
-    
-    
-      <ul class="icons">
-        
+        </section>
+        <section class="back">
           
-    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
-
-
-        
-        
-  <li><a href="//github.com/mdneuzerling" target="_blank" title="GitHub" class="fa fa-github"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <li><a href="//instagram.com/mdneuzerling" target="_blank" title="Instagram" class="fa fa-instagram"></a></li>
-
-
-
-
-
-  <li><a href="//twitter.com/mdneuzerling" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </ul>
-    
-  </section>
-
-  
-  <section class="recent-posts">
-    <div class="mini-posts">
-      <header>
-        <h3>Recent Posts</h3>
-      </header>
-      <div class="posts-container">
-        
-
-        
-          
-        
-
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/printing-data-frames-with-metadata/">Printing data frames with metadata</a>
-              </h3>
-              
-              <time class="published" datetime='2020-05-19'>
-                May 19, 2020
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
+<nav class="ui secondary inverted menu dream-menu">
+
+  <div class="item">
+    <i class="large link home icon" title="Home" onclick="window.location.href = '\/'"></i>
+  </div>
+  <div class="item">
+    <i class="large link icon theme-switch" onclick="themeSwitch()"></i>
+  </div>
+</nav>
+
+          <div class="ui centered relaxed grid dream-grid dream-back">
   
 
-
-        
-        
-        
-
-        <a href="/post/printing-data-frames-with-metadata/" class="image featured">
-            <img src="/img/flinders-departures.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/what-ive-learnt-about-making-an-r-package/">What I&#39;ve learnt about making an R package</a>
-              </h3>
-              
-              <time class="published" datetime='2020-01-28'>
-                January 28, 2020
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/what-ive-learnt-about-making-an-r-package/" class="image featured">
-            <img src="/img/boxes.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/model-as-a-package/">Model as a package</a>
-              </h3>
-              
-              <time class="published" datetime='2019-12-11'>
-                December 11, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/model-as-a-package/" class="image featured">
-            <img src="/img/ModelAsAPackage.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/an-update-on-copyright-and-licencing/">An update on copyright and licencing</a>
-              </h3>
-              
-              <time class="published" datetime='2019-09-11'>
-                September 11, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/an-update-on-copyright-and-licencing/" class="image featured">
-            <img src="/img/door-green-closed-lock.jpg" alt="">
-        </a>
-    
-
-
-          </article>
-        
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/post/my-data-science-job-hunt/">My data science job hunt</a>
-              </h3>
-              
-              <time class="published" datetime='2019-09-08'>
-                September 8, 2019
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-
-
-        
-        
-        
-
-        <a href="/post/my-data-science-job-hunt/" class="image featured">
-            <img src="/img/job_outcomes.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
+  <section class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article>
+      <div class="ui top attached segment">
+        <h3 class="ui header">Social Links</h3>
       </div>
+      <div class="ui attached segment">
+        <nav class="ui secondary menu dream-menu dream-socials">
+  
 
-      
-        <a href=
-          
-            "/post/"
-          
-        class="button">View more posts</a>
-      
+  
+    <div class="item">
+      <a href="https://twitter.com/mdneuzerling" target="_blank">
+        <i class="large twitter icon" title="twitter"></i>
+      </a>
     </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="item">
+      <a href="https://github.com/mdneuzerling" target="_blank">
+        <i class="large github icon" title="github"></i>
+      </a>
+    </div>
+  
+
+  
+
+  
+</nav>
+
+      </div>
+    </article>
+  </section>
+
+  <section class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
   </section>
 
   
   
-  
 
-  
-  
+</div>
 
-  
-  <section id="footer">
-    
-    <p class="copyright">
-      
-        &copy; 2020
-        
-          mdneuzerling
-        
-      . <br />
-      <a href = "https://github.com/mdneuzerling/mdneuzerling.com">Repository available on GitHub</a> <br />
-      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>. <br /><br />
-      This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a> except where stated otherwise.
-    </p>
-  </section>
-</section>
-
+        </section>
+      </div>
     </div>
-    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
-    
 
-    
-      
-    
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/semantic.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/html2canvas.min.js"></script>
 
-    
-      
-      
-      
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
-        
-        
-        
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
-        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
-        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-      
-    
-    
-    
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-      <script src="/js/util.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="/js/backToTop.js"></script>
-    
-
-    
-      
-        
-      
-    
-
-    
-    <script>hljs.initHighlightingOnLoad();</script>
-      <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 
   </body>
 </html>
-

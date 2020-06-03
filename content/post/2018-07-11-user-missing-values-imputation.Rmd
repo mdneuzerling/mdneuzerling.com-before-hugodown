@@ -1,18 +1,13 @@
 ---
 title: 'useR: Missing values imputation'
-author: ''
 date: '2018-07-11'
 slug: user-missing-values-imputation
 categories: []
-tags: [R, R Markdown, useR2018]
+tags: [R, conference]
 description: ''
-featured: "tutorial_three.png"
-featuredalt: "useR2018 Tutorial Three"
-featuredpath: "img/useR"  
+cover: "/img/useR/tutorial_three.png"
+coveralt: "useR2018 Tutorial Three"
 linktitle: ''
-output:
-  blogdown::html_page:
-    toc: true
 ---
 
 ***

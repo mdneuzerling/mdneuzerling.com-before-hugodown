@@ -1,6 +1,5 @@
 ---
 title: "Exploration of sales data"
-author: "Murray **David** Neuzerling"
 date: "June 4th, 2018"
 output:   
     html_document:

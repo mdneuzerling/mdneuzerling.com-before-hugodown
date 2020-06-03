@@ -1,18 +1,14 @@
 ---
 title: We started a maths and stats society at our university, and everyone loves
   it
-author: ''
 date: '2016-03-16'
 slug: we-started-a-maths-and-stats-society-at-our-university-and-everyone-loves-it
 categories: []
 tags:
   - maths
-  - uni
-  - from_the_archive
 description: ''
-featured: 'katherine_crochet.jpg'
-featuredalt: "Dr. Katherine Seaton's crocheted hyperbolic surfaces" 
-featuredpath: 'img'
+cover: '/img/katherine_crochet.jpg'
+coveralt: "Dr. Katherine Seaton's crocheted hyperbolic surfaces" 
 linktitle: ''
 ---
 

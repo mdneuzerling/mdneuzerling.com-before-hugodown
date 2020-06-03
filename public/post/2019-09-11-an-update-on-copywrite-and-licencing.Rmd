@@ -1,0 +1,30 @@
+---
+title: An update on copyright and licencing
+date: '2019-09-11'
+slug: an-update-on-copyright-and-licencing
+categories: []
+tags: []
+description: ''
+featured: 'door-green-closed-lock.jpg'
+featuredalt: 'a padlock chained across a green door'
+linktitle: ''
+---
+
+When I started this blog I wanted a way to share the quick little projects that distract me. I gave some thought to licencing, but I wanted to make sure that people could use my code if it had any value to them. This is just a little blog by a very unimportant guy---if someone got some use out of my code, I would be flattered!
+
+However, in the last few days I've seen some unwelcome behaviour. People have been copying my work into their own LinkedIn posts, changing my words but not adding value. It makes me uncomfortable to see my work used this way.
+
+All of the **content** on this site will now be licenced under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/), unless otherwise noted.
+
+This is a restrictive licence, and I don't want to restrict anyone who is genuinely contributing to the R community, instead of just trying to boost their LinkedIn profile. If this restriction isn't working for you, [contact me](/about), and I'll help as best I can. I'll be genuinely flattered---and surprised---that something I've made can be helpful to you.
+
+## Third-party components, tools and fonts
+
+* [Hugo](https://github.com/gohugoio/hugo): [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)
+* [blogdown](https://github.com/rstudio/blogdown): GPL-3 license
+* [Future Imperfect Theme for Hugo](https://github.com/jpescador/hugo-future-imperfect): [MIT License](https://github.com/jpescador/hugo-future-imperfect/blob/master/LICENSE.md)
+* Fira Sans Condensed, Raleway: [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web)
+* [Fira Code](https://github.com/tonsky/FiraCode): [SIL Open Font License](https://github.com/tonsky/FiraCode/blob/master/LICENSE) 
+
+The header image at the top of this page is in the 
+[public domain](https://www.pexels.com/photo/door-green-closed-lock-4291/).

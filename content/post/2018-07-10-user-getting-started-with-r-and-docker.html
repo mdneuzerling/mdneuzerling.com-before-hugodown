@@ -1,36 +1,15 @@
 ---
 title: 'useR: Getting started with R and Docker'
-author: ''
 date: '2018-07-10'
-# weight: 2
 slug: user-getting-started-with-r-and-docker
 categories: []
-tags: [R, R Markdown, useR2018]
+tags: [R, conference] 
 description: ''
-featured: "tutorial_one.png"
-featuredalt: "useR2018 Tutorial One"
-featuredpath: "img/useR"  
-linktitle: ''
-output:
-  blogdown::html_page:
-    toc: true
+cover: "/img/useR/tutorial_one.png"
+coveralt: "useR2018 Tutorial One"
 ---
 
 
-<div id="TOC">
-<ul>
-<li><a href="#docker-glossary">Docker glossary</a></li>
-<li><a href="#running-docker-images">Running docker images</a></li>
-<li><a href="#rocker">Rocker</a></li>
-<li><a href="#r-hello-world">R hello world</a><ul>
-<li><a href="#playing-with-the-hello-world-image">Playing with the <code>hello-world</code> image</a></li>
-<li><a href="#a-note-on-security">A note on security</a></li>
-<li><a href="#managing-docker-without-leaving-r">Managing Docker without leaving R</a></li>
-</ul></li>
-<li><a href="#docker-on-aws">Docker on AWS</a></li>
-<li><a href="#and-thats-it">And that’s it!</a></li>
-</ul>
-</div>
 
 <hr />
 <p>These are my notes for the super helpful tutorial given by
@@ -102,7 +81,7 @@ never run it before, Docker will download it from <a href="https://hub.docker.co
 ##  https://hub.docker.com/
 ## 
 ## For more examples and ideas, visit:
-##  https://docs.docker.com/engine/userguide/</code></pre>
+##  https://docs.docker.com/get-started/</code></pre>
 <p>Quick aside: yes, this is me running a Docker image in an R Markdown file.
 Remember that R Markdown can handle languages other than R, including bash!
 This code chunk is <code>{bash docker_hello_world}</code>, which tells <code>knitr</code> to run this
@@ -181,12 +160,8 @@ run. This keeps the server clean. The <code>-t rstudio/hello-world</code> option
 resulting image. We can see our installed Docker images, including the
 <code>hello-world</code> image we just built, by running the following command:</p>
 <pre class="bash"><code>docker image list</code></pre>
-<pre><code>## REPOSITORY            TAG                 IMAGE ID            CREATED             SIZE
-## rstudio/hello-world   latest              167d3183d252        5 weeks ago         1.27GB
-## &lt;none&gt;                &lt;none&gt;              6bfb299cec5f        5 weeks ago         1.09GB
-## rocker/rstudio        latest              36ed6c844cb3        6 weeks ago         1.09GB
-## rocker/geospatial     latest              e15468cb4018        6 weeks ago         3.45GB
-## hello-world           latest              e38bc07ac18e        4 months ago        1.85kB</code></pre>
+<pre><code>## REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+## hello-world         latest              bf756fb1ae65        4 months ago        13.3kB</code></pre>
 <p>Now we can <code>run</code> the image. We <code>--name</code> the container <code>hello-world</code>. You may be
 aware that RStudio server runs on port 8787 by default, but here we <code>run</code> the
 container on port 28787.</p>

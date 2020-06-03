@@ -1,19 +1,12 @@
 ---
 title: 'useR: Getting started with R and Docker'
-author: ''
 date: '2018-07-10'
-# weight: 2
 slug: user-getting-started-with-r-and-docker
 categories: []
-tags: [R, R Markdown, useR2018]
+tags: [R, conference] 
 description: ''
-featured: "tutorial_one.png"
-featuredalt: "useR2018 Tutorial One"
-featuredpath: "img/useR"  
-linktitle: ''
-output:
-  blogdown::html_page:
-    toc: true
+cover: "/img/useR/tutorial_one.png"
+coveralt: "useR2018 Tutorial One"
 ---
 
 ***

@@ -1,19 +1,12 @@
 ---
 title: 'useR: Recipes for data processing'
-author: ''
 date: '2018-07-10'
-# weight: 1
 slug: user-recipes-for-data-processing
 categories: []
-tags: [R, R Markdown, useR2018]
+tags: [R, conference]
 description: ''
-featured: "tutorial_two.png"
-featuredalt: "useR2018 Tutorial Two"
-featuredpath: "img/useR"  
-linktitle: ''
-output:
-  blogdown::html_page:
-    toc: true
+cover: "/img/useR/tutorial_two.png"
+coveralt: "useR2018 Tutorial Two"
 ---
 
 ***
@@ -186,7 +179,7 @@ mod_rec_trained
 We can now `bake` the recipe, applying it to the test set we defined earlier:
 
 ```{r recipes_max_bake, cache = TRUE}
-ames_test_dummies <- mod_rec_trained %>% bake(newdata = ames_test)
+ames_test_dummies <- mod_rec_trained %>% bake(new_data = ames_test)
 names(ames_test_dummies)
 ```
 

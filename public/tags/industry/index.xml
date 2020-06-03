@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Industry on mdneuzerling</title>
+    <title>industry on David Neuzerling</title>
     <link>/tags/industry/</link>
-    <description>Recent content in Industry on mdneuzerling</description>
+    <description>Recent content in industry on David Neuzerling</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <lastBuildDate>Sun, 08 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/industry/index.xml" rel="self" type="application/rss+xml" />
@@ -19,7 +19,7 @@
       <guid>/post/my-data-science-job-hunt/</guid>
       <description>If you listen to university advertisements for data science masters degrees, you’d believe that data scientists are so in-demand that they can walk into any company, state their salary, and start work straight away.
 Not quite.
-Interviewing for data science positions is tough, and job-seekers face some bad behaviour from recruiters and hiring managers. Many companies understand that they need to do something with data, but they don’t know what. They’ll say they want machine learning when they really want a few dashboards.</description>
+Interviewing for data science positions is tough, and job-seekers face some bad behaviour from recruiters and hiring managers. Many companies understand that they need to do something with data, but they don’t know what.</description>
     </item>
     
   </channel>
